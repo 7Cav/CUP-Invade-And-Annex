@@ -1,10 +1,10 @@
 if (!isServer) exitWith {};
 
-_crate = _this select 0;
+params ["_crate", objNull, [objNull]];
 
 [_crate, []] call ace_arsenal_fnc_initBox;
 
-_itemList = [
+private _itemList = [
 	// Weapons
 	"rhs_weap_fnmag",
 	"rhs_weap_l1a1",

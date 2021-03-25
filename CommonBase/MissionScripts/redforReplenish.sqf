@@ -1,6 +1,6 @@
-params["_veh"];
+params ["_veh", objNull, [objNull]];
 
-_timer = 600;
+private _timer = 600;
 
 while {(alive _veh) && (alive (gunner _veh))} do
 {	
