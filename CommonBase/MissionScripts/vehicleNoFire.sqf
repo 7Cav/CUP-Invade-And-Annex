@@ -1,9 +1,10 @@
-params["_unit"];
+params ["_unit", objNull, [objNull]];
 
 _unit addEventHandler ["Fired", {
-	if ((getPos (_this select 0)) inArea "sector_home") then
-	{
-		deleteVehicle (_this select 6);
+	params ["_unit", "", "", "", "", "", "_projectile", ""];
+
+	if ((getPos _unit) inArea "sector_home") then {
+		deleteVehicle _projectile;
 		titleText ["Firing weapons and placing / throwing explosives at base is STRICTLY PROHIBITED!", "PLAIN", 3];
 	};
 }];

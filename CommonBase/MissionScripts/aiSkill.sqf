@@ -1,6 +1,6 @@
-_unit = _this select 0;
+params ["_unit", objNull, [objNull]];
 
-_skill = 0;
+private _skill = 0;
 
 switch (typeOf _unit) do
 {	

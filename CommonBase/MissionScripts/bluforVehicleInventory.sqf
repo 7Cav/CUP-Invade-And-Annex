@@ -1,4 +1,4 @@
-params["_unit"];
+params ["_unit", objNull, [objNull]];
 
 clearweaponcargoGlobal _unit;
 clearmagazinecargoGlobal _unit;
