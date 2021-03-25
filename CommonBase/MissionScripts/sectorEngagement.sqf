@@ -476,8 +476,9 @@ _redforDeployedVehicleLevels = [redfor_vehicle_level_1_deploymentData];
 
 if (redfor_vehicleLevelScaling) then
 {
+	_maximumPlayerCountLevel = floor(_playerCount / 10) max 5;
 	_maximumBluforVehicleLevel = 0;
-
+	
 	{
 		_vehicle = _x select 0;
 		_class = typeOf _vehicle;
@@ -529,6 +530,8 @@ if (redfor_vehicleLevelScaling) then
 			} forEach _bluforVehicleLevels;
 		};
 	} forEach blufor_vehicle_deploymentData;
+	
+	_maximumRedforVehicleLevel = _maximumBluforVehicleLevel max _maximumPlayerCountLevel;
 
 	_redforVehicleLevels = [		
 		[redfor_vehicle_level_2_deploymentData, 2]
@@ -538,7 +541,7 @@ if (redfor_vehicleLevelScaling) then
 	];
 
 	{
-		if ((count (_x select 0) > 0) and (_maximumBluforVehicleLevel >= (_x select 1))) then
+		if ((count (_x select 0) > 0) and (_maximumRedforVehicleLevel >= (_x select 1))) then
 		{
 			_redforDeployedVehicleLevels pushBack (_x select 0);
 		};
