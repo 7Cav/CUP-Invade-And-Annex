@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=472;
+		nextID=473;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={3351.7974,57.983337,7551.3472};
-		dir[]={-0.6099934,-0.331186,-0.71990728};
-		up[]={-0.21410426,0.94356018,-0.25268382};
-		aside[]={-0.76295912,1.4383113e-007,0.64647228};
+		pos[]={3362.2236,37.315575,79.705414};
+		dir[]={0.023524962,-0.52085537,0.85332233};
+		up[]={0.014353828,0.85364479,0.52065724};
+		aside[]={0.9996202,-1.670287e-009,-0.027558221};
 	};
 };
 binarizationWanted=0;
@@ -63,7 +63,8 @@ addons[]=
 	"rhsgref_c_weapons",
 	"rhsusf_c_weapons",
 	"A3_Characters_F_Mark",
-	"rhsusf_c_melb"
+	"rhsusf_c_melb",
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
@@ -322,7 +323,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
@@ -371,7 +372,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=142;
+		items=143;
 		class Item0
 		{
 			dataType="Marker";
@@ -9349,6 +9350,7 @@ class Mission
 					};
 					id=165;
 					type="B_soldier_repair_F";
+					atlOffset=-9.5367432e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -9485,6 +9487,7 @@ class Mission
 			{
 			};
 			id=164;
+			atlOffset=-9.5367432e-007;
 		};
 		class Item31
 		{
@@ -22065,6 +22068,46 @@ class Mission
 					};
 				};
 				nAttributes=2;
+			};
+		};
+		class Item142
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={3367.7297,17.233765,109.09055};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="attendance_flag";
+			};
+			id=472;
+			type="Flag_US_F";
+			atlOffset=-0.028999329;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
 			};
 		};
 	};

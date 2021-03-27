@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=410;
+		nextID=411;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={803.73334,73.231171,272.93814};
-		dir[]={-0.29092973,-0.4757863,0.83006006};
-		up[]={-0.1573748,0.87955272,0.44901028};
-		aside[]={0.9437179,-1.1730299e-007,0.33076599};
+		pos[]={783.76105,81.150719,236.58835};
+		dir[]={-0.15814306,-0.44187313,0.88304275};
+		up[]={-0.077896841,0.89706558,0.4349623};
+		aside[]={0.98435533,-3.5532867e-007,0.17628479};
 	};
 };
 binarizationWanted=0;
@@ -59,7 +59,8 @@ addons[]=
 	"ace_compat_rhs_afrf3",
 	"rhsgref_c_weapons",
 	"rhsusf_c_weapons",
-	"A3_Characters_F_Mark"
+	"A3_Characters_F_Mark",
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
@@ -290,7 +291,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
@@ -341,7 +342,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=125;
+		items=126;
 		class Item0
 		{
 			dataType="Marker";
@@ -19838,6 +19839,46 @@ class Mission
 			};
 			id=409;
 			type="ACE_medicalSupplyCrate";
+		};
+		class Item125
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={728.19788,39.327805,434.42371};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="attendance_flag";
+			};
+			id=410;
+			type="Flag_US_F";
+			atlOffset=-0.028999329;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };

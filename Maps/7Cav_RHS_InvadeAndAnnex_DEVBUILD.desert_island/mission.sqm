@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=540;
+		nextID=541;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=49;
+		nextID=52;
 	};
 	class Camera
 	{
-		pos[]={10900.324,38.010254,4035.0337};
-		dir[]={-0.34217131,-0.35018185,-0.87195891};
-		up[]={-0.12792417,0.93667787,-0.32599247};
-		aside[]={-0.93090218,2.5628833e-007,0.36530119};
+		pos[]={1392.0547,31.888969,955.46606};
+		dir[]={-0.31896684,-0.59445834,0.73816442};
+		up[]={-0.23579758,0.80412459,0.54569304};
+		aside[]={0.91796684,4.764297e-008,0.39666066};
 	};
 };
 binarizationWanted=0;
@@ -74,7 +74,8 @@ addons[]=
 	"rhsgref_c_weapons",
 	"rhsusf_c_weapons",
 	"A3_Characters_F_Mark",
-	"A3_Boat_F_Exp_Boat_Transport_02"
+	"A3_Boat_F_Exp_Boat_Transport_02",
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
@@ -335,7 +336,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
@@ -385,7 +386,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=62;
+		items=63;
 		class Item0
 		{
 			dataType="Layer";
@@ -16712,6 +16713,45 @@ class Mission
 								};
 							};
 							value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+						};
+					};
+				};
+				nAttributes=1;
+			};
+		};
+		class Item62
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1382.1858,20.099609,971.49829};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="attendance_flag";
+			};
+			id=540;
+			type="Flag_US_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
 						};
 					};
 				};

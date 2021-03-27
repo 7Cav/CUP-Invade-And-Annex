@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=510;
+		nextID=511;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1106.7944,99.085884,-119.37188};
-		dir[]={-0.10365675,-0.39029658,-0.91484034};
-		up[]={-0.043941859,0.92068678,-0.3878167};
-		aside[]={-0.99364531,1.3247154e-007,0.11258508};
+		pos[]={6803.6421,91.076378,7606.3701};
+		dir[]={-0.75409096,-0.52073324,0.40023461};
+		up[]={-0.45996305,0.85371721,0.24412608};
+		aside[]={0.46881181,1.1175871e-008,0.88329941};
 	};
 };
 binarizationWanted=0;
@@ -68,7 +68,8 @@ addons[]=
 	"RHS_US_A2_AirImport",
 	"rhsusf_c_HEMTT_A4",
 	"rhsusf_c_Caiman",
-	"rhsusf_c_melb"
+	"rhsusf_c_melb",
+	"A3_Structures_F_Mil_Flags"
 };
 class AddonsMetaData
 {
@@ -360,7 +361,7 @@ class ScenarioData
 };
 class CustomAttributes
 {
-	class Category1
+	class Category0
 	{
 		name="Scenario";
 		class Attribute0
@@ -411,7 +412,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=156;
+		items=157;
 		class Item0
 		{
 			dataType="Logic";
@@ -23148,6 +23149,46 @@ class Mission
 					};
 				};
 				nAttributes=2;
+			};
+		};
+		class Item156
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={6777.4688,69.010857,7624.5942};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+				name="attendance_flag";
+			};
+			id=510;
+			type="Flag_US_F";
+			atlOffset=-0.028999329;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
 			};
 		};
 	};
