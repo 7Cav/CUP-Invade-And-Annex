@@ -1,0 +1,2 @@
+DeactivateCurrentTracking = true;
+publicVariableServer "DeactivateCurrentTracking";

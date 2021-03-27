@@ -89,3 +89,16 @@ player createDiaryRecord ["Diary",
 	<br/>VIV Helicopters can ACE Load one vehicle, VIV Planes can ACE Load two vehicles.
 	"]
 ];
+
+attendance_flag addAction["=START ATTENDANCE TRACKING=","MissionScripts\startAttendanceTracking.sqf","",1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=STOP ATTENDANCE TRACKING=","MissionScripts\stopAttendanceTracking.sqf","",1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 1=","MissionScripts\showAttendance.sqf",1,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 2=","MissionScripts\showAttendance.sqf",2,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 3=","MissionScripts\showAttendance.sqf",3,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 4=","MissionScripts\showAttendance.sqf",4,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 5=","MissionScripts\showAttendance.sqf",5,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 6=","MissionScripts\showAttendance.sqf",6,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 7=","MissionScripts\showAttendance.sqf",7,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 8=","MissionScripts\showAttendance.sqf",8,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 9=","MissionScripts\showAttendance.sqf",9,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+attendance_flag addAction["=SHOW ATTENDANCE - PAGE 10=","MissionScripts\showAttendance.sqf",10,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];

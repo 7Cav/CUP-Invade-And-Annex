@@ -5,6 +5,27 @@ createCenter east;
 setViewDistance 6000;
 setObjectViewDistance [6000,6000];
 
+/*
+true/false for attendance tracking active/inactive
+[
+	[
+		Player ID, ... , Player ID
+	]
+	,[
+		[Player Name, Time Played], ..., [Player Name, Time Played]
+	]
+]
+*/
+AttendanceTrackingData = profileNamespace getVariable ["SavedAttendanceTrackingData", nil];
+if (isNil "AttendanceTrackingData") then
+{
+	AttendanceTrackingData = [false,[[],[]]];
+};
+AttendanceTrackingActive = AttendanceTrackingData select 0;
+
+ActivateNewTracking = false;
+DeactivateCurrentTracking = false;
+
 setDate [2020, 6, 26, floor(random 24), 00];
 
 redforSkill = 0.7;
@@ -48,3 +69,5 @@ waitUntil {scriptDone _collectRedforHandle};
 [] execVM "MissionScripts\linkPlayersToZeus.sqf";
 
 [] execVM "MissionScripts\bluforVehicleExchangeServer.sqf";
+
+[] execVM "MissionScripts\attendanceTracker.sqf";

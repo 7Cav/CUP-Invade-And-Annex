@@ -1,0 +1,2 @@
+ActivateNewTracking = true;
+publicVariableServer "ActivateNewTracking";
