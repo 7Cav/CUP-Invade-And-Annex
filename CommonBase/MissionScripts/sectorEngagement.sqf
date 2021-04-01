@@ -476,7 +476,7 @@ _redforDeployedVehicleLevels = [redfor_vehicle_level_1_deploymentData];
 
 if (redfor_vehicleLevelScaling) then
 {
-	_maximumPlayerCountLevel = floor(_playerCount / 10) max 5;
+	_maximumPlayerCountLevel = (floor(_playerCount / 20)+1) min 5;
 	_maximumBluforVehicleLevel = 0;
 	
 	{
