@@ -1,9 +1,24 @@
 enableDynamicSimulationSystem false;
 
 createCenter east;
+createCenter sideLogic;
 
 setViewDistance 6000;
 setObjectViewDistance [6000,6000];
+
+zeusGUIDs = [];
+#include "\serverscripts\zeus\guids.sqf"
+addMissionEventHandler ["PlayerDisconnected",
+{
+	params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
+	
+	_unit = _uid call BIS_fnc_getUnitByUID;
+	_zeusModule = getAssignedCuratorLogic _unit;
+	_zeusGroup = group _zeusModule;
+	unassignCurator _zeusModule;
+	deleteVehicle _zeusModule;
+	deleteGroup _zeusGroup;	
+}];
 
 /*
 true/false for attendance tracking active/inactive
@@ -63,8 +78,6 @@ waitUntil {scriptDone _collectRedforHandle};
 [] execVM "MissionScripts\spottingAugment.sqf";
 
 [] execVM "MissionScripts\missionLoop.sqf";
-
-[] execVM "MissionScripts\retrieveZeusGUIDs.sqf";
 
 [] execVM "MissionScripts\linkPlayersToZeus.sqf";
 
