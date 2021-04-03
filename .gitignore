@@ -3,3 +3,5 @@
 /tmp
 /doc/*
 /serverMissions/Tac2-Invade-And-Annex/Maps/*
+!/serverMissions/Tac2-Invade-And-Annex/Maps/*/mission.sqm
+!/serverMissions/Tac2-Invade-And-Annex/Maps/*/initServer.sqf
