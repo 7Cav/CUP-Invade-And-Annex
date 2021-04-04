@@ -67,7 +67,7 @@ player createDiaryRecord ["Diary",
 
 player createDiaryRecord ["Diary", 
 	["HOW TO PLAY", 
-	"<br/>Welcome to the 7th Cavalry Gaming Regiment's CUP Invade and Annex Server!
+	"<br/>Welcome to the 7th Cavalry Gaming Regiment's RHS Invade and Annex Server!
 	<br/>
 	<br/>MISSION FLOW
 	<br/>
