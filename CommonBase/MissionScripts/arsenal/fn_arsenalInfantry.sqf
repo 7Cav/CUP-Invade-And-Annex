@@ -616,4 +616,4 @@ private _miscItems = [
 	arsenal_6
 ];
 
-execVM "scripts\arsenal\fn_arsenalGeneral.sqf";
+execVM "MissionScripts\arsenal\fn_arsenalGeneral.sqf";
