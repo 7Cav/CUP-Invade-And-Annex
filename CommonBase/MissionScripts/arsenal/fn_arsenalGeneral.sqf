@@ -1373,6 +1373,8 @@ private _miscItems = [
         _x allowdamage false;
         _x enableSimulation false;
 
+        _x enableRopeAttach false;
+
     };
 
 } forEach [
