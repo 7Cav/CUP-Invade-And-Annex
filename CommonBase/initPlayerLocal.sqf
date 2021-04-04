@@ -102,3 +102,6 @@ attendance_flag addAction["=SHOW ATTENDANCE - PAGE 7=","MissionScripts\showAtten
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 8=","MissionScripts\showAttendance.sqf",8,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 9=","MissionScripts\showAttendance.sqf",9,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 10=","MissionScripts\showAttendance.sqf",10,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+
+// Execute class-specific init
+["init"] call compile preProcessFile format ["MissionScripts\class\%1.sqf", typeOf player];
