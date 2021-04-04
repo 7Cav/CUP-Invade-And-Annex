@@ -5,7 +5,7 @@ private _state = param [0, "", [""]];
 
 if (_state == "init") then
 {
-    call scripts_fnc_arsenalTanker;
+    call fnc_arsenalTanker;
     
     player setvariable ["ACE_IsEngineer", 1];
 
