@@ -67,7 +67,7 @@ player createDiaryRecord ["Diary",
 
 player createDiaryRecord ["Diary", 
 	["HOW TO PLAY", 
-	"<br/>Welcome to the 7th Cavalry Gaming Regiment's CUP Invade and Annex Server!
+	"<br/>Welcome to the 7th Cavalry Gaming Regiment's RHS Invade and Annex Server!
 	<br/>
 	<br/>MISSION FLOW
 	<br/>
@@ -102,3 +102,6 @@ attendance_flag addAction["=SHOW ATTENDANCE - PAGE 7=","MissionScripts\showAtten
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 8=","MissionScripts\showAttendance.sqf",8,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 9=","MissionScripts\showAttendance.sqf",9,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 10=","MissionScripts\showAttendance.sqf",10,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+
+// Execute class-specific init
+["init"] call compile preProcessFile format ["MissionScripts\class\%1.sqf", typeOf player];

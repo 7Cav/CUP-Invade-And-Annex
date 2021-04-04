@@ -3001,7 +3001,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this enableRopeAttach false;[this] execVM ""MissionScripts\arsenal.sqf"";}";
+				name="arsenal_1";
 			};
 			id=815;
 			type="B_CargoNet_01_ammo_F";
@@ -3080,7 +3080,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this enableRopeAttach false;[this] execVM ""MissionScripts\arsenal.sqf"";}";
+				name="arsenal_2";
 			};
 			id=960;
 			type="B_CargoNet_01_ammo_F";
@@ -3159,7 +3159,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this enableRopeAttach false;[this] execVM ""MissionScripts\arsenal.sqf"";}";
+				name="arsenal_3";
 			};
 			id=961;
 			type="B_CargoNet_01_ammo_F";
@@ -3238,7 +3238,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this enableRopeAttach false;[this] execVM ""MissionScripts\arsenal.sqf"";}";
+				name="arsenal_4";
 			};
 			id=962;
 			type="B_CargoNet_01_ammo_F";
@@ -3317,7 +3317,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this enableRopeAttach false;[this] execVM ""MissionScripts\arsenal.sqf"";}";
+				name="arsenal_5";
 			};
 			id=963;
 			type="B_CargoNet_01_ammo_F";
@@ -3405,7 +3405,7 @@ class Mission
 			flags=4;
 			class Attributes
 			{
-				init="call{this enableRopeAttach false;[this] execVM ""MissionScripts\arsenal.sqf"";}";
+				name="arsenal_6";
 			};
 			id=965;
 			type="B_CargoNet_01_ammo_F";
