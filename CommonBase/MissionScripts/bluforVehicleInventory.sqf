@@ -14,6 +14,8 @@ if (((typeOf _unit) in blufor_vehicle_forwardLogistics_classes)
 	[_unit,10000] call ace_refuel_fnc_makeSource;				
 	[_unit,10000] call ace_rearm_fnc_makeSource;
 	
+	[_unit] execVM "MissionScripts\arsenal.sqf";
+	
 	while {alive _unit} do
 	{
 		_items = _unit getVariable ["ACE_cargo_loaded", []];		
@@ -92,4 +94,14 @@ if ((typeOf _unit) in blufor_vehicle_vehicleTransportRotaryWing_classes) then
 if ((typeOf _unit) in blufor_vehicle_vehicleTransportFixedWing_classes) then
 {
 	[_unit, 100] call ace_cargo_fnc_setSpace;
+};
+
+if ((typeOf _unit) in blufor_vehicle_transportRotaryWing_classes) then
+{
+	[_unit, 10] call ace_cargo_fnc_setSpace;
+};
+
+if ((typeOf _unit) in blufor_vehicle_transportFixedWing_classes) then
+{
+	[_unit, 10] call ace_cargo_fnc_setSpace;
 };
