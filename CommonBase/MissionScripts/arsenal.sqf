@@ -36,7 +36,7 @@ switch (_unitClass) do
 	};
 	case "B_recon_JTAC_F" : { 
 		[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalInfantry.sqf";
-		[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalForwardObserver.sqf";};		
+		[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalForwardObserver.sqf";		
 	};
 	case "B_Soldier_lite_F" : 
 	{ 
@@ -80,4 +80,5 @@ switch (_unitClass) do
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalHeliCrew.sqf";
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalPlanePilot.sqf";
 						};
+	
 };
