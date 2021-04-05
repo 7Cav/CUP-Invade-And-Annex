@@ -166,6 +166,8 @@ addMissionEventHandler ["Draw3D",
 
 medical_tent addAction ["=FULL HEAL=",{(_this select 1) call ace_medical_treatment_fnc_fullHealLocal;}];
 
+player addAction ["= SPAWN TRANSPORT =", {"rhsusf_m1043_w" createVehicle (getMarkerPos "transport_spawner");}, [], 1.5, true, true, "", "_this inArea 'transport_spawner'"];
+
 private _supplyVehicle = missionNamespace getVariable ["forwardLogisticsVehicle",objNull];
 private _supplyBox = missionNamespace getVariable ["forwardLogisticsBox",objNull];
 

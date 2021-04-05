@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=530;
+		nextID=541;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1922.699,68.756882,260.39087};
-		dir[]={-0.45972681,-0.77221137,-0.43872863};
-		up[]={-0.55867153,0.63531601,-0.53315741};
-		aside[]={-0.69044536,7.8646553e-007,0.7234872};
+		pos[]={1901.5803,80.447601,332.37115};
+		dir[]={-0.72013474,-0.3785305,-0.58160895};
+		up[]={-0.29456782,0.92554033,-0.23790766};
+		aside[]={-0.62836087,1.9857835e-006,0.77801859};
 	};
 };
 binarizationWanted=0;
@@ -60,13 +60,14 @@ addons[]=
 	"ace_goggles",
 	"rhsusf_c_troops",
 	"A3_Supplies_F_Heli_CargoNets",
-	"A3_Structures_F_Orange_Humanitarian_Camps"
+	"A3_Structures_F_Orange_Humanitarian_Camps",
+	"ace_map"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=32;
+		items=33;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -287,6 +288,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item32
+		{
+			className="ace_map";
+			name="ACE3 - Map";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
 	};
 };
 randomSeed=15288512;
@@ -347,7 +355,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=112;
+		items=123;
 		class Item0
 		{
 			dataType="Marker";
@@ -15915,6 +15923,175 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item112
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1882.2389,54.173515,315.2309};
+				angles[]={6.2606869,3.9706125,6.2656851};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=530;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item113
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1876.312,54.365246,321.27634};
+				angles[]={6.268187,3.9706125,6.270689};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=531;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item114
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1870.3207,54.615345,327.33664};
+				angles[]={6.255693,3.9706125,6.2631893};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=532;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item115
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1871.8557,54.535183,297.21509};
+				angles[]={0.022498533,5.5239458,6.2656851};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=533;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item116
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1877.796,54.30249,303.2468};
+				angles[]={0.0024897563,5.5239458,6.255693};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=534;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item117
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1883.7502,54.055069,309.34296};
+				angles[]={6.2756844,5.5239458,6.2631893};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=535;
+			type="Land_HBarrier_Big_F";
+			atlOffset=3.8146973e-006;
+		};
+		class Item118
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1864.5057,54.768654,328.91684};
+				angles[]={6.2531958,5.5239458,6.2656889};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=536;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item119
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1858.5515,54.749748,322.82071};
+				angles[]={6.270689,5.5239458,6.2731905};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=537;
+			type="Land_HBarrier_Big_F";
+			atlOffset=3.8146973e-006;
+		};
+		class Item120
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1852.6112,54.701832,316.78897};
+				angles[]={6.268187,5.5239458,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+			};
+			id=538;
+			type="Land_HBarrier_Big_F";
+		};
+		class Item121
+		{
+			dataType="Marker";
+			position[]={1867.3226,53.265068,311.69629};
+			name="transport_spawner";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=10;
+			b=10;
+			angle=223.84969;
+			id=539;
+			atlOffset=3.8146973e-006;
+		};
+		class Item122
+		{
+			dataType="Marker";
+			position[]={1861.42,53.424999,305.853};
+			name="marker_8";
+			text="TRANSPORT SPAWNER";
+			type="b_unknown";
+			id=540;
+			atlOffset=-0.0004119873;
 		};
 	};
 };
