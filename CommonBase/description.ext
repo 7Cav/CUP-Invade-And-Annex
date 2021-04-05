@@ -7,9 +7,9 @@ onLoadIntro         = "7Cav RHS Invade and Annex DEVBUILD";
 
 class Header
 {
-	gameType = Coop;
-	minPlayers = 1;
-	maxPlayers = 100;
+    gameType = Coop;
+    minPlayers = 1;
+    maxPlayers = 100;
 };
 
 respawn = "BASE";
@@ -28,41 +28,41 @@ wreckRemovalMinTime = 60;
 wreckRemovalMaxTime = 3600;
 
 disableChannels[] = {
-	{
-		0,		// channel ID
-		false,	// disable text chat
-		true	// disable voice chat
-	},
-	{
-		1,		// channel ID
-		false,	// disable text chat
-		true	// disable voice chat
-	},
-	{
-		2,		// channel ID
-		false,	// disable text chat
-		true	// disable voice chat
-	},
-	{
-		3,		// channel ID
-		false,	// disable text chat
-		true	// disable voice chat
-	},
-	{
-		4,		// channel ID
-		false,	// disable text chat
-		true	// disable voice chat
-	},
-	{
-		5,		// channel ID
-		false,	// disable text chat
-		true	// disable voice chat
-	},
-	{
-		6,		// channel ID
-		false,	// disable text chat
-		true	// disable voice chat
-	},
+    {
+        0,		// channel ID
+        false,	// disable text chat
+        true	// disable voice chat
+    },
+    {
+        1,		// channel ID
+        false,	// disable text chat
+        true	// disable voice chat
+    },
+    {
+        2,		// channel ID
+        false,	// disable text chat
+        true	// disable voice chat
+    },
+    {
+        3,		// channel ID
+        false,	// disable text chat
+        true	// disable voice chat
+    },
+    {
+        4,		// channel ID
+        false,	// disable text chat
+        true	// disable voice chat
+    },
+    {
+        5,		// channel ID
+        false,	// disable text chat
+        true	// disable voice chat
+    },
+    {
+        6,		// channel ID
+        false,	// disable text chat
+        true	// disable voice chat
+    },
 };
 
 disabledAI = 1;
@@ -71,5 +71,6 @@ disabledAI = 1;
 
 class CfgFunctions
 {
-	#include "CHVD\CfgFunctions.hpp"	
+    #include "CHVD\CfgFunctions.hpp"
+    #include "MissionScripts\Vehicle\CfgFunctions.hpp"
 };
