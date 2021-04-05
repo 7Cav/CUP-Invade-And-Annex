@@ -8,7 +8,7 @@ class EditorData
 	toggles=514;
 	class ItemIDProvider
 	{
-		nextID=642;
+		nextID=643;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={169.14546,42.343601,4894.1851};
-		dir[]={0.15173729,-0.6388765,0.75420374};
-		up[]={0.12601042,0.7693069,0.6263293};
-		aside[]={0.98036093,3.0824594e-008,-0.19723788};
+		pos[]={124.55769,53.621246,5008.104};
+		dir[]={0.90852916,-0.41232976,-0.067733951};
+		up[]={0.41119763,0.91102862,-0.030656325};
+		aside[]={-0.074347779,5.0210474e-008,-0.99724561};
 	};
 };
 binarizationWanted=0;
@@ -59,13 +59,14 @@ addons[]=
 	"ace_vector",
 	"ace_goggles",
 	"rhsusf_c_troops",
-	"A3_Supplies_F_Heli_CargoNets"
+	"A3_Supplies_F_Heli_CargoNets",
+	"A3_Structures_F_Orange_Humanitarian_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=31;
+		items=32;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -281,6 +282,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item31
+		{
+			className="A3_Structures_F_Orange";
+			name="Arma 3 Orange - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=1620679;
@@ -340,7 +348,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=58;
+		items=59;
 		class Item0
 		{
 			dataType="Marker";
@@ -10448,6 +10456,46 @@ class Mission
 			type="Empty";
 			id=641;
 			atlOffset=34.290146;
+		};
+		class Item58
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={180.8625,24.964075,5018.8896};
+				angles[]={0,1.5531232,0};
+			};
+			side="Empty";
+			class Attributes
+			{
+				name="medical_tent";
+			};
+			id=642;
+			type="Land_MedicalTent_01_MTP_closed_F";
+			atlOffset=57.878651;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };

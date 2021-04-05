@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=779;
+		nextID=780;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={1144.2064,286.25183,3650.4128};
-		dir[]={-0.38324398,-0.9236539,-0.0022342193};
-		up[]={-0.92364198,0.38322541,-0.0053840773};
-		aside[]={-0.0058294679,-1.8837272e-007,0.99999249};
+		pos[]={1148.808,288.45322,3666.6685};
+		dir[]={-0.31222504,-0.68321675,-0.66013986};
+		up[]={-0.29212368,0.7302013,-0.61763704};
+		aside[]={-0.90401185,-3.6324491e-007,0.42756996};
 	};
 };
 binarizationWanted=0;
@@ -63,13 +63,14 @@ addons[]=
 	"A3_Supplies_F_Heli_CargoNets",
 	"ace_vector",
 	"ace_goggles",
-	"rhsusf_c_troops"
+	"rhsusf_c_troops",
+	"A3_Structures_F_Orange_Humanitarian_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=35;
+		items=36;
 		class Item0
 		{
 			className="A3_Modules_F_Curator";
@@ -311,6 +312,13 @@ class AddonsMetaData
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
+		class Item35
+		{
+			className="A3_Structures_F_Orange";
+			name="Arma 3 Orange - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=4483299;
@@ -371,7 +379,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=111;
+		items=112;
 		class Item0
 		{
 			dataType="Logic";
@@ -10476,15 +10484,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1144.6677,270.05356,3653.8401};
-						angles[]={0,3.3265293,0};
+						position[]={1144.668,270.05353,3653.8401};
+						angles[]={0,3.3265276,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-1)@GUNSLINGER-1";
+						description="Heavy Motorized Squad Leader (Gunslinger-1)@GUNSLINGER-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -11293,15 +11301,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1141.5228,270.23196,3654.3765};
-						angles[]={0,3.3265293,0};
+						position[]={1141.5229,270.23199,3654.376};
+						angles[]={0,3.3265276,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-2)@GUNSLINGER-2";
+						description="Heavy Motorized Squad Leader (Gunslinger-2)@GUNSLINGER-2";
 						isPlayable=1;
 						class Inventory
 						{
@@ -12110,15 +12118,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1138.3597,270.39545,3655.0349};
-						angles[]={0,3.3265293,0};
+						position[]={1138.36,270.39539,3655.0352};
+						angles[]={0,3.3265276,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-3)@GUNSLINGER-3";
+						description="Light Motorized Squad Leader (Gunslinger-3)@GUNSLINGER-3";
 						isPlayable=1;
 						class Inventory
 						{
@@ -12937,15 +12945,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={1135.0953,270.56497,3655.6633};
-						angles[]={0,3.3265293,0};
+						position[]={1135.095,270.56503,3655.6631};
+						angles[]={0,3.3265276,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-4)@GUNSLINGER-4";
+						description="Light Motorized Squad Leader (Gunslinger-4)@GUNSLINGER-4";
 						isPlayable=1;
 						class Inventory
 						{
@@ -15849,6 +15857,46 @@ class Mission
 			type="Empty";
 			id=777;
 			atlOffset=0.00018310547;
+		};
+		class Item111
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1140.3158,267.92157,3687.2161};
+				angles[]={0.13516936,3.3627214,6.183517};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="medical_tent";
+			};
+			id=779;
+			type="Land_MedicalTent_01_MTP_closed_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };
