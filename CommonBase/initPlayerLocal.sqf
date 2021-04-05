@@ -88,6 +88,78 @@ attendance_flag addAction["=SHOW ATTENDANCE - PAGE 8=","MissionScripts\showAtten
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 9=","MissionScripts\showAttendance.sqf",9,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 10=","MissionScripts\showAttendance.sqf",10,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 
+addMissionEventHandler ["Draw3D",
+	{		
+		if (player inArea "sector_home") then
+		{
+			{			
+				drawIcon3D["\a3\ui_f\data\IGUI\cfg\Actions\Obsolete\ui_action_gear_ca.paa"
+							, [1,1,1,1]
+							, [getMarkerPos "HUD_arsenals" select 0, getMarkerPos "HUD_arsenals" select 1, (getMarkerPos "HUD_arsenals" select 2) + 2]
+							, 4
+							, 4
+							, 0
+							, "ARSENALS"];				
+			} forEach [arsenalBox_1, arsenalBox_2, arsenalBox_3, arsenalBox_4, arsenalBox_5, arsenalBox_6];		
+			
+			if (getMarkerPos "HUD_rotaryWingPool" select 0 != 0) then
+			{
+				drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\heli_ca.paa"
+							, [1,1,1,1]
+							, [getMarkerPos "HUD_rotaryWingPool" select 0, getMarkerPos "HUD_rotaryWingPool" select 1, (getMarkerPos "HUD_rotaryWingPool" select 2) + 2]
+							, 4
+							, 4
+							, 0
+							, "ROTARY WING POOL"];				
+			};
+			
+			if (getMarkerPos "HUD_fixedWingCombatPool" select 0 != 0) then
+			{
+				drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
+							, [1,1,1,1]
+							, [getMarkerPos "HUD_fixedWingCombatPool" select 0, getMarkerPos "HUD_fixedWingCombatPool" select 1, (getMarkerPos "HUD_fixedWingCombatPool" select 2) + 2]
+							, 4
+							, 4
+							, 0
+							, "COMBAT FIXED WING POOL"];				
+			};
+			
+			if (getMarkerPos "HUD_fixedWingTransportPool" select 0 != 0) then
+			{
+				drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
+							, [1,1,1,1]
+							, [getMarkerPos "HUD_fixedWingTransportPool" select 0, getMarkerPos "HUD_fixedWingTransportPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
+							, 4
+							, 4
+							, 0
+							, "TRANSPORT FIXED WING POOL"];				
+			};
+			
+			if (getMarkerPos "HUD_groundVehiclePool" select 0 != 0) then
+			{
+				drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\truck_ca.paa"
+							, [1,1,1,1]
+							, [getMarkerPos "HUD_groundVehiclePool" select 0, getMarkerPos "HUD_groundVehiclePool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
+							, 4
+							, 4
+							, 0
+							, "GROUND VEHICLE POOL"];				
+			};
+			
+			if (getMarkerPos "HUD_boatPool" select 0 != 0) then
+			{
+				drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\boat_ca.paa"
+							, [1,1,1,1]
+							, [getMarkerPos "HUD_boatPool" select 0, getMarkerPos "HUD_boatPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
+							, 4
+							, 4
+							, 0
+							, "BOAT POOL"];				
+			};
+		};		
+	}
+];
+
 {
 	[_x, typeOf player] execVM "MissionScripts\arsenal.sqf";
 } forEach [arsenalBox_1, arsenalBox_2, arsenalBox_3, arsenalBox_4, arsenalBox_5, arsenalBox_6];
