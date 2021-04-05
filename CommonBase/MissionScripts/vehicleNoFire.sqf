@@ -1,4 +1,4 @@
-params ["_unit", objNull, [objNull]];
+params ["_unit"];
 
 _unit addEventHandler ["Fired", {
 	params ["_unit", "", "", "", "", "", "_projectile", ""];

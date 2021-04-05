@@ -72,5 +72,4 @@ disabledAI = 1;
 class CfgFunctions
 {
 	#include "CHVD\CfgFunctions.hpp"	
-    #include "MissionScripts\CfgFunctions.hpp"
 };

@@ -1,4 +1,4 @@
-params ["_unit", objNull, [objNull]];
+params ["_unit"];
 
 clearweaponcargoGlobal _unit;
 clearmagazinecargoGlobal _unit;
@@ -12,9 +12,7 @@ if (((typeOf _unit) in blufor_vehicle_forwardLogistics_classes)
 	
 	_unit setVariable ["ace_isRepairVehicle",1,true];						
 	[_unit,10000] call ace_refuel_fnc_makeSource;				
-	[_unit,10000] call ace_rearm_fnc_makeSource;
-	
-	[_unit] execVM "MissionScripts\arsenal.sqf";
+	[_unit,10000] call ace_rearm_fnc_makeSource;	
 	
 	while {alive _unit} do
 	{
@@ -57,8 +55,7 @@ if (((typeOf _unit) in blufor_vehicle_forwardLogistics_classes)
 };
 
 if ((typeOf _unit) in blufor_crate_supply_classes) then
-{
-	[_unit] execVM "MissionScripts\arsenal.sqf";
+{	
 	[_unit, 10] call ace_cargo_fnc_setSize;
 };
 

@@ -1,4 +1,4 @@
-params ["_unit", objNull, [objNull]];
+params ["_unit"];
 
 private _skill = 0;
 

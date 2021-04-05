@@ -1,3 +1,4 @@
+params["_crate"];
 
 private _primaryWeapons = [
     //Vanilla
@@ -129,8 +130,7 @@ private _launchers = [
     "ace_csw_staticMortarCarry",
     "ace_csw_carryMortarBaseplate",
     "ace_csw_staticM2ShieldCarry",
-    //RHS USAF
-    "rhs_weap_fgm148",
+    //RHS USAF   
     "rhs_weap_fim92",
     "rhs_weap_maaws",
     "rhs_weap_smaw",
@@ -327,8 +327,7 @@ private _magazines = [
     "rhs_mag_maaws_HEDP",
     "rhs_mag_maaws_HEAT",
     "rhs_fim92_mag",
-    "rhs_mag_m4009",
-    "rhs_fgm148_magazine_AT",
+    "rhs_mag_m4009",    
     "rhs_mag_M397_HET",
     "rhs_mag_M433_HEDP",
     "rhs_mag_M441_HE",
@@ -358,41 +357,25 @@ private _miscItems = [
     "ACE_artilleryTable"
 ];
 
-{
-    if (!isNull(_x)) then {
-
-        [_x,
-            _primaryWeapons +
-            _secondaryWeapons +
-            _launchers +
-            _headgear +
-            _uniforms +
-            _vests +
-            _backpacks +
-            _facewear +
-            _NVGs +
-            _binoculars +
-            _terminals +
-            _sights +
-            _railAttachments +
-            _muzzleAttachments +
-            _bipods +
-            _magazines +
-            _grenades +
-            _explosives +
-            _miscItems,
-            false
-        ] call ace_arsenal_fnc_addVirtualItems;
-
-    };
-
-} forEach [
-	arsenal_1,
-	arsenal_2,
-	arsenal_3,
-	arsenal_4,
-	arsenal_5,
-	arsenal_6
-];
-
-execVM "MissionScripts\arsenal\fn_arsenalGeneral.sqf";
+[_crate,
+	_primaryWeapons +
+	_secondaryWeapons +
+	_launchers +
+	_headgear +
+	_uniforms +
+	_vests +
+	_backpacks +
+	_facewear +
+	_NVGs +
+	_binoculars +
+	_terminals +
+	_sights +
+	_railAttachments +
+	_muzzleAttachments +
+	_bipods +
+	_magazines +
+	_grenades +
+	_explosives +
+	_miscItems,
+	false
+] call ace_arsenal_fnc_addVirtualItems;

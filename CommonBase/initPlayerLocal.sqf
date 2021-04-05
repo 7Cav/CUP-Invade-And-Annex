@@ -20,38 +20,23 @@ player createDiaryRecord ["Diary",
 
 player createDiaryRecord ["Diary", 
 	["FREQUENCIES", 
-	"<br/>GODFATHER-6 : LR - CH 2 (Battlegroup), SR - BL 2 CH 1
-	<br/>GODFATHER-5 : LR - CH 2 (Battlegroup), SR - BL 2 CH 1
-	<br/>GODFATHER-7 : LR - CH 2 (Battlegroup), SR - BL 2 CH 1
-	<br/>PEGASUS-6 : LR - CH 2 (Battlegroup) LR - CH 6 (Air), SR - BL 2 CH 1
-	<br/>
-	<br/>GUNSLINGER-6 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 6
-	<br/>GUNSLINGER-5 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 6
-	<br/>GUNSLINGER-7 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 6
-	<br/>INFIDEL-1 : LR - CH 3 (Platoon) LR - CH 7 (Call For Fire), SR - BL 3 CH 6
+	"<br/>GUNSLINGER-6 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 7
+	<br/>GUNSLINGER-5 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 7
+	<br/>GUNSLINGER-7 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 7
+	<br/>INFIDEL-1 : LR - CH 3 (Platoon) LR - CH 7 (Call For Fire), SR - BL 3 CH 7
 	<br/>
 	<br/>GUNSLINGER-1 : LR - CH 3 (Platoon), SR - BL3 CH 1
 	<br/>GUNSLINGER-2 : LR - CH 3 (Platoon), SR - BL3 CH 2
 	<br/>GUNSLINGER-3 : LR - CH 3 (Platoon), SR - BL3 CH 3
 	<br/>GUNSLINGER-4 : LR - CH 3 (Platoon), SR - BL3 CH 4
-	<br/>ATLAS-1 : LR - CH 3 (Platoon), SR - BL3 CH 5
-	<br/>
-	<br/>WATCHMAN-6 : LR - CH 2 (Battlegroup) LR - CH 4 (Platoon), SR - BL 4 CH 6
-	<br/>WATCHMAN-5 : LR - CH 2 (Battlegroup) LR - CH 4 (Platoon), SR - BL 4 CH 6
-	<br/>WATCHMAN-7 : LR - CH 2 (Battlegroup) LR - CH 4 (Platoon), SR - BL 4 CH 6
-	<br/>INFIDEL-1 : LR - CH 4 (Platoon) LR - CH 7 (Call For Fire), SR - BL 4 CH 6
-	<br/>
-	<br/>WATCHMAN-1 : LR - CH 4 (Platoon), SR - BL 4 CH 1
-	<br/>WATCHMAN-2 : LR - CH 4 (Platoon), SR - BL 4 CH 2
-	<br/>WATCHMAN-3 : LR - CH 4 (Platoon), SR - BL 4 CH 3
-	<br/>WATCHMAN-4 : LR - CH 4 (Platoon), SR - BL 4 CH 4
-	<br/>ATLAS-2 : LR - CH 4 (Platoon), SR - BL 4 CH 5
-	<br/>
-	<br/>SABER-1 : LR CH - 1 (Battlegroup) LR CH - 5 (Section), SR - BL5 CH 1
-	<br/>SABER-2 : LR CH - 1 (Battlegroup) LR CH - 5 (Section), SR - BL5 CH 2	
-	<br/>
-	<br/>SAPPER-1 : LR - CH 1 (Battlegroup), SR - BL 6 CH 1
-	<br/>SUPPLIER-1 : LR - CH 1 (Battlegroup) LR - CH 8 (Call for Resupply), SR - BL 6 CH 2
+	<br/>PIONEER-1 : LR - CH 3 (Platoon), SR - BL3 CH 5
+	<br/>ATLAS-1 : LR - CH 3 (Platoon), SR - BL3 CH 6	
+	<br/>	
+	<br/>SABER-1 : LR CH - 2 (Battlegroup) LR CH - 5 (Section), SR - BL5 CH 1
+	<br/>SABER-2 : LR CH - 2 (Battlegroup) LR CH - 5 (Section), SR - BL5 CH 2	
+	<br/>	
+	<br/>SPEAR-1 : LR - CH 2 (Battlegroup), SR - BL 6 CH 1
+	<br/>SUPPLIER-1 : LR - CH 2 (Battlegroup) LR - CH 8 (Call for Resupply), SR - BL 6 CH 2
 	<br/>
 	<br/>BUFFALO-1 : LR - CH 6 (Air), SR - BL 6 CH 3
 	<br/>BUFFALO-2 : LR - CH 6 (Air), SR - BL 6 CH 4
@@ -103,5 +88,33 @@ attendance_flag addAction["=SHOW ATTENDANCE - PAGE 8=","MissionScripts\showAtten
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 9=","MissionScripts\showAttendance.sqf",9,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 attendance_flag addAction["=SHOW ATTENDANCE - PAGE 10=","MissionScripts\showAttendance.sqf",10,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
 
-// Execute class-specific init
-["init"] call compile preProcessFile format ["MissionScripts\class\%1.sqf", typeOf player];
+{
+	[_x, typeOf player] execVM "MissionScripts\arsenal.sqf";
+} forEach [arsenalBox_1, arsenalBox_2, arsenalBox_3, arsenalBox_4, arsenalBox_5, arsenalBox_6];
+
+private _supplyVehicle = missionNamespace getVariable ["forwardLogisticsVehicle",objNull];
+private _supplyBox = missionNamespace getVariable ["forwardLogisticsBox",objNull];
+
+while {isNull _supplyBox} do
+{
+	_supplyBox = missionNamespace getVariable ["forwardLogisticsBox",objNull];
+	
+	if (!isNull _supplyBox) then
+	{
+		[_supplyBox, typeOf player] execVM "MissionScripts\arsenal.sqf";
+	};
+	
+	sleep 1;
+};
+
+while {isNull _supplyVehicle} do
+{
+	_supplyVehicle = missionNamespace getVariable ["forwardLogisticsVehicle",objNull];
+	
+	if (!isNull _supplyVehicle) then
+	{
+		[_supplyVehicle, typeOf player] execVM "MissionScripts\arsenal.sqf";
+	};
+	
+	sleep 1;
+};
