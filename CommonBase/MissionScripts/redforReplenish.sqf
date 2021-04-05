@@ -1,4 +1,4 @@
-params ["_veh", objNull, [objNull]];
+params ["_veh"];
 
 private _timer = 600;
 

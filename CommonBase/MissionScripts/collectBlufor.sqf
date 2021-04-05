@@ -311,6 +311,16 @@ while {_vehicleCounter < 999} do
 		} forEach _vehicleExchangeList;	
 		
 		_index = _index + 1;
+		
+		if (_className in blufor_vehicle_forwardLogistics_classes) then
+		{
+			missionNamespace setVariable ["forwardLogisticsVehicle", _veh];
+		};
+		
+		if (_className in blufor_crate_supply_classes) then
+		{
+			missionNamespace setVariable ["forwardLogisticsBox", _veh];
+		};
 	};	
 	
 	_vehicleCounter = _vehicleCounter + 1;

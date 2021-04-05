@@ -1,3 +1,4 @@
+params["_crate"];
 
 private _primaryWeapons = [
     //Vanilla
@@ -849,13 +850,9 @@ private _NVGs = [
 
 private _binoculars = [
     //Vanilla
-    "Binocular",
-    "Laserdesignator",
-    "Rangefinder",
-    "Laserdesignator_01_khk_F",
-    "Laserdesignator_03",
-    //Ace
-    "ACE_MX2A",
+    "Binocular",    
+    "Rangefinder",    
+    //Ace    
     "ACE_VectorDay",
     "ACE_Vector",
     "ACE_Yardage450",
@@ -1303,8 +1300,7 @@ private _miscItems = [
     "ACE_EarPlugs",
     "ACE_EntrenchingTool",
     "ACE_epinephrine",
-    "ACE_Flashlight_MX991",
-    "ACE_HuntIR_monitor",
+    "ACE_Flashlight_MX991",    
     "ACE_IR_Strobe_Item",
     "ACE_M26_Clacker",
     "ACE_Clacker",
@@ -1331,57 +1327,25 @@ private _miscItems = [
     "ACRE_VHF30108"
 ];
 
-{
-    if (!isNull(_x)) then {
-
-        clearWeaponCargoGlobal _x;
-        clearMagazineCargoGlobal _x;
-        clearBackpackCargoGlobal _x;
-        clearItemCargoGlobal _x;
-
-        [_x, false, false] call ace_arsenal_fnc_initBox;
-
-        [_x,
-            _primaryWeapons +
-            _secondaryWeapons +
-            _launchers +
-            _headgear +
-            _uniforms +
-            _vests +
-            _backpacks +
-            _facewear +
-            _NVGs +
-            _binoculars +
-            _terminals +
-            _sights +
-            _railAttachments +
-            _muzzleAttachments +
-            _bipods +
-            _magazines +
-            _grenades +
-            _explosives +
-            _miscItems,
-            false
-        ] call ace_arsenal_fnc_addVirtualItems;
-
-        [_x , -1] call ace_cargo_fnc_setSize;
-        [_x , 0] call ace_cargo_fnc_setSpace;
-
-        [_x , false] call ace_dragging_fnc_setDraggable;
-        [_x , false] call ace_dragging_fnc_setCarryable;
-
-        _x allowdamage false;
-        _x enableSimulation false;
-
-        _x enableRopeAttach false;
-
-    };
-
-} forEach [
-	arsenal_1,
-	arsenal_2,
-	arsenal_3,
-	arsenal_4,
-	arsenal_5,
-	arsenal_6
-];
+[_crate,
+	_primaryWeapons +
+	_secondaryWeapons +
+	_launchers +
+	_headgear +
+	_uniforms +
+	_vests +
+	_backpacks +
+	_facewear +
+	_NVGs +
+	_binoculars +
+	_terminals +
+	_sights +
+	_railAttachments +
+	_muzzleAttachments +
+	_bipods +
+	_magazines +
+	_grenades +
+	_explosives +
+	_miscItems,
+	false
+] call ace_arsenal_fnc_addVirtualItems;
