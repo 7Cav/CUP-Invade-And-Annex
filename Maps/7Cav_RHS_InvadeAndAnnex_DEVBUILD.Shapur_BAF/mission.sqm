@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=529;
+		nextID=530;
 	};
 	class MarkerIDProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={715.79486,62.488708,387.19028};
-		dir[]={-0.13223475,-0.9849593,0.11161614};
-		up[]={-0.7526471,0.1729555,0.63529181};
-		aside[]={0.64505225,1.135515e-006,0.76420718};
+		pos[]={732.29968,44.130539,385.69791};
+		dir[]={-0.51990497,-0.43609989,0.73459697};
+		up[]={-0.25197127,0.89985991,0.35602036};
+		aside[]={0.81630808,-1.3719837e-006,0.57773423};
 	};
 };
 binarizationWanted=0;
@@ -59,13 +59,14 @@ addons[]=
 	"ace_vector",
 	"ace_goggles",
 	"rhsusf_c_troops",
-	"A3_Supplies_F_Heli_CargoNets"
+	"A3_Supplies_F_Heli_CargoNets",
+	"A3_Structures_F_Orange_Humanitarian_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=31;
+		items=32;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -281,6 +282,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item31
+		{
+			className="A3_Structures_F_Orange";
+			name="Arma 3 Orange - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=949622;
@@ -341,7 +349,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=122;
+		items=123;
 		class Item0
 		{
 			dataType="Marker";
@@ -10545,15 +10553,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={719.55927,35.381451,387.19022};
-						angles[]={0,5.397788,0};
+						position[]={719.55902,35.381439,387.19};
+						angles[]={0,5.3977795,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-1)@GUNSLINGER-1";
+						description="Light Motorized Squad Leader (Gunslinger-1)@GUNSLINGER-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -10587,7 +10595,6 @@ class Mission
 					};
 					id=428;
 					type="B_Soldier_SL_F";
-					atlOffset=1.1444092e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -11358,7 +11365,6 @@ class Mission
 			{
 			};
 			id=427;
-			atlOffset=1.1444092e-005;
 		};
 		class Item103
 		{
@@ -11372,15 +11378,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={721.53894,35.381451,389.69208};
-						angles[]={0,5.397788,0};
+						position[]={721.539,35.381439,389.69199};
+						angles[]={0,5.3977795,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-2)@GUNSLINGER-2";
+						description="Light Motorized Squad Leader (Gunslinger-2)@GUNSLINGER-2";
 						isPlayable=1;
 						class Inventory
 						{
@@ -11414,7 +11420,6 @@ class Mission
 					};
 					id=438;
 					type="B_Soldier_SL_F";
-					atlOffset=1.1444092e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -12185,7 +12190,6 @@ class Mission
 			{
 			};
 			id=437;
-			atlOffset=1.1444092e-005;
 		};
 		class Item104
 		{
@@ -12199,15 +12203,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={723.63422,35.381451,392.15137};
-						angles[]={0,5.397788,0};
+						position[]={723.63397,35.381439,392.151};
+						angles[]={0,5.3977795,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-3)@GUNSLINGER-3";
+						description="Light Motorized Squad Leader (Gunslinger-3)@GUNSLINGER-3";
 						isPlayable=1;
 						class Inventory
 						{
@@ -12241,7 +12245,6 @@ class Mission
 					};
 					id=448;
 					type="B_Soldier_SL_F";
-					atlOffset=1.1444092e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -13012,7 +13015,6 @@ class Mission
 			{
 			};
 			id=447;
-			atlOffset=1.1444092e-005;
 		};
 		class Item105
 		{
@@ -13026,15 +13028,15 @@ class Mission
 					dataType="Object";
 					class PositionInfo
 					{
-						position[]={725.75201,35.381454,394.71384};
-						angles[]={0,5.397788,0};
+						position[]={725.75201,35.381439,394.71399};
+						angles[]={0,5.3977795,0};
 					};
 					side="West";
 					flags=7;
 					class Attributes
 					{
 						rank="SERGEANT";
-						description="Squad Leader (Gunslinger-4)@GUNSLINGER-4";
+						description="Light Motorized Squad Leader (Gunslinger-4)@GUNSLINGER-4";
 						isPlayable=1;
 						class Inventory
 						{
@@ -13068,7 +13070,6 @@ class Mission
 					};
 					id=458;
 					type="B_Soldier_SL_F";
-					atlOffset=1.5258789e-005;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -13839,7 +13840,6 @@ class Mission
 			{
 			};
 			id=457;
-			atlOffset=1.5258789e-005;
 		};
 		class Item106
 		{
@@ -16234,6 +16234,46 @@ class Mission
 			name="HUD_groundVehiclePool";
 			type="Empty";
 			id=528;
+		};
+		class Item122
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={709.4707,36.754566,401.67017};
+				angles[]={0,5.4361668,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="medical_tent";
+			};
+			id=529;
+			type="Land_MedicalTent_01_MTP_closed_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };

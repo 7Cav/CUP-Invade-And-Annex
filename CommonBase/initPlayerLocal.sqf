@@ -164,6 +164,8 @@ addMissionEventHandler ["Draw3D",
 	[_x, typeOf player] execVM "MissionScripts\arsenal.sqf";
 } forEach [arsenalBox_1, arsenalBox_2, arsenalBox_3, arsenalBox_4, arsenalBox_5, arsenalBox_6];
 
+medical_tent addAction ["=FULL HEAL=",{(_this select 1) call ace_medical_treatment_fnc_fullHealLocal;}];
+
 private _supplyVehicle = missionNamespace getVariable ["forwardLogisticsVehicle",objNull];
 private _supplyBox = missionNamespace getVariable ["forwardLogisticsBox",objNull];
 

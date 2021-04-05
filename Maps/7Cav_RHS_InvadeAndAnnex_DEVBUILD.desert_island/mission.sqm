@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=659;
+		nextID=660;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=70;
+		nextID=73;
 	};
 	class Camera
 	{
-		pos[]={1424.9819,25.00115,896.95776};
-		dir[]={0.001889135,-0.27881706,0.96034437};
-		up[]={0.00054847152,0.96034384,0.2788175};
-		aside[]={0.99999857,1.4277362e-009,-0.0019671286};
+		pos[]={1333.3743,42.397705,919.1438};
+		dir[]={0.91779637,-0.39545625,0.0358156};
+		up[]={0.39516026,0.91848272,0.015420604};
+		aside[]={0.03899321,-9.1888069e-008,-0.99924648};
 	};
 };
 binarizationWanted=0;
@@ -76,13 +76,14 @@ addons[]=
 	"ace_vector",
 	"ace_goggles",
 	"rhsusf_c_troops",
-	"A3_Supplies_F_Heli_CargoNets"
+	"A3_Supplies_F_Heli_CargoNets",
+	"A3_Structures_F_Orange_Humanitarian_Camps"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=36;
+		items=37;
 		class Item0
 		{
 			className="A3_Structures_F_EPA";
@@ -335,6 +336,13 @@ class AddonsMetaData
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
+		class Item36
+		{
+			className="A3_Structures_F_Orange";
+			name="Arma 3 Orange - Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
+		};
 	};
 };
 randomSeed=11514052;
@@ -394,7 +402,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=61;
+		items=62;
 		class Item0
 		{
 			dataType="Layer";
@@ -13192,6 +13200,46 @@ class Mission
 			type="Empty";
 			id=658;
 			atlOffset=54.82745;
+		};
+		class Item61
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1373.8291,17.49737,915.71954};
+				angles[]={-0,0.011849424,0};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="medical_tent";
+			};
+			id=659;
+			type="Land_MedicalTent_01_MTP_closed_F";
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="allowDamage";
+					expression="_this allowdamage _value;";
+					class Value
+					{
+						class data
+						{
+							class type
+							{
+								type[]=
+								{
+									"BOOL"
+								};
+							};
+							value=0;
+						};
+					};
+				};
+				nAttributes=1;
+			};
 		};
 	};
 };
