@@ -49,9 +49,6 @@ private _uniforms = [ //Needs heli uniforms cleaned out
     //Vanilla
     "U_B_HeliPilotCoveralls",
     "U_B_PilotCoveralls",
-    //Task Force Canada
-    "TFC_CU_CombatUniform_Aircrew_AR",
-    "TFC_CU_CombatUniform_Aircrew_TW",
     //FIR
     "FIR_CWU45",
     "FIR_Fighter_Pilot_JASDF_Nomex",
