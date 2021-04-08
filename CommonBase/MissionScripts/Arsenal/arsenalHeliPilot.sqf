@@ -14,10 +14,7 @@ private _headgear = [
     "H_CrewHelmetHeli_B",
     "H_PilotHelmetHeli_B",
     "H_EarProtectors_black_F",
-    "H_HeadSet_black_F",
-    //Task Force Canada
-    "TFC_CH_Helo_Crew",
-    "TFC_CH_Helo_Pilot",
+    "H_HeadSet_black_F",    
     //FIR
     "FIR_GroundCrew_Headset",
     "FIR_GroundCrew_Headset2",
@@ -69,10 +66,7 @@ private _headgear = [
 private _uniforms = [ //Needs fighter uniforms cleaned out
     //Vanilla
     "U_B_HeliPilotCoveralls",
-    "U_B_PilotCoveralls",
-    //Task Force Canada
-    "TFC_CU_CombatUniform_Aircrew_AR",
-    "TFC_CU_CombatUniform_Aircrew_TW",
+    "U_B_PilotCoveralls",    
     //FIR
     "FIR_CWU45",
     "FIR_Fighter_Pilot_JASDF_Nomex",

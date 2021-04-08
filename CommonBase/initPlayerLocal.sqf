@@ -32,21 +32,17 @@ player createDiaryRecord ["Diary",
 	<br/>PIONEER-1 : LR - CH 3 (Platoon), SR - BL3 CH 5
 	<br/>ATLAS-1 : LR - CH 3 (Platoon), SR - BL3 CH 6	
 	<br/>	
-	<br/>SABER-1 : LR CH - 2 (Battlegroup) LR CH - 5 (Section), SR - BL5 CH 1
-	<br/>SABER-2 : LR CH - 2 (Battlegroup) LR CH - 5 (Section), SR - BL5 CH 2	
+	<br/>SABER-1 : LR CH - 2 (Battlegroup), SR - BL5 CH 1	
 	<br/>	
 	<br/>SPEAR-1 : LR - CH 2 (Battlegroup), SR - BL 6 CH 1
 	<br/>SUPPLIER-1 : LR - CH 2 (Battlegroup) LR - CH 8 (Call for Resupply), SR - BL 6 CH 2
 	<br/>
 	<br/>BUFFALO-1 : LR - CH 6 (Air), SR - BL 6 CH 3
 	<br/>BUFFALO-2 : LR - CH 6 (Air), SR - BL 6 CH 4
-	<br/>TITAN-1 : LR - CH 6 (Air), SR - BL 6 CH 5
-	<br/>TITAN-2 : LR - CH 6 (Air), SR - BL 6 CH 6
+	<br/>TITAN-1 : LR - CH 6 (Air), SR - BL 6 CH 5	
 	<br/>
-	<br/>SPARROW-1 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 7
-	<br/>SPARROW-2 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 8
-	<br/>HOG-1 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 9
-	<br/>HOG-2 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 9
+	<br/>SPARROW-1 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 7	
+	<br/>HOG-1 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 9	
 	"]
 ];
 

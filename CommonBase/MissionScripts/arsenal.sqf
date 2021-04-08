@@ -51,11 +51,7 @@ switch (_unitClass) do
 	{ 
 		[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalInfantry.sqf";
 		[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalATMissileSpecialist.sqf";
-	};
-	case "B_soldier_repair_F" : 
-	{ 
-		[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalLogistics.sqf";
-	};
+	};	
 	case "B_Helipilot_F" : 
 	{ 
 		[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalHeliPilot.sqf";
@@ -74,8 +70,7 @@ switch (_unitClass) do
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalForwardObserver.sqf";
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalCavScout.sqf";
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalTanker.sqf";
-							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalATMissileSpecialist.sqf";
-							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalLogistics.sqf";
+							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalATMissileSpecialist.sqf";							
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalHeliPilot.sqf";
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalHeliCrew.sqf";
 							[_crate] call compile preprocessFileLineNumbers "MissionScripts\Arsenal\arsenalPlanePilot.sqf";
