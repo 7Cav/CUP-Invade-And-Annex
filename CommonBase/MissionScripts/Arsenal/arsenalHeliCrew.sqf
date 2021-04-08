@@ -1,34 +1,7 @@
 params["_crate"];
 
 private _primaryWeapons = [
-    //Vanilla
-    "arifle_MX_SW_F",
-    "arifle_MX_SW_Black_F",
-    "LMG_Mk200_F",
-    "arifle_MX_SW_khk_F",
-    "arifle_CTARS_blk_F",
-    "LMG_Mk200_black_F",
-    "MMG_01_tan_F",
-    "MMG_02_black_F",
-    "MMG_02_camo_F",
-    "MMG_02_sand_F",
-    //Task Force Canada
-    "TFC_W_C6A1",
-    "tfc_w_c9a2",
-    "tfc_w_mk48",
-    //RHS GREF
-    "rhs_weap_fnmag",
-    //RHS USAF
-    "rhs_weap_m240B",
-    "rhs_weap_m240G",
-    "rhs_weap_m249_pip",
-    "rhs_weap_m249_light_L",
-    "rhs_weap_m249_pip_L_para",
-    "rhs_weap_m249_pip_L",
-    "rhs_weap_m249_pip_ris",
-    "rhs_weap_m249_light_S",
-    "rhs_weap_m249_pip_S_para",
-    "rhs_weap_m249_pip_S"
+    
 ];
 
 private _secondaryWeapons = [
@@ -42,10 +15,7 @@ private _headgear = [
     "H_CrewHelmetHeli_B",
     "H_PilotHelmetHeli_B",
     "H_EarProtectors_black_F",
-    "H_HeadSet_black_F",
-    //Task Force Canada
-    "TFC_CH_Helo_Crew",
-    "TFC_CH_Helo_Pilot",
+    "H_HeadSet_black_F",    
     //FIR
     "FIR_GroundCrew_Headset",
     "FIR_GroundCrew_Headset2",
@@ -97,10 +67,7 @@ private _headgear = [
 private _uniforms = [
     //Vanilla
     "U_B_HeliPilotCoveralls",
-    "U_B_PilotCoveralls",
-    //Task Force Canada
-    "TFC_CU_CombatUniform_Aircrew_AR",
-    "TFC_CU_CombatUniform_Aircrew_TW",
+    "U_B_PilotCoveralls",    
     //FIR
     "FIR_CWU45",
     "FIR_Fighter_Pilot_JASDF_Nomex",
@@ -232,10 +199,7 @@ private _facewear = [
 ];
 
 private _NVGs = [
-    //Vanilla
-    "NVGogglesB_blk_F",
-    "NVGogglesB_grn_F",
-    "NVGogglesB_gry_F"
+    
 ];
 
 private _binoculars = [
@@ -253,62 +217,15 @@ private _railAttachments = [
 ];
 
 private _muzzleAttachments = [
-    //Ace
-    "ACE_muzzle_mzls_B",
-    //RHS USAF
-    "rhsusf_acc_ARDEC_M240"
+    
 ];
 
 private _bipods = [
-    //RHS USAF
-    "rhsusf_acc_kac_grip_saw_bipod",
-    "rhsusf_acc_saw_bipod",
-    "rhsusf_acc_grip4_bipod",
-    "rhsusf_acc_saw_lw_bipod"
+    
 ];
 
 private _magazines = [
-    //Vanilla
-    "100Rnd_65x39_caseless_mag",
-    "100Rnd_65x39_caseless_black_mag_tracer",
-    "100Rnd_65x39_caseless_khaki_mag_tracer",
-    "100Rnd_65x39_caseless_mag_Tracer",
-    "200Rnd_65x39_cased_Box",
-    "200Rnd_65x39_cased_Box_Tracer",
-    "200Rnd_65x39_cased_Box_Red",
-    "200Rnd_65x39_cased_Box_Tracer_Red",
-    "ACE_200Rnd_65x39_cased_Box_Tracer_Dim",
-    "100Rnd_580x42_Mag_F",
-    "100Rnd_580x42_Mag_Tracer_F",
-    "130Rnd_338_Mag",
-    "150Rnd_93x64_Mag",
-    //Task Force Canada
-    "220Rnd_762x51_Box",
-    "220Rnd_762x51_Box_Tracer",
-    //RHS AFRF
-    "rhs_45Rnd_545X39_7N22_AK",
-    "rhs_45Rnd_545X39_7U1_AK",
-    "rhs_75Rnd_762x39mm_89",
-    "rhs_75Rnd_762x39mm_tracer",
-    //RHS USAF
-    "rhs_mag_100Rnd_556x45_Mk262_cmag",
-    "rhs_mag_100Rnd_556x45_Mk318_cmag",
-    "rhsusf_100Rnd_762x51_m61_ap",
-    "rhsusf_100Rnd_762x51_m62_tracer",
-    "rhsusf_100Rnd_762x51_m82_blank",
-    "rhsusf_100Rnd_556x45_mixed_soft_pouch_coyote",
-    "rhsusf_100Rnd_556x45_mixed_soft_pouch_ucp",
-    "rhsusf_100Rnd_556x45_mixed_soft_pouch",
-    "rhsusf_100Rnd_556x45_M995_soft_pouch",
-    "rhsusf_100Rnd_556x45_M995_soft_pouch_ucp",
-    "rhsusf_100Rnd_556x45_M995_soft_pouch_coyote",
-    "rhsusf_200rnd_556x45_mixed_box",
-    "rhsusf_200Rnd_556x45_mixed_soft_pouch",
-    "rhsusf_200Rnd_556x45_mixed_soft_pouch_coyote",
-    "rhsusf_200Rnd_556x45_mixed_soft_pouch_ucp",
-    "rhsusf_50Rnd_762x51_m82_blank",
-    "rhsusf_50Rnd_762x51_m61_ap",
-    "rhsusf_50Rnd_762x51_m62_tracer"
+    
 ];
 
 private _grenades = [

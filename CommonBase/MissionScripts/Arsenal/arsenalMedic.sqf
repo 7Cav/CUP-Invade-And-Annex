@@ -91,19 +91,3 @@ private _miscItems = [
 	_miscItems,
 	false
 ] call ace_arsenal_fnc_addVirtualItems;
-
-// Default Loadouts
-
-["[000] --- Medical Team ---",
-	[[],[],[],[],[],[],"","",[],["","","","","",""]]
-] call ace_arsenal_fnc_addDefaultLoadout;
-
-["[001] Medic",
-	[["rhs_weap_m4a1_grip3","rhsusf_acc_SFMB556","rhsusf_acc_anpeq15_top","rhsusf_acc_compm4",["rhs_mag_30Rnd_556x45_M855A1_Stanag",30],[],"rhsusf_acc_tdstubby_tan"],
-	[],
-	[],
-	["rhs_uniform_acu_oefcp",[["ACE_MapTools",1],["ACE_Flashlight_XL50",1],["ACE_quikclot",14],["ACE_tourniquet",4],["ACE_microDAGR",1],["ACRE_PRC343",1],["ACRE_PRC152",1]]],
-	["rhsusf_spcs_ocp_medic",[["ACE_morphine",12],["ACE_epinephrine",12],["rhsusf_ANPVS_14",1],["rhs_mag_30Rnd_556x45_M855A1_Stanag",7,30],["SmokeShell",4,1],["ACE_Chemlight_HiRed",6,1]]],
-	["B_Carryall_mcamo",[["ACE_salineIV",16],["ACE_personalAidKit",8],["ACE_elasticBandage",60],["ACE_surgicalKit",1]]],
-	"rhsusf_ach_bare_tan_headset","",[],["ItemMap","ItemGPS","ItemRadioAcreFlagged","ItemCompass","ItemWatch",""]]
-] call ace_arsenal_fnc_addDefaultLoadout;

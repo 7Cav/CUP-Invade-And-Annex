@@ -226,27 +226,27 @@ ace_medical_statemachine_cardiacArrestBleedoutEnabled = true;
 ace_medical_statemachine_cardiacArrestTime = 300;
 ace_medical_statemachine_fatalInjuriesAI = 0;
 ace_medical_statemachine_fatalInjuriesPlayer = 0;
-force ace_medical_treatment_advancedBandages = 0;
+force ace_medical_treatment_advancedBandages = 1;
 ace_medical_treatment_advancedDiagnose = true;
-force ace_medical_treatment_advancedMedication = false;
+force ace_medical_treatment_advancedMedication = true;
 ace_medical_treatment_allowBodyBagUnconscious = false;
 ace_medical_treatment_allowLitterCreation = true;
 ace_medical_treatment_allowSelfIV = 1;
-ace_medical_treatment_allowSelfPAK = 0;
-ace_medical_treatment_allowSelfStitch = 0;
+force ace_medical_treatment_allowSelfPAK = 1;
+force ace_medical_treatment_allowSelfStitch = 1;
 ace_medical_treatment_allowSharedEquipment = 0;
-force ace_medical_treatment_clearTraumaAfterBandage = true;
-ace_medical_treatment_consumePAK = 0;
-ace_medical_treatment_consumeSurgicalKit = 0;
+force ace_medical_treatment_clearTraumaAfterBandage = false;
+force ace_medical_treatment_consumePAK = 1;
+force ace_medical_treatment_consumeSurgicalKit = 0;
 ace_medical_treatment_convertItems = 0;
 ace_medical_treatment_cprSuccessChance = 0.4;
 ace_medical_treatment_holsterRequired = 0;
 ace_medical_treatment_litterCleanupDelay = 600;
 ace_medical_treatment_locationEpinephrine = 0;
 ace_medical_treatment_locationIV = 0;
-ace_medical_treatment_locationPAK = 3;
+force ace_medical_treatment_locationPAK = 0;
 ace_medical_treatment_locationsBoostTraining = false;
-ace_medical_treatment_locationSurgicalKit = 2;
+force ace_medical_treatment_locationSurgicalKit = 0;
 ace_medical_treatment_maxLitterObjects = 500;
 force ace_medical_treatment_medicEpinephrine = 1;
 ace_medical_treatment_medicIV = 1;
@@ -303,9 +303,9 @@ ace_finger_indicatorForSelf = true;
 ace_finger_maxRange = 4;
 
 // ACE Pylons
-force ace_pylons_enabledForZeus = false;
-force ace_pylons_enabledFromAmmoTrucks = false;
-ace_pylons_rearmNewPylons = false;
+force ace_pylons_enabledForZeus = true;
+force ace_pylons_enabledFromAmmoTrucks = true;
+force ace_pylons_rearmNewPylons = false;
 ace_pylons_requireEngineer = false;
 force ace_pylons_requireToolkit = false;
 ace_pylons_searchDistance = 15;
@@ -351,10 +351,10 @@ ace_switchunits_switchToIndependent = false;
 ace_switchunits_switchToWest = false;
 
 // ACE Trenches
-force ace_trenches_bigEnvelopeDigDuration = 600;
-force ace_trenches_bigEnvelopeRemoveDuration = 600;
-force ace_trenches_smallEnvelopeDigDuration = 300;
-force ace_trenches_smallEnvelopeRemoveDuration = 300;
+force ace_trenches_bigEnvelopeDigDuration = 300;
+force ace_trenches_bigEnvelopeRemoveDuration = 300;
+force ace_trenches_smallEnvelopeDigDuration = 150;
+force ace_trenches_smallEnvelopeRemoveDuration = 150;
 
 // ACE Uncategorized
 ace_fastroping_requireRopeItems = false;
@@ -506,14 +506,6 @@ cba_optics_usePipOptics = true;
 
 // Community Base Addons - Network
 cba_network_loadoutValidation = 0;
-
-// CUP
-CUP_CheckCfgPatches = false;
-force CUP_Vehicles_PreventBarrelClip = false;
-
-// CUP Static Weapons
-CUP_staticWeapons_allowMovement = false;
-CUP_staticWeapons_allowRotation = false;
 
 // DUI - Squad Radar - Indicators
 diwako_dui_indicators_crew_range_enabled = false;

@@ -18,9 +18,7 @@ private _headgear = [
     "rhsusf_cvc_green_ess",
     "rhsusf_cvc_helmet",
     "rhsusf_cvc_alt_helmet",
-    "rhsusf_cvc_ess",
-    //NATO Winter Retextures
-    "RCOMM_wnato_h_helmetcrew"
+    "rhsusf_cvc_ess"    
 ];
 
 private _uniforms = [

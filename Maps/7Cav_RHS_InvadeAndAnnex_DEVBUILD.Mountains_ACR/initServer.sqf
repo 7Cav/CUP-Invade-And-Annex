@@ -3,8 +3,8 @@ enableDynamicSimulationSystem false;
 createCenter east;
 createCenter sideLogic;
 
-setViewDistance 6000;
-setObjectViewDistance [6000,6000];
+setViewDistance 8000;
+setObjectViewDistance [8000,8000];
 
 zeusGUIDs = [];
 #include "\serverscripts\zeus\guids.sqf"
@@ -55,7 +55,7 @@ redfor_vehicle_level_3_SpottingAugmentDistance = 1500;
 redfor_vehicle_level_4_SpottingAugmentDistance = 2000;
 redfor_vehicle_level_5_SpottingAugmentDistance = 2500;
 
-redfor_vehicle_aa_SpottingAugmentDistance = 1000;
+redfor_vehicle_aa_SpottingAugmentDistance = 8000;
 redfor_vehicle_av_SpottingAugmentDistance = 3000;
 
 redfor_compound_radius = 25;

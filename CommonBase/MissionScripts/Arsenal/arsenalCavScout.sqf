@@ -53,7 +53,7 @@ private _bipods = [
 ];
 
 private _magazines = [
-    "ACE_HuntIR_M203"
+    
 ];
 
 private _grenades = [
@@ -63,7 +63,7 @@ private _explosives = [
 ];
 
 private _miscItems = [
-    "ACE_HuntIR_monitor"
+    
 ];
 
 [_crate,
