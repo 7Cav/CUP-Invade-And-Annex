@@ -61,8 +61,8 @@ player createDiaryRecord ["Diary",
 	<br/>- Destruction of a group of Supply Vehicles, Communication Towers or HQ Tents
 	<br/>- Neutralization of an Officer, a Commando Team or a Sniper Team
 	<br/>
-	<br/>A Sector can have one or more Side Objectives or none at all! 
-	<br/>You will need to perform reconmainssance to determine what Side Objectives are to be completed in the Sector, if any.	
+	<br/>A Sector can have one or more Side Objectives. 
+	<br/>You will need to perform reconmainssance to determine what Side Objectives are to be completed in the Sector.	
 	<br/>
 	<br/>TRANSPORTING VEHICLES VIA AIR
 	<br/>

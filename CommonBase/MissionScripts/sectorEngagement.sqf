@@ -467,10 +467,10 @@ _redforSquadCount = ceil(2 * _playerCount / (count redfor_squad_deploymentData))
 _redforVehicleCount = ceil(_playerCount / (count redfor_squad_deploymentData));
 _redforVehicleLevels = [redfor_vehicle_level_1_deploymentData];
 	
-_priorityObjectiveList = ["mortars"];
-_genericObjectiveList = ["aa", "av", "supply", "hq", "comms", "officer", "commandos", "snipers"];
+_priorityObjectiveList = [];
+_genericObjectiveList = ["mortars", "supply", "hq", "comms", "officer", "commandos", "snipers"];
 _playerCountForObjective = (_playerCount) min 90;
-_activeObjectiveCount = floor(random(ceil(_playerCountForObjective / 10)+1));
+_activeObjectiveCount = floor(random(ceil(_playerCountForObjective / 10))) + 1;
 
 _redforDeployedVehicleLevels = [redfor_vehicle_level_1_deploymentData];
 
@@ -568,20 +568,9 @@ while {_activeObjectiveCount > 0} do
 {
 	if (count _priorityObjectiveList > 0) then
 	{
-		_objectiveList = [];
+		_randomIndex = floor(random (count _priorityObjectiveList));	
 	
-		if (count _genericObjectiveList > 0) then
-		{
-			_objectiveList = selectRandom [_priorityObjectiveList, _genericObjectiveList];
-		}
-		else
-		{
-			_objectiveList = _priorityObjectiveList;
-		};		
-		
-		_randomIndex = floor(random (count _objectiveList));	
-	
-		switch(_objectiveList select _randomIndex) do
+		switch(_priorityObjectiveList select _randomIndex) do
 		{
 			case "aa" : {_aaActive = true};
 			case "av" : {_avActive = true};
@@ -594,7 +583,7 @@ while {_activeObjectiveCount > 0} do
 			case "snipers" : {_snipersActive = true};
 		};
 		
-		_objectiveList deleteAt _randomIndex;
+		_priorityObjectiveList deleteAt _randomIndex;
 		
 		_activeObjectiveCount = _activeObjectiveCount - 1;
 	}
