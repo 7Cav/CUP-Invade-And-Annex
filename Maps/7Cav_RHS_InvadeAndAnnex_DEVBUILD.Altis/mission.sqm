@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={23757.479,29.602142,18187.164};
-		dir[]={-0.54995942,-0.47360772,0.68792963};
-		up[]={-0.295735,0.88073403,0.36992723};
-		aside[]={0.78108305,5.1746611e-008,0.62442935};
+		pos[]={23765.869,28.096691,18195.727};
+		dir[]={-0.32069018,-0.42860633,0.84466243};
+		up[]={-0.15213189,0.90349132,0.40069857};
+		aside[]={0.93488711,-1.4901161e-008,0.35494548};
 	};
 };
 binarizationWanted=0;
@@ -21604,6 +21604,7 @@ class Mission
 					flags=7;
 					class Attributes
 					{
+						name="redfor_officer";
 						class Inventory
 						{
 							class primaryWeapon
@@ -21678,6 +21679,48 @@ class Mission
 					};
 					id=1977;
 					type="O_G_officer_F";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03GRE";
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1;
+								};
+							};
+						};
+						nAttributes=2;
+					};
 				};
 			};
 			class Attributes
