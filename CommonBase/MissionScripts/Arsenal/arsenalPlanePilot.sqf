@@ -48,7 +48,7 @@ private _headgear = [
 private _uniforms = [ //Needs heli uniforms cleaned out
     //Vanilla
     "U_B_HeliPilotCoveralls",
-    "U_B_PilotCoveralls",
+    "U_B_PilotCoveralls",    
     //FIR
     "FIR_CWU45",
     "FIR_Fighter_Pilot_JASDF_Nomex",
