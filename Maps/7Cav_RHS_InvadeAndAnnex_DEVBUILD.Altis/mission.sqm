@@ -28011,7 +28011,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""GUNSLINGER-1""];}";
-						description="Heavy Mechanized Squad Leader (Gunslinger-1)@GUNSLINGER-1";
+						description="Squad Leader@GUNSLINGER-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -28829,7 +28829,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""GUNSLINGER-2""];}";
-						description="Light Mechanized Squad Leader (Gunslinger-2)@GUNSLINGER-2";
+						description="Squad Leader@GUNSLINGER-2";
 						isPlayable=1;
 						class Inventory
 						{
@@ -29826,7 +29826,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""GUNSLINGER-3""];}";
-						description="Heavy Motorized Squad Leader (Gunslinger-3)@GUNSLINGER-3";
+						description="Squad Leader@GUNSLINGER-3";
 						isPlayable=1;
 						class Inventory
 						{
@@ -30647,7 +30647,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""GUNSLINGER-4""];}";
-						description="Light Motorized Squad Leader (Gunslinger-4)@GUNSLINGER-4";
+						description="Squad Leader@GUNSLINGER-4";
 						isPlayable=1;
 						class Inventory
 						{
@@ -31474,7 +31474,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""ATLAS-1""];}";
-						description="Medical Team Leader (Atlas-1)@ATLAS-1";
+						description="Medical Team Leader@ATLAS-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -31849,8 +31849,8 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="call{this setGroupId [""SABER-1""];}";
-						description="Tank Commander (Saber-1)@SABER-1";
+						init="call{this setGroupId [""Sabre-1""];}";
+						description="Tank Commander@Sabre-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -32572,8 +32572,8 @@ class Mission
 					class Attributes
 					{
 						rank="LIEUTENANT";
-						init="call{this setGroupId [""SABER=2""];}";
-						description="Tank Commander (Saber-2)@SABER-2";
+						init="call{this setGroupId [""Sabre=2""];}";
+						description="Tank Commander@Sabre-2";
 						isPlayable=1;
 						class Inventory
 						{
@@ -33218,8 +33218,8 @@ class Mission
 					class Attributes
 					{
 						rank="SERGEANT";
-						init="call{this setGroupId [""SUPPLIER-1""];}";
-						description="Logistics Team Leader (Supplier-1)@SUPPLIER-1";
+						init="call{this setGroupId [""ATLAS-4""];}";
+						description="Logistics Team Leader@ATLAS-4";
 						isPlayable=1;
 						class Inventory
 						{
@@ -33412,7 +33412,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""BUFFALO-1""];}";
-						description="Transport Rotary Wing Pilot (Buffalo-1)@BUFFALO-1";
+						description="Transport Rotary Wing Pilot@BUFFALO-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -33787,7 +33787,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""BUFFALO-2""];}";
-						description="Transport Rotary Wing Pilot (Buffalo-2)@BUFFALO-2";
+						description="Transport Rotary Wing Pilot@BUFFALO-2";
 						isPlayable=1;
 						class Inventory
 						{
@@ -34159,7 +34159,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""TITAN-1""];}";
-						description="Transport Fixed Wing Pilot (Titan-1)@TITAN-1";
+						description="Transport Fixed Wing Pilot@TITAN-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -34353,7 +34353,7 @@ class Mission
 					{
 						rank="SERGEANT";
 						init="call{this setGroupId [""RAIDER-1""];}";
-						description="Attack Rotary Wing Pilot (Raider-1)@RAIDER-1";
+						description="Attack Rotary Wing Pilot@RAIDER-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -34546,7 +34546,7 @@ class Mission
 					class Attributes
 					{
 						init="call{this setGroupId [""HOG-1""];}";
-						description="Attack Fixed Wing Pilot (Hog-1)@HOG-1";
+						description="Attack Fixed Wing Pilot@HOG-1";
 						isPlayable=1;
 						class Inventory
 						{
@@ -34649,7 +34649,7 @@ class Mission
 					class Attributes
 					{
 						init="call{this setGroupId [""LONGSHOT-1""];}";
-						description="Sniper (Longshot-1)@LONGSHOT-1";
+						description="Sniper@LONGSHOT-1";
 						isPlayable=1;
 						class Inventory
 						{
