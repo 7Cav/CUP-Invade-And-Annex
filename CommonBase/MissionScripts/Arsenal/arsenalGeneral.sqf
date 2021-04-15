@@ -36,7 +36,7 @@ private _primaryWeapons = [
     "arifle_MSBS65_UBS_F",
     "arifle_MSBS65_UBS_black_F",
     "arifle_MSBS65_UBS_camo_F",
-    "arifle_MSBS65_UBS_sand_F",    
+    "arifle_MSBS65_UBS_sand_F",
     //RHS AFRF
     "rhs_weap_ak103_1_npz",
     "rhs_weap_ak103_2_npz",
@@ -123,7 +123,7 @@ private _primaryWeapons = [
     "rhsusf_weap_MP7A2_winter",
     "rhs_weap_SCARH_USA_CQC",
     "rhs_weap_SCARH_USA_LB",
-    "rhs_weap_SCARH_USA_STD"    
+    "rhs_weap_SCARH_USA_STD"
 ];
 
 private _secondaryWeapons = [
@@ -136,7 +136,7 @@ private _secondaryWeapons = [
     "hgun_P07_khk_F",
     "hgun_Pistol_heavy_01_green_F",
     //Ace
-    "ACE_Flashlight_Maglite_ML300L",    
+    "ACE_Flashlight_Maglite_ML300L",
     //RHS AFRF
     "rhs_weap_rsp30_white",
     "rhs_weap_rsp30_green",
@@ -197,7 +197,7 @@ private _headgear = [
     "H_HelmetHBK_F",
     "H_HelmetB_plain_wdl",
     "H_HelmetSpecB_wdl",
-    "H_HelmetB_light_wdl",    
+    "H_HelmetB_light_wdl",
     //RHS USAF
     "rhsusf_ach_bare",
     "rhsusf_ach_bare_des",
@@ -348,7 +348,7 @@ private _headgear = [
     "rhsusf_protech_helmet_rhino",
     "rhsusf_protech_helmet_rhino_ess",
     "rhs_8point_marpatd",
-    "rhs_8point_marpatwd"    
+    "rhs_8point_marpatwd"
 ];
 
 private _uniforms = [
@@ -382,7 +382,7 @@ private _uniforms = [
     "U_B_CBRN_Suit_01_Wdl_F",
     "U_B_CombatUniform_mcam_wdl_f",
     "U_B_CombatUniform_tshirt_mcam_wdL_f",
-    "U_B_CombatUniform_vest_mcam_wdl_f",    
+    "U_B_CombatUniform_vest_mcam_wdl_f",
     //RHS USAF
     "rhs_uniform_abu",
     "rhs_uniform_acu_ocp",
@@ -408,7 +408,7 @@ private _uniforms = [
     "rhs_uniform_g3_m81",
     "rhs_uniform_g3_mc",
     "rhs_uniform_g3_rgr",
-    "rhs_uniform_g3_tan"    
+    "rhs_uniform_g3_tan"
 ];
 
 private _vests = [
@@ -470,7 +470,7 @@ private _vests = [
     "V_CarrierRigKBT_01_Olive_F",
     "V_LegStrapBag_black_F",
     "V_LegStrapBag_coyote_F",
-    "V_LegStrapBag_olive_F",    
+    "V_LegStrapBag_olive_F",
     //RHS USAF
     "rhsusf_iotv_ocp_Grenadier",
     "rhsusf_iotv_ucp_Grenadier",
@@ -538,7 +538,7 @@ private _vests = [
     "rhsusf_spcs_ucp_teamleader_alt",
     "rhsusf_spcs_ocp_teamleader",
     "rhsusf_spcs_ucp_teamleader",
-    "rhsusf_spcs_ucp"    
+    "rhsusf_spcs_ucp"
 ];
 
 private _backpacks = [
@@ -618,7 +618,7 @@ private _backpacks = [
     "rhsusf_falconii_coy",
     "rhsusf_falconii_mc",
     "rhsusf_falconii",
-    "rhsusf_eject_Parachute_backpack"    
+    "rhsusf_eject_Parachute_backpack"
 ];
 
 private _facewear = [
@@ -651,7 +651,7 @@ private _facewear = [
     "G_Balaclava_TI_G_blk_F",
     "G_Balaclava_TI_tna_F",
     "G_Balaclava_TI_G_tna_F",
-    "G_AirPurifyingRespirator_01_F",    
+    "G_AirPurifyingRespirator_01_F",
     //RHS USAF
     "rhs_googles_black",
     "rhs_googles_clear",
@@ -676,7 +676,7 @@ private _facewear = [
     "rhsusf_shemagh2_gogg_white",
     "rhsusf_oakley_goggles_blk",
     "rhsusf_oakley_goggles_clr",
-    "rhsusf_oakley_goggles_ylw"    
+    "rhsusf_oakley_goggles_ylw"
 ];
 
 private _NVGs = [
@@ -724,10 +724,13 @@ private _terminals = [ //Added misc - compass, watch, map, etc
     "ItemCompass",
     "ItemWatch",
     //Ace
-    "ACE_Altimeter"    
+    "ACE_Altimeter",
+    //cTab
+    "ItemAndroid",
+    "ItemcTab"
     //RHS AFRF
     //RHS GREF
-    //RHS USAF    
+    //RHS USAF
 ];
 
 private _sights = [
@@ -774,7 +777,7 @@ private _sights = [
     "ACE_optic_Hamr_2D",
     "ACE_optic_SOS_2D",
     "ACE_optic_SOS_PIP",
-    "ACE_optic_Hamr_PIP",    
+    "ACE_optic_Hamr_PIP",
     //RHS USAF
     "rhsusf_acc_anpas13gv1",
     "rhsusf_acc_ACOG2_USMC",
@@ -878,7 +881,7 @@ private _muzzleAttachments = [
     "ACE_muzzle_mzls_smg_01",
     "ACE_muzzle_mzls_L",
     "ACE_muzzle_mzls_H",
-    "ACE_muzzle_mzls_smg_02",    
+    "ACE_muzzle_mzls_smg_02",
     //RHS AFRF
     "rhs_acc_6p9_suppressor",
     "rhs_acc_uuk",
@@ -921,7 +924,7 @@ private _bipods = [
     "bipod_01_F_khk",
     "bipod_01_F_blk",
     "bipod_01_F_mtp",
-    "bipod_01_F_snd",    
+    "bipod_01_F_snd",
     //RHS USAF
     "rhsusf_acc_grip2",
     "rhsusf_acc_grip2_tan",
@@ -987,7 +990,7 @@ private _magazines = [
     "ACE_30Rnd_65x39_caseless_green_mag_Tracer_Dim",
     "ACE_30Rnd_65_Creedmor_mag",
     "ACE_16Rnd_9x19_mag",
-    "acex_intelitems_notepad",    
+    "acex_intelitems_notepad",
     //RHS AFRF
     "rhs_20rnd_9x39mm_SP6",
     "rhs_30Rnd_762x39mm_polymer_89",
@@ -1058,7 +1061,7 @@ private _magazines = [
     "rhsusf_5Rnd_Slug",
     "rhsusf_mag_7x45acp_MHP",
     "rhsusf_8Rnd_00Buck",
-    "rhsusf_8Rnd_Slug"    
+    "rhsusf_8Rnd_Slug"
 ];
 
 private _grenades = [
