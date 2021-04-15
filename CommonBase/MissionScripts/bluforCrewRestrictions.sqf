@@ -137,15 +137,26 @@ if (((typeOf _unit) in blufor_vehicle_transportRotaryWing_classes)
 	or ((typeOf _unit) in blufor_vehicle_vehicleTransportRotaryWing_classes))then
 {
 	_unit addEventHandler ["GetIn",
-	{			
+	{
 		_unit = _this select 2;
 		_seat = _this select 1;
-		_veh = _this select 0;			
+		_veh = _this select 0;
 
-		if (((roleDescription _unit) find "Transport Rotary Wing" == -1) and (_seat != "Cargo")) then
+		if (((roleDescription _unit) find "Transport Rotary Wing" == -1) and (_seat == "Driver")) then
 		{
 			_unit action ["getout", _veh];	
-		};			
+		};		
+
+		if ((roleDescription _unit) find "Transport Rotary Wing" == -1) then
+		{
+			if ((assignedVehicleRole _unit) select 0 == "turret") then
+			{
+				if (((assignedVehicleRole _unit) select 1) select 0 == 0) then
+				{
+					_unit action ["getout", _veh];	
+				};
+			};
+		};
 	}];	
 	_unit addEventHandler ["SeatSwitched",
 	{		
@@ -155,11 +166,11 @@ if (((typeOf _unit) in blufor_vehicle_transportRotaryWing_classes)
 		
 		if ((roleDescription _seat1) find "Transport Rotary Wing" == -1) then
 		{
-			if (assignedVehicleRole _seat1 select 0 != "Cargo") then
+			if (assignedVehicleRole _seat1 select 0 == "Driver") then
 			{
 				_seat1 action ["getout",_veh];
 			};
-			if (assignedVehicleRole _seat2 select 0 != "Cargo") then
+			if (assignedVehicleRole _seat2 select 0 == "Driver") then
 			{
 				_seat2 action ["getout",_veh];
 			};
