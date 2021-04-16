@@ -104,75 +104,84 @@ addMissionEventHandler ["Draw3D",
 						, "ARSENALS"];
 			};	
 			
-			if (getMarkerPos "HUD_rotaryWingPool" select 0 != 0) then
+			if ((typeOf player) in ["B_Helipilot_F", "B_helicrew_F"]) then
 			{
-				if (((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") <= _maxDistance)) then
+				if (getMarkerPos "HUD_rotaryWingPool" select 0 != 0) then
 				{
-					drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\heli_ca.paa"
-								, [1,1,1,1]
-								, [getMarkerPos "HUD_rotaryWingPool" select 0, getMarkerPos "HUD_rotaryWingPool" select 1, (getMarkerPos "HUD_rotaryWingPool" select 2) + 2]
-								, 1
-								, 1
-								, 0
-								, "ROTARY WING POOL"];
+					if (((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") <= _maxDistance)) then
+					{
+						drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\heli_ca.paa"
+									, [1,1,1,1]
+									, [getMarkerPos "HUD_rotaryWingPool" select 0, getMarkerPos "HUD_rotaryWingPool" select 1, (getMarkerPos "HUD_rotaryWingPool" select 2) + 2]
+									, 1
+									, 1
+									, 0
+									, "ROTARY WING POOL"];
+					};
+				};
+			};
+						
+			if ((typeOf player) in ["B_Pilot_F"]) then
+			{
+				if (getMarkerPos "HUD_fixedWingCombatPool" select 0 != 0) then
+				{
+					if (((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") <= _maxDistance)) then
+					{
+						drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
+									, [1,1,1,1]
+									, [getMarkerPos "HUD_fixedWingCombatPool" select 0, getMarkerPos "HUD_fixedWingCombatPool" select 1, (getMarkerPos "HUD_fixedWingCombatPool" select 2) + 2]
+									, 1
+									, 1
+									, 0
+									, "COMBAT FIXED WING POOL"];		
+					};
+				};
+				
+				if (getMarkerPos "HUD_fixedWingTransportPool" select 0 != 0) then
+				{
+					if (((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") <= _maxDistance)) then
+					{
+						drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
+									, [1,1,1,1]
+									, [getMarkerPos "HUD_fixedWingTransportPool" select 0, getMarkerPos "HUD_fixedWingTransportPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
+									, 1
+									, 1
+									, 0
+									, "TRANSPORT FIXED WING POOL"];		
+					};
 				};
 			};
 			
-			if (getMarkerPos "HUD_fixedWingCombatPool" select 0 != 0) then
+			if (!((typeOf player) in ["B_Helipilot_F", "B_helicrew_F", "B_Pilot_F"])) then
 			{
-				if (((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") <= _maxDistance)) then
+				if (getMarkerPos "HUD_groundVehiclePool" select 0 != 0) then
 				{
-					drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
-								, [1,1,1,1]
-								, [getMarkerPos "HUD_fixedWingCombatPool" select 0, getMarkerPos "HUD_fixedWingCombatPool" select 1, (getMarkerPos "HUD_fixedWingCombatPool" select 2) + 2]
-								, 1
-								, 1
-								, 0
-								, "COMBAT FIXED WING POOL"];		
+					if (((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") <= _maxDistance)) then
+					{
+						drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\truck_ca.paa"
+									, [1,1,1,1]
+									, [getMarkerPos "HUD_groundVehiclePool" select 0, getMarkerPos "HUD_groundVehiclePool" select 1, (getMarkerPos "HUD_groundVehiclePool" select 2) + 2]
+									, 1
+									, 1
+									, 0
+									, "GROUND VEHICLE POOL"];				
+					};
 				};
-			};
-			
-			if (getMarkerPos "HUD_fixedWingTransportPool" select 0 != 0) then
-			{
-				if (((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") <= _maxDistance)) then
+				
+				if (getMarkerPos "HUD_boatPool" select 0 != 0) then
 				{
-					drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
-								, [1,1,1,1]
-								, [getMarkerPos "HUD_fixedWingTransportPool" select 0, getMarkerPos "HUD_fixedWingTransportPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
-								, 1
-								, 1
-								, 0
-								, "TRANSPORT FIXED WING POOL"];		
+					if (((getPos player) distance (getMarkerPos "HUD_boatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_boatPool") <= _maxDistance)) then
+					{
+						drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\boat_ca.paa"
+									, [1,1,1,1]
+									, [getMarkerPos "HUD_boatPool" select 0, getMarkerPos "HUD_boatPool" select 1, (getMarkerPos "HUD_boatPool" select 2) + 2]
+									, 1
+									, 1
+									, 0
+									, "BOAT POOL"];				
+					};
 				};
-			};
-			
-			if (getMarkerPos "HUD_groundVehiclePool" select 0 != 0) then
-			{
-				if (((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") <= _maxDistance)) then
-				{
-					drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\truck_ca.paa"
-								, [1,1,1,1]
-								, [getMarkerPos "HUD_groundVehiclePool" select 0, getMarkerPos "HUD_groundVehiclePool" select 1, (getMarkerPos "HUD_groundVehiclePool" select 2) + 2]
-								, 1
-								, 1
-								, 0
-								, "GROUND VEHICLE POOL"];				
-				};
-			};
-			
-			if (getMarkerPos "HUD_boatPool" select 0 != 0) then
-			{
-				if (((getPos player) distance (getMarkerPos "HUD_boatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_boatPool") <= _maxDistance)) then
-				{
-					drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\boat_ca.paa"
-								, [1,1,1,1]
-								, [getMarkerPos "HUD_boatPool" select 0, getMarkerPos "HUD_boatPool" select 1, (getMarkerPos "HUD_boatPool" select 2) + 2]
-								, 1
-								, 1
-								, 0
-								, "BOAT POOL"];				
-				};
-			};
+			};			
 		};		
 	}
 ];
