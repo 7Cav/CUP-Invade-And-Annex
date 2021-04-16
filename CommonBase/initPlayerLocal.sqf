@@ -34,7 +34,7 @@ player createDiaryRecord ["Diary",
 	<br/>SABER-1 : LR CH - 2 (Battlegroup) LR CH - 4 (Section), SR - BL5 CH 1	
 	<br/>SABER-2 : LR CH - 4 (Section), SR - BL5 CH 1	
 	<br/>		
-	<br/>SUPPLIER-1 : LR - CH 2 (Battlegroup) LR - CH 8 (Call for Resupply), SR - BL 6 CH 2
+	<br/>ATLAS-4 : LR - CH 2 (Battlegroup) LR - CH 8 (Call for Resupply), SR - BL 6 CH 2
 	<br/>
 	<br/>BUFFALO-1 : LR - CH 6 (Air), SR - BL 6 CH 3
 	<br/>BUFFALO-2 : LR - CH 6 (Air), SR - BL 6 CH 4
@@ -87,71 +87,91 @@ attendance_flag addAction["=SHOW ATTENDANCE - PAGE 10=","MissionScripts\showAtte
 
 addMissionEventHandler ["Draw3D",
 	{		
+		_minDistance = 5;
+		_maxDistance = 200;
+		
 		if (player inArea "sector_home") then
 		{
-			{			
+			if (((getPos player) distance (getMarkerPos "HUD_arsenals") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_arsenals") <= _maxDistance)) then
+			{
+				_distance = (getPos player) distance (getMarkerPos "HUD_arsenals");
 				drawIcon3D["\a3\ui_f\data\IGUI\cfg\Actions\Obsolete\ui_action_gear_ca.paa"
-							, [1,1,1,1]
-							, [getMarkerPos "HUD_arsenals" select 0, getMarkerPos "HUD_arsenals" select 1, (getMarkerPos "HUD_arsenals" select 2) + 2]
-							, 4
-							, 4
-							, 0
-							, "ARSENALS"];				
-			} forEach [arsenalBox_1, arsenalBox_2, arsenalBox_3, arsenalBox_4, arsenalBox_5, arsenalBox_6];		
+						, [1,1,1,1]
+						, [getMarkerPos "HUD_arsenals" select 0, getMarkerPos "HUD_arsenals" select 1, (getMarkerPos "HUD_arsenals" select 2) + 2]
+						, 1
+						, 1
+						, 0
+						, "ARSENALS"];
+			};	
 			
 			if (getMarkerPos "HUD_rotaryWingPool" select 0 != 0) then
 			{
-				drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\heli_ca.paa"
-							, [1,1,1,1]
-							, [getMarkerPos "HUD_rotaryWingPool" select 0, getMarkerPos "HUD_rotaryWingPool" select 1, (getMarkerPos "HUD_rotaryWingPool" select 2) + 2]
-							, 4
-							, 4
-							, 0
-							, "ROTARY WING POOL"];				
+				if (((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") <= _maxDistance)) then
+				{
+					drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\heli_ca.paa"
+								, [1,1,1,1]
+								, [getMarkerPos "HUD_rotaryWingPool" select 0, getMarkerPos "HUD_rotaryWingPool" select 1, (getMarkerPos "HUD_rotaryWingPool" select 2) + 2]
+								, 1
+								, 1
+								, 0
+								, "ROTARY WING POOL"];
+				};
 			};
 			
 			if (getMarkerPos "HUD_fixedWingCombatPool" select 0 != 0) then
 			{
-				drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
-							, [1,1,1,1]
-							, [getMarkerPos "HUD_fixedWingCombatPool" select 0, getMarkerPos "HUD_fixedWingCombatPool" select 1, (getMarkerPos "HUD_fixedWingCombatPool" select 2) + 2]
-							, 4
-							, 4
-							, 0
-							, "COMBAT FIXED WING POOL"];				
+				if (((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") <= _maxDistance)) then
+				{
+					drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
+								, [1,1,1,1]
+								, [getMarkerPos "HUD_fixedWingCombatPool" select 0, getMarkerPos "HUD_fixedWingCombatPool" select 1, (getMarkerPos "HUD_fixedWingCombatPool" select 2) + 2]
+								, 1
+								, 1
+								, 0
+								, "COMBAT FIXED WING POOL"];		
+				};
 			};
 			
 			if (getMarkerPos "HUD_fixedWingTransportPool" select 0 != 0) then
 			{
-				drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
-							, [1,1,1,1]
-							, [getMarkerPos "HUD_fixedWingTransportPool" select 0, getMarkerPos "HUD_fixedWingTransportPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
-							, 4
-							, 4
-							, 0
-							, "TRANSPORT FIXED WING POOL"];				
+				if (((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") <= _maxDistance)) then
+				{
+					drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
+								, [1,1,1,1]
+								, [getMarkerPos "HUD_fixedWingTransportPool" select 0, getMarkerPos "HUD_fixedWingTransportPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
+								, 1
+								, 1
+								, 0
+								, "TRANSPORT FIXED WING POOL"];		
+				};
 			};
 			
 			if (getMarkerPos "HUD_groundVehiclePool" select 0 != 0) then
 			{
-				drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\truck_ca.paa"
-							, [1,1,1,1]
-							, [getMarkerPos "HUD_groundVehiclePool" select 0, getMarkerPos "HUD_groundVehiclePool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
-							, 4
-							, 4
-							, 0
-							, "GROUND VEHICLE POOL"];				
+				if (((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") <= _maxDistance)) then
+				{
+					drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\truck_ca.paa"
+								, [1,1,1,1]
+								, [getMarkerPos "HUD_groundVehiclePool" select 0, getMarkerPos "HUD_groundVehiclePool" select 1, (getMarkerPos "HUD_groundVehiclePool" select 2) + 2]
+								, 1
+								, 1
+								, 0
+								, "GROUND VEHICLE POOL"];				
+				};
 			};
 			
 			if (getMarkerPos "HUD_boatPool" select 0 != 0) then
 			{
-				drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\boat_ca.paa"
-							, [1,1,1,1]
-							, [getMarkerPos "HUD_boatPool" select 0, getMarkerPos "HUD_boatPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
-							, 4
-							, 4
-							, 0
-							, "BOAT POOL"];				
+				if (((getPos player) distance (getMarkerPos "HUD_boatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_boatPool") <= _maxDistance)) then
+				{
+					drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\boat_ca.paa"
+								, [1,1,1,1]
+								, [getMarkerPos "HUD_boatPool" select 0, getMarkerPos "HUD_boatPool" select 1, (getMarkerPos "HUD_boatPool" select 2) + 2]
+								, 1
+								, 1
+								, 0
+								, "BOAT POOL"];				
+				};
 			};
 		};		
 	}
