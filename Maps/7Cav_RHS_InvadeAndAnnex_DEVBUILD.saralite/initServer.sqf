@@ -65,12 +65,9 @@ redfor_vehicleLevelScaling = true;
 VehicleExchangeRequested = false;
 VehicleExchangeData = [];
 
-_collectSectorsHandle = [] execVM "MissionScripts\collectSectors.sqf";
-waitUntil {scriptDone _collectSectorsHandle};
-_collectBluforHandle = [] execVM "MissionScripts\collectBlufor.sqf";
-waitUntil {scriptDone _collectBluforHandle};
-_collectRedforHandle = [] execVM "MissionScripts\collectRedfor.sqf";
-waitUntil {scriptDone _collectRedforHandle};
+[] call compile preprocessFileLineNumbers "MissionScripts\collectSectors.sqf";
+[] call compile preprocessFileLineNumbers "MissionScripts\collectBlufor.sqf";
+[] call compile preprocessFileLineNumbers "MissionScripts\collectRedfor.sqf";
 
 [] execVM "MissionScripts\cleanup.sqf";
 [] execVM "MissionScripts\cleanupACE.sqf";
