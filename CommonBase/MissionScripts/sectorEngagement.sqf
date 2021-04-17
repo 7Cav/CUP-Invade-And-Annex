@@ -1388,3 +1388,5 @@ sectorSpecificCommandosPositionsList deleteAt _sectorInder;
 sectorSpecificSnipersPositionsList deleteAt _sectorInder;
 
 ["TaskSucceeded",["",format["BLUFOR SECURED %1",markerText _sector]]] remoteExec ["BIS_fnc_showNotification",0];
+
+SectorComplete = true;

@@ -79,6 +79,7 @@ while {!_missionDone} do
 	
 		["TaskAssigned",["",format["ATTACK %1",markerText _currentSector]]] remoteExec ["BIS_fnc_showNotification",0];		
 
+		SectorComplete = false;
 		_sectorIndex = sectorList find _currentSector;
 		_sectorEngagementHandle = [_currentSector		
 									, sectorRoadsList select _sectorIndex
@@ -92,7 +93,7 @@ while {!_missionDone} do
 									, sectorSpecificCommandosPositionsList select _sectorIndex
 									, sectorSpecificSnipersPositionsList select _sectorIndex] execVM "MissionScripts\sectorEngagement.sqf";
 	
-		waitUntil {scriptDone _sectorEngagementHandle};		
+		waitUntil {SectorComplete};		
 	};
 	
 	_previousSector = _currentSector;
