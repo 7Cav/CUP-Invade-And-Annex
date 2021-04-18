@@ -73,3 +73,10 @@ class CfgFunctions
 {
 	#include "CHVD\CfgFunctions.hpp"	
 };
+
+// Debug Console
+enableTargetDebug = 1;
+enableDebugConsole[] = {
+	"76561198099828056",    // Whitsel
+	"76561198149329790",	// Mazinski
+};
