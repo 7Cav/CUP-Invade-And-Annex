@@ -314,12 +314,12 @@ while {_vehicleCounter < 999} do
 		
 		if (_className in blufor_vehicle_forwardLogistics_classes) then
 		{
-			missionNamespace setVariable ["forwardLogisticsVehicle", _veh];
+			missionNamespace setVariable ["forwardLogisticsVehicle", _veh, true];
 		};
 		
 		if (_className in blufor_crate_supply_classes) then
 		{
-			missionNamespace setVariable ["forwardLogisticsBox", _veh];
+			missionNamespace setVariable ["forwardLogisticsBox", _veh, true];
 		};
 	};	
 	
