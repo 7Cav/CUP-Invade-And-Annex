@@ -13,6 +13,17 @@ params["_sector"
 _sector setMarkerAlpha 0.5;
 _sector + "_text" setMarkerAlpha 1;
 
+"objectiveTracker_main" setMarkerAlpha 0;
+"objectiveTracker_side_aa" setMarkerAlpha 0;
+"objectiveTracker_side_av" setMarkerAlpha 0;
+"objectiveTracker_side_mortars" setMarkerAlpha 0;
+"objectiveTracker_side_supply" setMarkerAlpha 0;
+"objectiveTracker_side_hq" setMarkerAlpha 0;
+"objectiveTracker_side_comms" setMarkerAlpha 0;
+"objectiveTracker_side_officer" setMarkerAlpha 0;
+"objectiveTracker_side_commandos" setMarkerAlpha 0;
+"objectiveTracker_side_snipers" setMarkerAlpha 0;
+
 fnc_deploy_infantry = {
 	params ["_sector","_squadLoadouts","_infantryList","_deploymentTypes"];
 	
@@ -612,6 +623,12 @@ while {_activeObjectiveCount > 0} do
 
 _terrainObjecTypes = ["TREE", "SMALL TREE", "BUSH", "BUILDING", "HOUSE", "FOREST BORDER", "FOREST TRIANGLE", "FOREST SQUARE", "CHURCH", "CHAPEL", "CROSS", "BUNKER", "FORTRESS", "FOUNTAIN", "VIEW-TOWER", "LIGHTHOUSE", "QUAY", "FUELSTATION", "HOSPITAL", "FENCE", "WALL", "HIDE", "BUSSTOP", "ROAD", "FOREST", "TRANSMITTER", "STACK", "RUIN", "TOURISM", "WATERTOWER", "TRACK", "MAIN ROAD", "ROCK", "ROCKS", "POWER LINES", "RAILWAY", "POWERSOLAR", "POWERWAVE", "POWERWIND", "SHIPWRECK", "TRAIL"];
 
+"objectiveTracker_main" setMarkerAlpha 1;
+"objectiveTracker_main" setMarkerColor "ColorOPFOR";
+"objectiveTracker_main" setMarkerText "DEFEAT FRONTLINE FORCES";
+
+_sideObectiveCounter = 0;
+
 if (_aaActive) then
 {
 	_deploymentTypes = [];
@@ -679,7 +696,12 @@ if (_aaActive) then
 					, redfor_vehicle_aa_deploymentData
 					, _redforAA] call fnc_deploy_vehicle_fixedPosition;
 			};		
-		};	
+		};		
+	
+		"objectiveTracker_side_aa" setMarkerAlpha 1;
+		"objectiveTracker_side_aa" setMarkerColor "ColorOPFOR";
+		"objectiveTracker_side_aa" setMarkerText "ELIMINATE ANTI-AIR SECTION";
+	
 	}
 	else
 	{
@@ -755,6 +777,10 @@ if (_avActive) then
 					, _redforAV] call fnc_deploy_vehicle_fixedPosition;
 			};
 		};
+		
+		"objectiveTracker_side_av" setMarkerAlpha 1;
+		"objectiveTracker_side_av" setMarkerColor "ColorOPFOR";
+		"objectiveTracker_side_av" setMarkerText "ELIMINATE ANTI-VEHICLE SECTION";
 	}
 	else
 	{
@@ -832,6 +858,10 @@ if (_mortarsActive) then
 					, _redforMortars] call fnc_deploy_vehicle_fixedPosition;
 			};
 		};
+		
+		"objectiveTracker_side_mortars" setMarkerAlpha 1;
+		"objectiveTracker_side_mortars" setMarkerColor "ColorOPFOR";
+		"objectiveTracker_side_mortars" setMarkerText "ELIMINATE MORTAR SECTION";
 	}
 	else
 	{
@@ -911,6 +941,10 @@ if (_supplyActive) then
 					, _redforSupplyDepot] call fnc_deploy_vehicle_fixedPosition;
 			};
 		};
+		
+		"objectiveTracker_side_supply" setMarkerAlpha 1;
+		"objectiveTracker_side_supply" setMarkerColor "ColorOPFOR";
+		"objectiveTracker_side_supply" setMarkerText "DESTROY SUPPLY DEPOT";
 	}
 	else
 	{
@@ -989,6 +1023,10 @@ if (_hqActive) then
 					, _redforHQTents] call fnc_deploy_vehicle_fixedPosition;
 			};
 		};
+		
+		"objectiveTracker_side_hq" setMarkerAlpha 1;
+		"objectiveTracker_side_hq" setMarkerColor "ColorOPFOR";
+		"objectiveTracker_side_hq" setMarkerText "DESTROY HEADQUARTERS";
 	}
 	else
 	{
@@ -1066,6 +1104,10 @@ if (_commTowersActive) then
 					, _redforCommTowers] call fnc_deploy_vehicle_fixedPosition;
 			};
 		};
+		
+		"objectiveTracker_side_comms" setMarkerAlpha 1;
+		"objectiveTracker_side_comms" setMarkerColor "ColorOPFOR";
+		"objectiveTracker_side_comms" setMarkerText "DESTROY COMM TOWERS";
 	}
 	else
 	{		
@@ -1088,6 +1130,10 @@ allBuildings = ((getMarkerPos _sector) nearObjects ["Building", (markerSize _sec
 if (_officerActive) then
 {
 	[_sector, redfor_squad_deploymentData, redfor_officer_deploymentData, _redforOfficer] call fnc_deploy_officerAndRetinue;
+	
+	"objectiveTracker_side_officer" setMarkerAlpha 1;
+	"objectiveTracker_side_officer" setMarkerColor "ColorOPFOR";
+	"objectiveTracker_side_officer" setMarkerText "NEUTRALIZE OFFICER";
 };
 
 if (_commandosActive) then
@@ -1125,6 +1171,10 @@ if (_commandosActive) then
 			}];
 		} forEach _redforCommandos;
 	};	
+	
+	"objectiveTracker_side_commandos" setMarkerAlpha 1;
+	"objectiveTracker_side_commandos" setMarkerColor "ColorOPFOR";
+	"objectiveTracker_side_commandos" setMarkerText "NEUTRALIZE COMMANDO TEAM";
 };
 
 if (_snipersActive) then
@@ -1162,6 +1212,10 @@ if (_snipersActive) then
 			}];
 		} forEach _redforSnipers;
 	};	
+	
+	"objectiveTracker_side_snipers" setMarkerAlpha 1;
+	"objectiveTracker_side_snipers" setMarkerColor "ColorOPFOR";
+	"objectiveTracker_side_snipers" setMarkerText "NEUTRALIZE SNIPER TEAM";
 };
 
 for "_i" from 1 to _redforVehicleCount do
@@ -1276,6 +1330,8 @@ while {true} do
 	{
 		["TaskUpdated",["","FRONTLINE FORCES DEFEATED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_frontlineForcesDefeatedMessage = true;
+		"objectiveTracker_main" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_main" setMarkerText "FRONTLINE FORCES DEFEATED";
 		sleep 2;
 	};	
 	
@@ -1283,13 +1339,17 @@ while {true} do
 	{
 		["TaskUpdated",["","ANTI-AIR SECTION ELIMINATED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_aaDefeatedMessage = true;
+		"objectiveTracker_side_aa" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_aa" setMarkerText "ANTI-AIR SECTION ELIMINATED";
 		sleep 2;
 	};	
 	
 	if (_avDefeated and !_avDefeatedMessage) then
 	{
-		["TaskUpdated",["","ANTI VEHICLE SECTION ELIMINATED"]] remoteExec ["BIS_fnc_showNotification",0];
+		["TaskUpdated",["","ANTI-VEHICLE SECTION ELIMINATED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_avDefeatedMessage = true;
+		"objectiveTracker_side_av" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_av" setMarkerText "ANTI-VEHICLE SECTION ELIMINATED";
 		sleep 2;
 	};	
 	
@@ -1297,6 +1357,8 @@ while {true} do
 	{
 		["TaskUpdated",["","MORTAR SECTION ELIMINATED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_mortarsDefeatedMessage = true;
+		"objectiveTracker_side_mortars" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_mortars" setMarkerText "MORTAR SECTION ELIMINATED";
 		sleep 2;
 	};	
 	
@@ -1304,6 +1366,8 @@ while {true} do
 	{
 		["TaskUpdated",["","SUPPLY DEPOT DESTROYED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_supplyDepotDefeatedMessage = true;
+		"objectiveTracker_side_supply" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_supply" setMarkerText "SUPPLY DEPOT DESTROYED";
 		sleep 2;
 	};	
 	
@@ -1311,6 +1375,8 @@ while {true} do
 	{
 		["TaskUpdated",["","HEADQUARTERS DESTROYED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_hqDefeatedMessage = true;
+		"objectiveTracker_side_hq" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_hq" setMarkerText "HEADQUARTERS DESTROYED";
 		sleep 2;
 	};	
 	
@@ -1318,6 +1384,8 @@ while {true} do
 	{
 		["TaskUpdated",["","COMM TOWERS DESTROYED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_commTowersDefeatedMessage = true;
+		"objectiveTracker_side_comms" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_comms" setMarkerText "COMM TOWERS DESTROYED";
 		sleep 2;
 	};
 	
@@ -1325,6 +1393,8 @@ while {true} do
 	{
 		["TaskUpdated",["","OFFICER NEUTRALIZED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_officerDefeatedMessage = true;
+		"objectiveTracker_side_officer" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_officer" setMarkerText "OFFICER NEUTRALIZED";
 		sleep 2;
 	};
 	
@@ -1332,6 +1402,8 @@ while {true} do
 	{
 		["TaskUpdated",["","COMMANDO TEAM NEUTRALIZED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_commandosDefeatedMessage = true;
+		"objectiveTracker_side_commandos" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_commandos" setMarkerText "COMMANDO TEAM NEUTRALIZED";
 		sleep 2;
 	};
 	
@@ -1339,6 +1411,8 @@ while {true} do
 	{
 		["TaskUpdated",["","SNIPER TEAM NEUTRALIZED"]] remoteExec ["BIS_fnc_showNotification",0];
 		_snipersDefeatedMessage = true;
+		"objectiveTracker_side_snipers" setMarkerColor "ColorBLUFOR";
+		"objectiveTracker_side_snipers" setMarkerText "SNIPER TEAM NEUTRALIZED";
 		sleep 2;
 	};
 	
@@ -1386,6 +1460,17 @@ sectorSpecificHQPositionsList deleteAt _sectorInder;
 sectorSpecificCommsPositionsList deleteAt _sectorInder;
 sectorSpecificCommandosPositionsList deleteAt _sectorInder;
 sectorSpecificSnipersPositionsList deleteAt _sectorInder;
+
+"objectiveTracker_main" setMarkerAlpha 0;
+"objectiveTracker_side_aa" setMarkerAlpha 0;
+"objectiveTracker_side_av" setMarkerAlpha 0;
+"objectiveTracker_side_mortars" setMarkerAlpha 0;
+"objectiveTracker_side_supply" setMarkerAlpha 0;
+"objectiveTracker_side_hq" setMarkerAlpha 0;
+"objectiveTracker_side_comms" setMarkerAlpha 0;
+"objectiveTracker_side_officer" setMarkerAlpha 0;
+"objectiveTracker_side_commandos" setMarkerAlpha 0;
+"objectiveTracker_side_snipers" setMarkerAlpha 0;
 
 ["TaskSucceeded",["",format["BLUFOR SECURED %1",markerText _sector]]] remoteExec ["BIS_fnc_showNotification",0];
 

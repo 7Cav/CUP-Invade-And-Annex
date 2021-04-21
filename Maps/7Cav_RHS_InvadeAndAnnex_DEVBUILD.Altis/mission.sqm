@@ -8,18 +8,18 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=2234;
+		nextID=2250;
 	};
 	class MarkerIDProvider
 	{
-		nextID=9;
+		nextID=15;
 	};
 	class Camera
 	{
-		pos[]={23286.066,46.757462,18629.885};
-		dir[]={0.84818369,-0.41832393,0.32504797};
-		up[]={0.39063853,0.90829456,0.14970356};
-		aside[]={0.35786366,5.0204108e-008,-0.93381339};
+		pos[]={15261.178,42.91,16670.912};
+		dir[]={0.076558344,-0.60642135,0.7914499};
+		up[]={0.058387689,0.79514277,0.6036042};
+		aside[]={0.99535435,1.0186341e-008,-0.096282318};
 	};
 };
 binarizationWanted=0;
@@ -61,7 +61,6 @@ addons[]=
 	"rhsgref_c_weapons",
 	"rhsusf_c_weapons",
 	"A3_Characters_F_Mark",
-	"rhs_sounds",
 	"rhsusf_c_Caiman",
 	"FIR_A10C_F",
 	"A3_Structures_F_Mil_Flags",
@@ -83,7 +82,7 @@ class AddonsMetaData
 {
 	class List
 	{
-		items=48;
+		items=47;
 		class Item0
 		{
 			className="A3_Ui_F";
@@ -315,97 +314,90 @@ class AddonsMetaData
 		};
 		class Item33
 		{
-			className="rhs_sounds";
-			name="AFRF Sounds";
-			author="Red Hammer Studios";
-			url="http://www.rhsmods.org/";
-		};
-		class Item34
-		{
 			className="rhsusf_c_Caiman";
 			name="Caiman MRAP";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item35
+		class Item34
 		{
 			className="FIR_A10C_F";
 			name="FIR_A10C_F";
 		};
-		class Item36
+		class Item35
 		{
 			className="A3_Supplies_F_Exp";
 			name="Arma 3 Apex - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item37
+		class Item36
 		{
 			className="ace_dragging";
 			name="ACE3 - Dragging";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item38
+		class Item37
 		{
 			className="ace_vector";
 			name="ACE3 - Vector";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item39
+		class Item38
 		{
 			className="ace_goggles";
 			name="ACE3 - Goggles";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item40
+		class Item39
 		{
 			className="rhsusf_c_troops";
 			name="RHSUSF Infantry & Equipment";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item41
+		class Item40
 		{
 			className="A3_Structures_F_Orange";
 			name="Arma 3 Orange - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item42
+		class Item41
 		{
 			className="ace_map";
 			name="ACE3 - Map";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item43
+		class Item42
 		{
 			className="FIR_AirWeaponSystem_US";
 			name="FIR_AirWeaponSystem_US";
 		};
-		class Item44
+		class Item43
 		{
 			className="A3_Static_F_Jets";
 			name="Arma 3 Jets - Turrets";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item45
+		class Item44
 		{
 			className="FIR_PilotCrewPack_US";
 			name="FIR_PilotCrewPack_US";
 		};
-		class Item46
+		class Item45
 		{
 			className="ace_parachute";
 			name="ACE3 - Parachute";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item47
+		class Item46
 		{
 			className="ace_explosives";
 			name="ACE3 - Explosives";
@@ -472,7 +464,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=975;
+		items=989;
 		class Item0
 		{
 			dataType="Marker";
@@ -17398,7 +17390,7 @@ class Mission
 			};
 			id=1928;
 			type="RHS_C130J";
-			atlOffset=9.5367432e-007;
+			atlOffset=-0.13433409;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -17439,7 +17431,7 @@ class Mission
 			};
 			id=1929;
 			type="RHS_C130J_Cargo";
-			atlOffset=9.5367432e-007;
+			atlOffset=-0.13433409;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -27172,6 +27164,7 @@ class Mission
 			};
 			id=2015;
 			type="RHS_C130J";
+			atlOffset=-0.13433456;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -35165,6 +35158,7 @@ class Mission
 			};
 			id=2233;
 			type="RHS_AH64D_wd";
+			atlOffset=-2.3841858e-007;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -35188,6 +35182,154 @@ class Mission
 				};
 				nAttributes=1;
 			};
+		};
+		class Item975
+		{
+			dataType="Marker";
+			position[]={15001.576,0,30049.029};
+			name="marker_9";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=2000;
+			b=50;
+			id=2234;
+			atlOffset=185.97;
+		};
+		class Item976
+		{
+			dataType="Marker";
+			position[]={12948.826,0,26999.525};
+			name="marker_10";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=50;
+			b=3000;
+			id=2235;
+			atlOffset=185.97;
+		};
+		class Item977
+		{
+			dataType="Marker";
+			position[]={17049.342,0,26999.639};
+			name="marker_11";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=50;
+			b=3000;
+			id=2236;
+			atlOffset=185.97;
+		};
+		class Item978
+		{
+			dataType="Marker";
+			position[]={15000.217,0,23949.643};
+			name="marker_12";
+			markerType="RECTANGLE";
+			type="rectangle";
+			a=2000;
+			b=50;
+			id=2237;
+			atlOffset=95.9347;
+		};
+		class Item979
+		{
+			dataType="Marker";
+			position[]={13500,0,29500};
+			name="objectiveTracker_main";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2238;
+			atlOffset=185.97;
+		};
+		class Item980
+		{
+			dataType="Marker";
+			position[]={14500,0,29000};
+			name="objectiveTracker_side_aa";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2239;
+			atlOffset=185.97;
+		};
+		class Item981
+		{
+			dataType="Marker";
+			position[]={14500,0,28500};
+			name="objectiveTracker_side_av";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2240;
+			atlOffset=185.97;
+		};
+		class Item982
+		{
+			dataType="Marker";
+			position[]={14500,0,28000};
+			name="objectiveTracker_side_mortars";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2241;
+			atlOffset=185.97;
+		};
+		class Item983
+		{
+			dataType="Marker";
+			position[]={14500,0,27500};
+			name="objectiveTracker_side_supply";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2242;
+			atlOffset=185.97;
+		};
+		class Item984
+		{
+			dataType="Marker";
+			position[]={14500,0,27000};
+			name="objectiveTracker_side_hq";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2243;
+			atlOffset=185.97;
+		};
+		class Item985
+		{
+			dataType="Marker";
+			position[]={14500,0,26500};
+			name="objectiveTracker_side_comms";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2244;
+			atlOffset=185.97;
+		};
+		class Item986
+		{
+			dataType="Marker";
+			position[]={14500,0,26000};
+			name="objectiveTracker_side_officer";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2245;
+			atlOffset=185.97;
+		};
+		class Item987
+		{
+			dataType="Marker";
+			position[]={14500,1.771,25500};
+			name="objectiveTracker_side_commandos";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2246;
+			atlOffset=185.97101;
+		};
+		class Item988
+		{
+			dataType="Marker";
+			position[]={14500,1.041,25000};
+			name="objectiveTracker_side_snipers";
+			type="mil_dot";
+			colorName="ColorEAST";
+			id=2247;
+			atlOffset=185.85437;
 		};
 	};
 };
