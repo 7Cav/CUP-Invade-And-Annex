@@ -4,6 +4,8 @@ waitUntil { getPlayerUID player != "" };
 
 enableWeaponDisassembly false;
 
+titleText ["IMPORTANT! - THOROUGH COMPLETION OF SIDE OBJECTIVES IS NECESSARY \nI.E : USING DEMOLITIONS TO FULLY DESTROY MORTAR TUBES", "PLAIN", 3];
+
 player addEventHandler ["Fired", {
 	if ((getPos (_this select 0)) inArea "sector_home") then
 	{
