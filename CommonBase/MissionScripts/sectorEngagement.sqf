@@ -306,7 +306,7 @@ fnc_deploy_vehicle = {
 		];
 				
 		_grp setBehaviour "COMBAT";
-		_grp setCombatMode "RED";
+		_grp setCombatMode "YELLOW";
 		
 		_vehicleList pushBack _veh;
 	};	
