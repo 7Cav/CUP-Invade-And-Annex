@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={15261.178,42.91,16670.912};
-		dir[]={0.076558344,-0.60642135,0.7914499};
-		up[]={0.058387689,0.79514277,0.6036042};
-		aside[]={0.99535435,1.0186341e-008,-0.096282318};
+		pos[]={23284.838,45.830299,18401.357};
+		dir[]={0.47888893,-0.46144098,0.74682206};
+		up[]={0.2490828,0.88717157,0.38844234};
+		aside[]={0.84180033,-7.4738637e-008,-0.53979343};
 	};
 };
 binarizationWanted=0;
@@ -35186,11 +35186,11 @@ class Mission
 		class Item975
 		{
 			dataType="Marker";
-			position[]={15001.576,0,30049.029};
+			position[]={14500.141,0,30049.982};
 			name="marker_9";
 			markerType="RECTANGLE";
 			type="rectangle";
-			a=2000;
+			a=500;
 			b=50;
 			id=2234;
 			atlOffset=185.97;
@@ -35198,43 +35198,43 @@ class Mission
 		class Item976
 		{
 			dataType="Marker";
-			position[]={12948.826,0,26999.525};
+			position[]={13950.291,0,29399.723};
 			name="marker_10";
 			markerType="RECTANGLE";
 			type="rectangle";
 			a=50;
-			b=3000;
+			b=600;
 			id=2235;
 			atlOffset=185.97;
 		};
 		class Item977
 		{
 			dataType="Marker";
-			position[]={17049.342,0,26999.639};
+			position[]={15050.237,0,29400.453};
 			name="marker_11";
 			markerType="RECTANGLE";
 			type="rectangle";
 			a=50;
-			b=3000;
+			b=600;
 			id=2236;
 			atlOffset=185.97;
 		};
 		class Item978
 		{
 			dataType="Marker";
-			position[]={15000.217,0,23949.643};
+			position[]={14500.771,0,28750.027};
 			name="marker_12";
 			markerType="RECTANGLE";
 			type="rectangle";
-			a=2000;
+			a=500;
 			b=50;
 			id=2237;
-			atlOffset=95.9347;
+			atlOffset=185.97;
 		};
 		class Item979
 		{
 			dataType="Marker";
-			position[]={13500,0,29500};
+			position[]={14100.146,0,29901.203};
 			name="objectiveTracker_main";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35244,7 +35244,7 @@ class Mission
 		class Item980
 		{
 			dataType="Marker";
-			position[]={14500,0,29000};
+			position[]={14199.966,0,29800.006};
 			name="objectiveTracker_side_aa";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35254,7 +35254,7 @@ class Mission
 		class Item981
 		{
 			dataType="Marker";
-			position[]={14500,0,28500};
+			position[]={14200.011,0,29700.049};
 			name="objectiveTracker_side_av";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35264,7 +35264,7 @@ class Mission
 		class Item982
 		{
 			dataType="Marker";
-			position[]={14500,0,28000};
+			position[]={14200.495,0,29600.621};
 			name="objectiveTracker_side_mortars";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35274,7 +35274,7 @@ class Mission
 		class Item983
 		{
 			dataType="Marker";
-			position[]={14500,0,27500};
+			position[]={14199.778,0,29500.162};
 			name="objectiveTracker_side_supply";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35284,7 +35284,7 @@ class Mission
 		class Item984
 		{
 			dataType="Marker";
-			position[]={14500,0,27000};
+			position[]={14199.578,0,29399.865};
 			name="objectiveTracker_side_hq";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35294,7 +35294,7 @@ class Mission
 		class Item985
 		{
 			dataType="Marker";
-			position[]={14500,0,26500};
+			position[]={14199.573,0,29300.594};
 			name="objectiveTracker_side_comms";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35304,7 +35304,7 @@ class Mission
 		class Item986
 		{
 			dataType="Marker";
-			position[]={14500,0,26000};
+			position[]={14201.437,0,29200.102};
 			name="objectiveTracker_side_officer";
 			type="mil_dot";
 			colorName="ColorEAST";
@@ -35314,22 +35314,22 @@ class Mission
 		class Item987
 		{
 			dataType="Marker";
-			position[]={14500,1.771,25500};
+			position[]={14201.164,1.5859375,29103.775};
 			name="objectiveTracker_side_commandos";
 			type="mil_dot";
 			colorName="ColorEAST";
 			id=2246;
-			atlOffset=185.97101;
+			atlOffset=187.55594;
 		};
 		class Item988
 		{
 			dataType="Marker";
-			position[]={14500,1.041,25000};
+			position[]={14198.148,1.0069225,29000.689};
 			name="objectiveTracker_side_snipers";
 			type="mil_dot";
 			colorName="ColorEAST";
 			id=2247;
-			atlOffset=185.85437;
+			atlOffset=186.97693;
 		};
 	};
 };
