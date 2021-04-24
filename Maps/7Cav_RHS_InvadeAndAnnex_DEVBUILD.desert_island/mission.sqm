@@ -16,7 +16,7 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=97;
+		nextID=103;
 	};
 	class Camera
 	{
@@ -27,7 +27,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="7Cav_RHS_InvadeAndAnnex_DEVBUILD";
+sourceName="7Cav_RHS_InvadeAndAnnex_v0_0_3b";
 addons[]=
 {
 	"A3_Structures_F_EPA_Civ_Constructions",

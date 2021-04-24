@@ -16,14 +16,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={25.075548,47.712158,40.515396};
-		dir[]={-0.013752343,-0.93045998,0.36638343};
-		up[]={-0.034900937,0.3664304,0.92979473};
-		aside[]={0.99936968,-1.0089248e-006,0.037515055};
+		pos[]={35.279911,82.084816,-100.94998};
+		dir[]={0.22379754,-0.42176089,0.87875831};
+		up[]={0.10412307,0.90664548,0.40885022};
+		aside[]={0.96914041,1.5706464e-006,-0.24681231};
 	};
 };
 binarizationWanted=0;
-sourceName="7Cav_RHS_InvadeAndAnnex_DEVBUILD";
+sourceName="7Cav_RHS_InvadeAndAnnex_v0_0_3b";
 addons[]=
 {
 	"A3_Modules_F_Curator_Curator",

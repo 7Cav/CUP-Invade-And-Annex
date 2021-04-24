@@ -23,7 +23,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="7Cav_RHS_InvadeAndAnnex_DEVBUILD";
+sourceName="7Cav_RHS_InvadeAndAnnex_v0_0_3b";
 addons[]=
 {
 	"A3_Ui_F",
@@ -10522,7 +10522,7 @@ class Mission
 			type="rectangle";
 			a=10;
 			b=10;
-			angle=223.84956;
+			angle=223.84953;
 			id=539;
 			atlOffset=3.8146973e-006;
 		};

@@ -16,14 +16,14 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2080.9294,15.620928,5704.5488};
-		dir[]={0.1038551,-0.59475756,0.797212};
-		up[]={0.07683479,0.8038888,0.58979475};
-		aside[]={0.99166226,-5.844413e-009,-0.12918764};
+		pos[]={2068.3337,48.504959,5684.6978};
+		dir[]={0.35976604,-0.69166827,0.62628609};
+		up[]={0.34453288,0.72220147,0.59976745};
+		aside[]={0.86715204,2.0073639e-007,-0.49812996};
 	};
 };
 binarizationWanted=0;
-sourceName="7Cav_RHS_InvadeAndAnnex_DEVBUILD";
+sourceName="7Cav_RHS_InvadeAndAnnex_v0_0_3b";
 addons[]=
 {
 	"A3_Ui_F",
@@ -18152,7 +18152,7 @@ class Mission
 					};
 					id=1379;
 					type="B_soldier_AR_F";
-					atlOffset=3.3378601e-006;
+					atlOffset=2.8610229e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -18423,6 +18423,7 @@ class Mission
 					};
 					id=1382;
 					type="B_Soldier_TL_F";
+					atlOffset=-4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -18692,6 +18693,7 @@ class Mission
 					};
 					id=1385;
 					type="B_Soldier_F";
+					atlOffset=-4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -18978,7 +18980,7 @@ class Mission
 					};
 					id=1370;
 					type="B_soldier_AR_F";
-					atlOffset=2.8610229e-006;
+					atlOffset=2.3841858e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -19158,7 +19160,7 @@ class Mission
 					};
 					id=1372;
 					type="B_Soldier_F";
-					atlOffset=-4.7683716e-007;
+					atlOffset=-9.5367432e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -19249,6 +19251,7 @@ class Mission
 					};
 					id=1373;
 					type="B_Soldier_TL_F";
+					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -19338,7 +19341,7 @@ class Mission
 					};
 					id=1374;
 					type="B_soldier_AR_F";
-					atlOffset=2.8610229e-006;
+					atlOffset=3.3378601e-006;
 					class CustomAttributes
 					{
 						class Attribute0
@@ -19518,6 +19521,7 @@ class Mission
 					};
 					id=1376;
 					type="B_Soldier_F";
+					atlOffset=4.7683716e-007;
 					class CustomAttributes
 					{
 						class Attribute0
