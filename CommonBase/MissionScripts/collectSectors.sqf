@@ -13,6 +13,8 @@ sectorSpecificCommsPositionsList = [];
 sectorSpecificCommandosPositionsList = [];
 sectorSpecificSnipersPositionsList = [];
 
+"halo_insert" setMarkerPos [0,0];
+
 _text_marker = createMarker ["sector_home_text", getMarkerPos "sector_home"];
 _text_marker setMarkerShape "ICON";
 _text_marker setMarkerType "mil_dot";

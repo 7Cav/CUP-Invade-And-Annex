@@ -1,6 +1,4 @@
-params["_crate"];
-
-if (!isServer) exitWith {};
+_unit  = _this select 0;
 
 _primaryWeapons = [
 	"CUP_sgun_AA12",
@@ -2247,6 +2245,7 @@ _primaryBipods = [
 _secondaryBipods = [];
 _handgunBipods = [];
 _items = [
+	"ItemRadio",
 	"FirstAidKit",
 	"Medikit",
 	"ToolKit"	
@@ -2255,31 +2254,423 @@ _demolitionsMagazines = [
 	"DemoCharge_Remote_Mag",
 	"SatchelCharge_Remote_Mag"
 ];
-_utilityItems = [
-	"ItemMap",
-	"ItemGPS",
-	"ItemRadio",
-	"ItemWatch",
-	"ItemCompass"
-];
 
-[_crate, 
-	_primaryWeapons + _secondaryWeapons + _handgunWeapons + _binoculars, 
-	true] call BIS_fnc_addVirtualWeaponCargo;
+{
+	_primaryWeapons set [_forEachIndex, toLower _x];
+} forEach _primaryWeapons;
+
+{
+	_secondaryWeapons set [_forEachIndex, toLower _x];
+} forEach _secondaryWeapons;
+
+{
+	_handgunWeapons set [_forEachIndex, toLower _x];
+} forEach _handgunWeapons;
+
+{
+	_handgunWeapons set [_forEachIndex, toLower _x];
+} forEach _handgunWeapons;
+
+{
+	_binoculars set [_forEachIndex, toLower _x];
+} forEach _binoculars;
+
+{
+	_uniforms set [_forEachIndex, toLower _x];
+} forEach _uniforms;
+
+{
+	_vests set [_forEachIndex, toLower _x];
+} forEach _vests;
+
+{
+	_backpacks set [_forEachIndex, toLower _x];
+} forEach _backpacks;
+
+{
+	_helmets set [_forEachIndex, toLower _x];
+} forEach _helmets;
+
+{
+	_facewear set [_forEachIndex, toLower _x];
+} forEach _facewear;
+
+{
+	_nvgs set [_forEachIndex, toLower _x];
+} forEach _nvgs;
+
+{
+	_primaryMagazines set [_forEachIndex, toLower _x];
+} forEach _primaryMagazines;
+
+{
+	_primaryUnderbarrelMagazines set [_forEachIndex, toLower _x];
+} forEach _primaryUnderbarrelMagazines;
+
+{
+	_secondaryMagazines set [_forEachIndex, toLower _x];
+} forEach _secondaryMagazines;
+
+{
+	_secondaryUnderbarrelMagazines set [_forEachIndex, toLower _x];
+} forEach _secondaryUnderbarrelMagazines;
+
+{
+	_handgunMagazines set [_forEachIndex, toLower _x];
+} forEach _handgunMagazines;
+
+{
+	_handgunUnderbarrelMagazines set [_forEachIndex, toLower _x];
+} forEach _handgunUnderbarrelMagazines;
+
+{
+	_grenades set [_forEachIndex, toLower _x];
+} forEach _grenades;
+
+{
+	_primaryMuzzles set [_forEachIndex, toLower _x];
+} forEach _primaryMuzzles;
+
+{
+	_secondaryMuzzles set [_forEachIndex, toLower _x];
+} forEach _secondaryMuzzles;
+
+{
+	_handgunMuzzles set [_forEachIndex, toLower _x];
+} forEach _handgunMuzzles;
+
+{
+	_primaryRails set [_forEachIndex, toLower _x];
+} forEach _primaryRails;
+
+{
+	_secondaryRails set [_forEachIndex, toLower _x];
+} forEach _secondaryRails;
+
+{
+	_handgunRails set [_forEachIndex, toLower _x];
+} forEach _handgunRails;
+
+{
+	_primaryOptics set [_forEachIndex, toLower _x];
+} forEach _primaryOptics;
+
+{
+	_secondaryOptics set [_forEachIndex, toLower _x];
+} forEach _secondaryOptics;
+
+{
+	_handgunOptics set [_forEachIndex, toLower _x];
+} forEach _handgunOptics;
+
+{
+	_primaryBipods set [_forEachIndex, toLower _x];
+} forEach _primaryBipods;
+
+{
+	_secondaryBipods set [_forEachIndex, toLower _x];
+} forEach _secondaryBipods;
+
+{
+	_handgunBipods set [_forEachIndex, toLower _x];
+} forEach _handgunBipods;
+
+{
+	_items set [_forEachIndex, toLower _x];
+} forEach _items;
+
+{
+	_demolitionsMagazines set [_forEachIndex, toLower _x];
+} forEach _demolitionsMagazines;
+
+while {alive _unit} do
+{
+	_primary = primaryWeapon _unit;	
+	if (!((toLower _primary) in _primaryWeapons)) then
+	{
+		_unit removeWeapon _primary;
+	}
+	else
+	{		
+		_primaryMuzzle = (primaryWeaponItems _unit) select 0;
+		_primaryRail = (primaryWeaponItems _unit) select 1;
+		_primaryOptic = (primaryWeaponItems _unit) select 2;
+		_primaryBipod = (primaryWeaponItems _unit) select 3;
+		_primaryCurrentMagazines = primaryWeaponMagazine _unit;		
+		
+		if (_primaryMuzzle != "") then
+		{
+			if (!((toLower _primaryMuzzle) in _primaryMuzzles)) then
+			{
+				_unit removePrimaryWeaponItem _primaryMuzzle;
+			};
+		};		
+		
+		if (_primaryRail != "") then
+		{
+			if (!((toLower _primaryRail) in _primaryRails)) then
+			{
+				_unit removePrimaryWeaponItem _primaryRail;
+			};		
+		};		
+		
+		if (_primaryOptic != "") then
+		{	
+			_pipIndex = (toLower _primaryOptic) find "_pip";
+			_downIndex = (toLower _primaryOptic) find "_dwn";
+			_primaryOpticAdapted = "";
+			if (_pipIndex != -1) then
+			{
+				_primaryOpticAdapted = (toLower _primaryOptic) select [0,_pipIndex];				
+			};
+			
+			if (_downIndex != -1) then
+			{
+				_primaryOpticAdapted = (toLower _primaryOptic) select [0,_downIndex];				
+			};
+			
+			if ((_pipIndex == -1) and (_downIndex == -1)) then
+			{
+				_primaryOpticAdapted = toLower _primaryOptic;
+			};
+			
+			if (!(_primaryOpticAdapted in _primaryOptics)) then
+			{	
+				_unit removePrimaryWeaponItem _primaryOptic;
+			};
+		};
+		
+		{
+			if ((!((toLower _x) in _primaryMagazines)) and (!((toLower _x) in _primaryUnderbarrelMagazines))) then
+			{
+				_unit removePrimaryWeaponItem _x;
+			};
+		} forEach _primaryCurrentMagazines;		
+		
+		if (_primaryBipod != "") then
+		{
+			if (!((toLower _primaryBipod) in _primaryBipods)) then
+			{
+				_unit removePrimaryWeaponItem _primaryBipod;
+			};		
+		};		
+	};	
 	
-[_crate, 
-	_primaryMagazines + _primaryUnderbarrelMagazines + _secondaryMagazines 
-	+ _secondaryUnderbarrelMagazines + _handgunMagazines + _handgunUnderbarrelMagazines + _grenades + _demolitionsMagazines, 
-	true] call BIS_fnc_addVirtualMagazineCargo;
+	_secondary = secondaryWeapon _unit;	
+	if (_secondary != "") then
+	{
+		_loadedIndex = (toLower _secondary) find "_loaded";
+		_secondaryAdapted = "";		
+		if (_loadedIndex != -1) then
+		{
+			_secondaryAdapted = (toLower _secondary) select [0,_loadedIndex];
+		}
+		else
+		{
+			_secondaryAdapted = toLower _secondary;
+		};
+		
+		if (!((toLower _secondaryAdapted) in _secondaryWeapons)) then
+		{
+			_unit removeWeapon _secondary;
+		}
+		else
+		{		
+			_secondaryMuzzle = (secondaryWeaponItems _unit) select 0;
+			_secondaryRail = (secondaryWeaponItems _unit) select 1;
+			_secondaryOptic = (secondaryWeaponItems _unit) select 2;
+			_secondaryBipod = (secondaryWeaponItems _unit) select 3;
+			_secondaryCurrentMagazines = secondaryWeaponMagazine _unit;		
+			
+			if (!((toLower _secondaryMuzzle) in _secondaryMuzzles)) then
+			{
+				_unit removeSecondaryWeaponItem _secondaryMuzzle;
+			};
+			
+			if (!((toLower _secondaryRail) in _secondaryRails)) then
+			{
+				_unit removeSecondaryWeaponItem _secondaryRail;
+			};
+			
+			if (_secondaryOptic != "") then
+			{
+				_pipIndex = (toLower _secondaryOptic) find "_pip";
+				_downIndex = (toLower _secondaryOptic) find "_dwn";
+				_secondaryOpticAdapted = "";
+				if (_pipIndex != -1) then
+				{
+					_secondaryOpticAdapted = (toLower _secondaryOptic) select [0,_pipIndex];				
+				};
+								
+				if (_downIndex != -1) then
+				{
+					_secondaryOpticAdapted = (toLower _secondaryOptic) select [0,_downIndex];				
+				};
+				
+				if ((_pipIndex == -1) and (_downIndex == -1)) then
+				{
+					_secondaryOpticAdapted = toLower _secondaryOptic;
+				};
+				
+				if (!(_secondaryOpticAdapted in _secondaryOptics)) then
+				{	
+					_unit removeSecondaryWeaponItem _secondaryOptic;
+				};
+			};
+			
+			{
+				if ((!((toLower _x) in _secondaryMagazines)) and (!((toLower _x) in _secondaryUnderbarrelMagazines))) then
+				{
+					_unit removeSecondaryWeaponItem _x;
+				};
+			} forEach _secondaryCurrentMagazines;		
+			
+			if (!((toLower _secondaryBipod) in _secondaryBipods)) then
+			{
+				_unit removeSecondaryWeaponItem _secondaryBipod;
+			};		
+		};	
+	};	
 	
-[_crate, 
-	_items + _primaryBipods + _secondaryBipods + _handgunBipods
-	+ _primaryOptics + _secondaryOptics + _handgunOptics
-	+ _primaryRails + _secondaryRails + _handgunRails
-	+ _primaryMuzzles + _secondaryMuzzles + _handgunMuzzles
-	+ _nvgs + _facewear + _helmets + _vests + _uniforms + _utilityItems, 
-	true] call BIS_fnc_addVirtualItemCargo;
+	_handgun = handgunWeapon _unit;	
+	if (!((toLower _handgun) in _handgunWeapons)) then
+	{
+		_unit removeWeapon _handgun;
+	}
+	else
+	{		
+		_handgunMuzzle = (handgunItems _unit) select 0;
+		_handgunRail = (handgunItems _unit) select 1;
+		_handgunOptic = (handgunItems _unit) select 2;
+		_handgunBipod = (handgunItems _unit) select 3;
+		_handgunCurrentMagazines = handgunMagazine _unit;		
+		
+		if (!((toLower _handgunMuzzle) in _handgunMuzzles)) then
+		{
+			_unit removeHandgunItem _handgunMuzzle;
+		};
+		
+		if (!((toLower _handgunRail) in _handgunRails)) then
+		{
+			_unit removeHandgunItem _handgunRail;
+		};
+		
+		if (_handgunOptic != "") then
+		{
+			_pipIndex = (toLower _handgunOptic) find "_pip";
+			_downIndex = (toLower _handgunOptic) find "_dwn";
+			_handgunOpticAdapted = "";
+			if (_pipIndex != -1) then
+			{
+				_handgunOpticAdapted = (toLower _handgunOptic) select [0,_pipIndex];				
+			};
+						
+			if (_downIndex != -1) then
+			{
+				_handgunOpticAdapted = (toLower _handgunOptic) select [0,_downIndex];				
+			};
+			
+			
+			if ((_pipIndex == -1) and (_downIndex == -1)) then
+			{
+				_handgunOpticAdapted = toLower _handgunOptic;
+			};			
+			
+			if (!(_handgunOpticAdapted in _handgunOptics)) then
+			{	
+				_unit removeHandgunItem _handgunOptic;
+			};
+		};
+		
+		{
+			if ((!((toLower _x) in _handgunMagazines)) and (!((toLower _x) in _handgunUnderbarrelMagazines))) then
+			{
+				_unit removeHandgunItem _x;
+			};
+		} forEach _handgunCurrentMagazines;		
+		
+		if (!((toLower _handgunBipod) in _handgunBipods)) then
+		{
+			_unit removeHandgunItem _handgunBipod;
+		};			
+	};	
 	
-[_crate, 
-	_backpacks, 
-	true] call BIS_fnc_addVirtualBackpackCargo;
+	_binocular = binocular _unit;
+	if (!((toLower _binocular) in _binoculars)) then
+	{
+		_unit removeWeapon _binocular;		
+	};
+	if ((typeOf _unit != "B_recon_JTAC_F") and ((toLower _binocular) == "Laserdesignator")) then
+	{
+		_unit removeWeapon _binocular;	
+	};
+	
+	_nvg = hmd _unit;
+	if (!((toLower _nvg) in _nvgs)) then
+	{
+		_unit unlinkItem _nvg;		
+	};
+	
+	_uniform = uniform _unit;
+	if (!((toLower _uniform) in _uniforms)) then
+	{
+		removeUniform _unit;
+	};
+	
+	_vest = vest _unit;
+	if (!((toLower _vest) in _vests)) then
+	{
+		removeVest _unit;
+	};
+	
+	_helmet = headgear _unit;
+	if (!((toLower _helmet) in _helmets)) then
+	{
+		removeHeadgear _unit;
+	};
+	
+	_item = goggles _unit;
+	if (!((toLower _item) in _facewear)) then
+	{
+		removeGoggles _unit;
+	};
+	
+	_backpack = backpack _unit;
+	if (!((toLower _backpack) in _backpacks)) then
+	{
+		removeBackpack _unit;
+	};
+	
+	_unitItems = items _unit;
+	{
+		_item = _x;
+		if (!((toLower _item) in _items)
+			and !((toLower _item) in _primaryBipods)
+			and !((toLower _item) in _handgunOptics)
+			and !((toLower _item) in _secondaryOptics)
+			and !((toLower _item) in _primaryOptics)
+			and !((toLower _item) in _secondaryRails)
+			and !((toLower _item) in _handgunRails)
+			and !((toLower _item) in _primaryRails)) then
+		{
+			_unit removeItem _item;
+		};
+	} forEach _unitItems;
+	
+	_magazines = magazines _unit;
+	{
+		_magazine = _x;
+		if ((!((toLower _magazine) in _primaryMagazines)) 
+			and (!((toLower _magazine) in _primaryUnderbarrelMagazines))
+			and (!((toLower _magazine) in _secondaryMagazines))
+			and (!((toLower _magazine) in _handgunMagazines))
+			and (!((toLower _magazine) in _demolitionsMagazines))
+			and (!((toLower _magazine) in _grenades)))
+		then
+		{
+			_unit removeMagazine _magazine;
+		};
+	} forEach _magazines;
+
+	sleep 2;
+};

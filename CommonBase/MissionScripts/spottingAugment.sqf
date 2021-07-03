@@ -30,21 +30,73 @@ fnc_getSpottingAugmentDistance = {
 
 	params["_unit"];
 	
-	_spottingAugmentDistance = redfor_infantry_SpottingAugmentDistance;	
+	_spottingAugmentDistance = redfor_infantry_level_1_SpottingAugmentDistance;	
+	
+	_commandosDeploymentData = redfor_commandos_level_1_deploymentData;
+	_snipersDeploymentData = redfor_snipers_level_1_deploymentData;
+	
+	_commandoSpottingDistance = 100;
+	_sniperSpottingDistance = 100;
+	_infantrySpottingDistance = 100;
+	
+	if (forceLevel == 1) then
+	{
+		_commandosDeploymentData = redfor_commandos_level_1_deploymentData;
+		_snipersDeploymentData = redfor_snipers_level_1_deploymentData;
+		
+		_commandoSpottingDistance = redfor_commando_level_1_SpottingAugmentDistance;
+		_sniperSpottingDistance = redfor_sniper_level_1_SpottingAugmentDistance;
+		_infantrySpottingDistance = redfor_infantry_level_1_SpottingAugmentDistance;
+	};
+	
+	if (forceLevel == 2) then
+	{
+		_commandosDeploymentData = redfor_commandos_level_2_deploymentData;
+		_snipersDeploymentData = redfor_snipers_level_2_deploymentData;
+		
+		_commandoSpottingDistance = redfor_commando_level_2_SpottingAugmentDistance;
+		_sniperSpottingDistance = redfor_sniper_level_2_SpottingAugmentDistance;
+		_infantrySpottingDistance = redfor_infantry_level_2_SpottingAugmentDistance;
+	};
+	
+	if (forceLevel == 3) then
+	{
+		_commandosDeploymentData = redfor_commandos_level_3_deploymentData;
+		_snipersDeploymentData = redfor_snipers_level_3_deploymentData;
+		
+		_commandoSpottingDistance = redfor_commando_level_3_SpottingAugmentDistance;
+		_sniperSpottingDistance = redfor_sniper_level_3_SpottingAugmentDistance;
+		_infantrySpottingDistance = redfor_infantry_level_3_SpottingAugmentDistance;
+	};
 	
 	switch(typeOf(_unit)) do
 	{		
-		case (redfor_vehicle_level_1_deploymentData select 0) : { _spottingAugmentDistance = redfor_vehicle_level_1_SpottingAugmentDistance; };	
-		case (redfor_vehicle_level_2_deploymentData select 0) : { _spottingAugmentDistance = redfor_vehicle_level_2_SpottingAugmentDistance; };
-		case (redfor_vehicle_level_3_deploymentData select 0) : { _spottingAugmentDistance = redfor_vehicle_level_3_SpottingAugmentDistance; };		
-		case (redfor_vehicle_level_4_deploymentData select 0) : { _spottingAugmentDistance = redfor_vehicle_level_4_SpottingAugmentDistance; };		
-		case (redfor_vehicle_level_5_deploymentData select 0) : { _spottingAugmentDistance = redfor_vehicle_level_5_SpottingAugmentDistance; };		
-		case (redfor_vehicle_aa_deploymentData select 0) : { _spottingAugmentDistance = redfor_vehicle_aa_SpottingAugmentDistance; };		
-		case (redfor_vehicle_av_deploymentData select 0) : { _spottingAugmentDistance = redfor_vehicle_av_SpottingAugmentDistance; };		
-		case (redfor_commando_deploymentData select 0) : { _spottingAugmentDistance = redfor_commando_SpottingAugmentDistance; };		
-		case (redfor_sniper_deploymentData select 0) : { _spottingAugmentDistance = redfor_sniper_SpottingAugmentDistance; };		
-		default { _spottingAugmentDistance = redfor_infantry_SpottingAugmentDistance; };
-	};	
+		case (redfor_mbt_level_1_deploymentData select 0) : { _spottingAugmentDistance = redfor_mbt_level_1_SpottingAugmentDistance; };	
+		case (redfor_mbt_level_2_deploymentData select 0) : { _spottingAugmentDistance = redfor_mbt_level_2_SpottingAugmentDistance; };	
+		case (redfor_mbt_level_3_deploymentData select 0) : { _spottingAugmentDistance = redfor_mbt_level_3_SpottingAugmentDistance; };	
+		
+		case (redfor_ifv_level_1_deploymentData select 0) : { _spottingAugmentDistance = redfor_ifv_level_1_SpottingAugmentDistance; };	
+		case (redfor_ifv_level_2_deploymentData select 0) : { _spottingAugmentDistance = redfor_ifv_level_2_SpottingAugmentDistance; };	
+		case (redfor_ifv_level_3_deploymentData select 0) : { _spottingAugmentDistance = redfor_ifv_level_3_SpottingAugmentDistance; };			
+		
+		case (redfor_apc_level_1_deploymentData select 0) : { _spottingAugmentDistance = redfor_apc_level_1_SpottingAugmentDistance; };	
+		case (redfor_apc_level_2_deploymentData select 0) : { _spottingAugmentDistance = redfor_apc_level_2_SpottingAugmentDistance; };	
+		case (redfor_apc_level_3_deploymentData select 0) : { _spottingAugmentDistance = redfor_apc_level_3_SpottingAugmentDistance; };			
+		
+		case (redfor_lightVehicle_level_1_deploymentData select 0) : { _spottingAugmentDistance = redfor_lightVehicle_level_1_SpottingAugmentDistance; };	
+		case (redfor_lightVehicle_level_2_deploymentData select 0) : { _spottingAugmentDistance = redfor_lightVehicle_level_2_SpottingAugmentDistance; };	
+		case (redfor_lightVehicle_level_3_deploymentData select 0) : { _spottingAugmentDistance = redfor_lightVehicle_level_3_SpottingAugmentDistance; };			
+				
+		case (redfor_antiAir_deploymentData select 0) : { _spottingAugmentDistance = redfor_antiAir_SpottingAugmentDistance; };	
+		
+		case (redfor_antiVehicle_deploymentData select 0) : { _spottingAugmentDistance = redfor_antiVehicle_SpottingAugmentDistance; };		
+		
+		case ((_commandosDeploymentData select 0) select 0) : { _spottingAugmentDistance = _commandoSpottingDistance };
+		
+		case ((_snipersDeploymentData select 0) select 0) : { _spottingAugmentDistance = _sniperSpottingDistance };
+		
+		default { _spottingAugmentDistance = _infantrySpottingDistance; };
+	};
 	
 	_spottingAugmentDistance
 };
@@ -77,7 +129,7 @@ while {true} do {
 			_playerUnit = _x;		
 			if ((vehicle _playerUnit) isKindOf "Air") then
 			{
-				if (typeOf (vehicle _currentUnit) == (redfor_vehicle_aa_deploymentData select 0)) then
+				if (typeOf (vehicle _currentUnit) == (redfor_antiAir_deploymentData select 0)) then
 				{				
 					_heightIncrementRedfor = [_currentUnit] call fnc_getHeightIncrement;
 					_heightIncrementBlufor = [_playerUnit] call fnc_getHeightIncrement;				

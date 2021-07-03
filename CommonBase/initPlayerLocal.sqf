@@ -2,10 +2,6 @@ waitUntil {(!(isNull player))};
 waitUntil { local player };
 waitUntil { getPlayerUID player != "" };
 
-enableWeaponDisassembly false;
-
-titleText ["IMPORTANT! - THOROUGH COMPLETION OF SIDE OBJECTIVES IS NECESSARY \nI.E : USING DEMOLITIONS TO FULLY DESTROY MORTAR TUBES", "PLAIN", 3];
-
 player addEventHandler ["Fired", {
 	if ((getPos (_this select 0)) inArea "sector_home") then
 	{
@@ -14,211 +10,194 @@ player addEventHandler ["Fired", {
 	};
 }];
 
-player createDiaryRecord ["Diary", 
-	["TEAMSPEAK", 
-	"<br/> Server : ts3.7cav.us 
-	<br/> Password : 7thCavalry"]
-];
+while { not (player getVariable ["bis_dg_ini", false]) } do
+{
+	["InitializePlayer", [player, true]] call BIS_fnc_dynamicGroups;
+	sleep 1;
+};
 
-player createDiaryRecord ["Diary", 
-	["FREQUENCIES", 
-	"<br/>GUNSLINGER-6 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 6
-	<br/>GUNSLINGER-5 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 6
-	<br/>GUNSLINGER-7 : LR - CH 2 (Battlegroup) LR - CH 3 (Platoon), SR - BL 3 CH 6
-	<br/>INFIDEL-1 : LR - CH 3 (Platoon) LR - CH 7 (Call For Fire), SR - BL 3 CH 6
-	<br/>
-	<br/>GUNSLINGER-1 : LR - CH 3 (Platoon), SR - BL3 CH 1
-	<br/>GUNSLINGER-2 : LR - CH 3 (Platoon), SR - BL3 CH 2
-	<br/>GUNSLINGER-3 : LR - CH 3 (Platoon), SR - BL3 CH 3
-	<br/>GUNSLINGER-4 : LR - CH 3 (Platoon), SR - BL3 CH 4	
-	<br/>ATLAS-1 : LR - CH 3 (Platoon), SR - BL3 CH 5
-	<br/>	
-	<br/>SABER-1 : LR CH - 2 (Battlegroup) LR CH - 4 (Section), SR - BL5 CH 1	
-	<br/>SABER-2 : LR CH - 4 (Section), SR - BL5 CH 1	
-	<br/>		
-	<br/>ATLAS-4 : LR - CH 2 (Battlegroup) LR - CH 8 (Call for Resupply), SR - BL 6 CH 2
-	<br/>
-	<br/>BUFFALO-1 : LR - CH 6 (Air), SR - BL 6 CH 3
-	<br/>BUFFALO-2 : LR - CH 6 (Air), SR - BL 6 CH 4
-	<br/>TITAN-1 : LR - CH 6 (Air), SR - BL 6 CH 5	
-	<br/>
-	<br/>RAIDER-1 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 7	
-	<br/>HOG-1 : LR - CH 6 (Air) LR - CH 7 (Call for Fire), SR - BL 6 CH 9	
-	<br/>
-	<br/>LONGSHOT-1 : LR - CH 2 (Battlegroup), SR - BL 7 CH 1
-	"]
-];
+if ("Alpha" in (roleDescription player)) then
+{
+	player assignTeam "RED";
+};
 
-player createDiaryRecord ["Diary", 
-	["HOW TO PLAY", 
-	"<br/>Welcome to the 7th Cavalry Gaming Regiment's RHS Invade and Annex Server!
-	<br/>
-	<br/>MISSION FLOW
-	<br/>
-	<br/>Your overall mission is to secure all Sectors on the Map.
-	<br/>
-	<br/>In order to secure a Sector you will need to :
-	<br/>1) Defeat the majority of enemy forces deployed in the Sector
-	<br/>2) Complete Side Objectives :
-	<br/>- Elimination of a Mortar, Anti-Air or Anti-Vehicle Section
-	<br/>- Destruction of a group of Supply Vehicles, Communication Towers or HQ Tents
-	<br/>- Neutralization of an Officer, a Commando Team or a Sniper Team
-	<br/>
-	<br/>A Sector can have one or more Side Objectives. 
-	<br/>You will need to perform reconmainssance to determine what Side Objectives are to be completed in the Sector.	
-	<br/>
-	<br/>TRANSPORTING VEHICLES VIA AIR
-	<br/>
-	<br/>In order to expedite the movement of vehicles around the map it is possible to ACE Load any vehicle into any Vehicle-in-Vehicle (VIV) variant of Transport aircraft.
-	<br/>VIV Helicopters can ACE Load one vehicle, VIV Planes can ACE Load two vehicles.
-	"]
-];
+if ("Bravo" in (roleDescription player)) then
+{
+	player assignTeam "BLUE";
+};
 
-attendance_flag addAction["=START ATTENDANCE TRACKING=","MissionScripts\startAttendanceTracking.sqf","",1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=STOP ATTENDANCE TRACKING=","MissionScripts\stopAttendanceTracking.sqf","",1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 1=","MissionScripts\showAttendance.sqf",1,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 2=","MissionScripts\showAttendance.sqf",2,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 3=","MissionScripts\showAttendance.sqf",3,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 4=","MissionScripts\showAttendance.sqf",4,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 5=","MissionScripts\showAttendance.sqf",5,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 6=","MissionScripts\showAttendance.sqf",6,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 7=","MissionScripts\showAttendance.sqf",7,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 8=","MissionScripts\showAttendance.sqf",8,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 9=","MissionScripts\showAttendance.sqf",9,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
-attendance_flag addAction["=SHOW ATTENDANCE - PAGE 10=","MissionScripts\showAttendance.sqf",10,1.5,true,true,"","(call BIS_fnc_admin) == 2",10];
+[missionNamespace, "arsenalOpened", {
+	disableSerialization;
+	_display = _this select 0;
+	(_display displayCtrl 44150) ctrlRemoveAllEventHandlers "buttonclick";
+	(_display displayCtrl 44150) ctrlEnable false;
+	_display displayAddEventHandler ["KeyDown", "if ((_this select 1) in [19,29]) then {true}"];
+}] call BIS_fnc_addScriptedEventHandler;
 
-addMissionEventHandler ["Draw3D",
+[player] execVM "MissionScripts\gearMonitor.sqf";
+
+[] execVM "MissionScripts\forceTracker.sqf";
+
+player setUnitTrait ["engineer",true];
+
+joinFireteamActionMenuKeyPressed = false;
+earplugsIn = false;
+(findDisplay 46) displayAddEventHandler ["KeyDown", {
+    params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];
+	joinFireteamActionMenuKeyPressed = false;
+    if (_key == 20) then {
+        joinFireteamActionMenuKeyPressed = true;
+    };
+    false
+}];
+(findDisplay 46) displayAddEventHandler ["KeyUp", {
+    params ["_displayorcontrol", "_key", "_shift", "_ctrl", "_alt"];	
+    if (_key == 20) then {
+        joinFireteamActionMenuKeyPressed = false;
+    };
+    false
+}];
+
+player addEventHandler ["Killed", 
 	{		
-		_minDistance = 5;
-		_maxDistance = 200;
-		
-		if (player inArea "sector_home") then
-		{
-			if (((getPos player) distance (getMarkerPos "HUD_arsenals") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_arsenals") <= _maxDistance)) then
-			{
-				_distance = (getPos player) distance (getMarkerPos "HUD_arsenals");
-				drawIcon3D["\a3\ui_f\data\IGUI\cfg\Actions\Obsolete\ui_action_gear_ca.paa"
-						, [1,1,1,1]
-						, [getMarkerPos "HUD_arsenals" select 0, getMarkerPos "HUD_arsenals" select 1, (getMarkerPos "HUD_arsenals" select 2) + 2]
-						, 1
-						, 1
-						, 0
-						, "ARSENALS"];
-			};	
-			
-			if ((typeOf player) in ["B_Helipilot_F", "B_helicrew_F"]) then
-			{
-				if (getMarkerPos "HUD_rotaryWingPool" select 0 != 0) then
-				{
-					if (((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_rotaryWingPool") <= _maxDistance)) then
-					{
-						drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\heli_ca.paa"
-									, [1,1,1,1]
-									, [getMarkerPos "HUD_rotaryWingPool" select 0, getMarkerPos "HUD_rotaryWingPool" select 1, (getMarkerPos "HUD_rotaryWingPool" select 2) + 2]
-									, 1
-									, 1
-									, 0
-									, "ROTARY WING POOL"];
-					};
-				};
-			};
-						
-			if ((typeOf player) in ["B_Pilot_F"]) then
-			{
-				if (getMarkerPos "HUD_fixedWingCombatPool" select 0 != 0) then
-				{
-					if (((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingCombatPool") <= _maxDistance)) then
-					{
-						drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
-									, [1,1,1,1]
-									, [getMarkerPos "HUD_fixedWingCombatPool" select 0, getMarkerPos "HUD_fixedWingCombatPool" select 1, (getMarkerPos "HUD_fixedWingCombatPool" select 2) + 2]
-									, 1
-									, 1
-									, 0
-									, "COMBAT FIXED WING POOL"];		
-					};
-				};
-				
-				if (getMarkerPos "HUD_fixedWingTransportPool" select 0 != 0) then
-				{
-					if (((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_fixedWingTransportPool") <= _maxDistance)) then
-					{
-						drawIcon3D["\a3\ui_f\data\igui\cfg\MPTable\air_ca.paa"
-									, [1,1,1,1]
-									, [getMarkerPos "HUD_fixedWingTransportPool" select 0, getMarkerPos "HUD_fixedWingTransportPool" select 1, (getMarkerPos "HUD_fixedWingTransportPool" select 2) + 2]
-									, 1
-									, 1
-									, 0
-									, "TRANSPORT FIXED WING POOL"];		
-					};
-				};
-			};
-			
-			if (!((typeOf player) in ["B_Helipilot_F", "B_helicrew_F", "B_Pilot_F"])) then
-			{
-				if (getMarkerPos "HUD_groundVehiclePool" select 0 != 0) then
-				{
-					if (((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_groundVehiclePool") <= _maxDistance)) then
-					{
-						drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\truck_ca.paa"
-									, [1,1,1,1]
-									, [getMarkerPos "HUD_groundVehiclePool" select 0, getMarkerPos "HUD_groundVehiclePool" select 1, (getMarkerPos "HUD_groundVehiclePool" select 2) + 2]
-									, 1
-									, 1
-									, 0
-									, "GROUND VEHICLE POOL"];				
-					};
-				};
-				
-				if (getMarkerPos "HUD_boatPool" select 0 != 0) then
-				{
-					if (((getPos player) distance (getMarkerPos "HUD_boatPool") >= _minDistance) and ((getPos player) distance (getMarkerPos "HUD_boatPool") <= _maxDistance)) then
-					{
-						drawIcon3D["\a3\ui_f\data\igui\cfg\simpleTasks\types\boat_ca.paa"
-									, [1,1,1,1]
-									, [getMarkerPos "HUD_boatPool" select 0, getMarkerPos "HUD_boatPool" select 1, (getMarkerPos "HUD_boatPool" select 2) + 2]
-									, 1
-									, 1
-									, 0
-									, "BOAT POOL"];				
-					};
-				};
-			};			
-		};		
+		_unit = _this select 0;
+		_unit setVariable ["Saved_Loadout",getUnitLoadout _unit];		
 	}
 ];
 
-{
-	[_x, typeOf player] execVM "MissionScripts\arsenal.sqf";
-} forEach [arsenalBox_1, arsenalBox_2, arsenalBox_3, arsenalBox_4, arsenalBox_5, arsenalBox_6];
+player addEventHandler ["Respawn", 
+	{		
+		_unit = _this select 0;		
+		
+		_loadout = _unit getVariable ["Saved_Loadout",[]];
+		_unit setUnitLoadout _loadout;
+		
+		[_unit] execVM "MissionScripts\gearMonitor.sqf";
+		
+		if ("Alpha" in (roleDescription player)) then
+		{
+			player assignTeam "RED";
+		};
 
-medical_tent addAction ["=FULL HEAL=",{(_this select 1) call ace_medical_treatment_fnc_fullHealLocal;}];
+		if ("Bravo" in (roleDescription player)) then
+		{
+			player assignTeam "BLUE";
+		};
+		
+		_unit addAction ["JOIN FIRETEAM RED",{(_this select 1) assignTeam "RED";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+		_unit addAction ["JOIN FIRETEAM BLUE",{(_this select 1) assignTeam "BLUE";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+		_unit addAction ["JOIN FIRETEAM GREEN",{(_this select 1) assignTeam "GREEN";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+		_unit addAction ["JOIN FIRETEAM YELLOW",{(_this select 1) assignTeam "YELLOW";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+		_unit addAction ["JOIN FIRETEAM WHITE",{(_this select 1) assignTeam "DEFAULT";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+		_unit addAction ["EARPLUGS IN",{(_this select 1) setVariable ["earplugsVolume",soundVolume,false];1 fadeSound 0.2;earplugsIn = true;},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed and !earplugsIn"];
+		_unit addAction ["EARPLUGS OUT",{1 fadeSound ((_this select 1) getVariable ["earplugsVolume",1]);earplugsIn = false;},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed and earplugsIn"];
+		
+		_unit setVariable["IsDragging",false,true];
+		_unit setVariable["IsDragged",false,true];
 
-player addAction ["= SPAWN TRANSPORT =", {"rhsusf_m1043_w" createVehicle (getMarkerPos "transport_spawner");}, [], 1.5, true, true, "", "_this inArea 'transport_spawner'"];
+		_unit setVariable["IsCarrying",false,true];
+		_unit setVariable["IsCarried",false,true];
 
-private _supplyVehicle = missionNamespace getVariable ["forwardLogisticsVehicle",objNull];
-private _supplyBox = missionNamespace getVariable ["forwardLogisticsBox",objNull];
+		_unit setVariable["Loaded",objNull,true];
 
-while {isNull _supplyBox} do
-{
-	_supplyBox = missionNamespace getVariable ["forwardLogisticsBox",objNull];
-	
-	if (!isNull _supplyBox) then
+		_unit setVariable["IsReviving",false,true];
+		_unit setVariable["IsRevived",false,true];	
+	}
+];
+
+addMissionEventHandler ["Draw3D",
 	{
-		[_supplyBox, typeOf player] execVM "MissionScripts\arsenal.sqf";
-	};
-	
-	sleep 1;
+		{
+			if ((_x != player) && ((_x distance player) < 50)) then
+			{
+				_teamColor = assignedTeam _x; // Retrieve assigned team color
+				_markerColor = [1,1,1]; // convert it to RGB
+				switch (_teamColor) do {
+					case "RED" : {_markerColor = [1,0,0]};
+					case "GREEN" : {_markerColor = [0,1,0]};
+					case "BLUE" : {_markerColor = [0,0,1]};
+					case "YELLOW" : {_markerColor = [1,1,0]};
+				};
+				// Passed parameters to the 3D icon draw function : 
+				// - unit type icon from the Cfg
+				// - the assigned team color R,G,B at a moderate 0.5 transparency
+				// - the unit's X,Y height of 1 meter
+				// - normal width
+				// - normal height
+				// - no rotation
+				// - player's in-game name under the icon
+				if (_x in (units group player)) then
+				{
+					drawIcon3D[getText (configFile >> "CfgVehicles" >> typeOf _x >> "icon"),[_markerColor select 0,_markerColor select 1,_markerColor select 2,0.7],[getPosATLVisual _x select 0,getPosATLVisual _x select 1,((getPosATLVisual _x) select 2) + 1],1,1,0, name _x];				
+				}
+				else
+				{					
+					drawIcon3D["",[0.6, 0.6, 0.6,1],[getPosATLVisual _x select 0,getPosATLVisual _x select 1,((getPosATLVisual _x) select 2) + 1],1,1,0, name _x];				
+				};				
+			};		
+		} forEach allPlayers;
+
+		if ((((getMarkerPos "halo_insert") select 0) > 0) and ((halo_flag distance player) < 50)) then
+		{
+			drawIcon3D[getText (configFile >> "CfgVehicles" >> "B_Parachute" >> "icon"),[1, 1, 1,1],[getPosATLVisual halo_flag select 0,getPosATLVisual halo_flag select 1,((getPosATLVisual halo_flag) select 2) + 1],1,1,0, "PARACHUTE SELF-INSERT"];
+		};
+	}
+];
+
+player addAction ["JOIN FIRETEAM RED",{(_this select 1) assignTeam "RED";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+player addAction ["JOIN FIRETEAM BLUE",{(_this select 1) assignTeam "BLUE";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+player addAction ["JOIN FIRETEAM GREEN",{(_this select 1) assignTeam "GREEN";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+player addAction ["JOIN FIRETEAM YELLOW",{(_this select 1) assignTeam "YELLOW";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+player addAction ["JOIN FIRETEAM WHITE",{(_this select 1) assignTeam "DEFAULT";},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed"];
+player addAction ["EARPLUGS IN",{(_this select 1) setVariable ["earplugsVolume",soundVolume,false];1 fadeSound 0.2;earplugsIn = true;},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed and !earplugsIn"];
+player addAction ["EARPLUGS OUT",{1 fadeSound ((_this select 1) getVariable ["earplugsVolume",1]);earplugsIn = false;},nil,1.5,true,true,"","joinFireteamActionMenuKeyPressed and earplugsIn"];
+
+enableWeaponDisassembly false;
+
+[player] execVM "MissionScripts\cavRevive.sqf";
+
+if ((getPlayerUID player) in zeusGUIDs) then
+{		
+	_zeusGroup = createGroup sideLogic;
+	_curator = _zeusGroup createUnit ["ModuleCurator_F", [0, 0, 0], [], 0, "NONE"];		
+	player assignCurator _curator;
+	_curator setVariable ["Addons",3,true];
 };
 
-while {isNull _supplyVehicle} do
-{
-	_supplyVehicle = missionNamespace getVariable ["forwardLogisticsVehicle",objNull];
-	
-	if (!isNull _supplyVehicle) then
-	{
-		[_supplyVehicle, typeOf player] execVM "MissionScripts\arsenal.sqf";
-	};
-	
-	sleep 1;
-};
+halo_flag addAction ["PARACHUTE SELF-INSERT",
+					{						
+						_dir = markerDir "halo_insert";	
+						(_this select 1) setDir _dir;
+						(_this select 1) setPos (getMarkerPos "halo_insert"); 						
+						[(_this select 1), 400] call bis_fnc_halo;
+						sleep 0.1;
+						(_this select 1) setVectorDir [sin _dir, cos _dir, 0];						
+					}, 
+					nil,
+					1.5,
+					true,
+					true,
+					"",
+					"((getMarkerPos ""halo_insert"") select 0) > 0"];
+
+player createDiaryRecord ["Diary", 
+	["HINTS",
+	"<br/>- Press ""U"" to open the Group Management Menu.
+	<br/>- Keep ""T"" pressed then Scroll Wheel to access the Fireteam Join Actions.
+	<br/>- Anyone can Carry, Drag, Load, Unload incapacitated allies. Only the Platoon Medic and Atlas-1 members can revive.
+	<br/>- Use the Direct Voice Chat key to talk to nearby people. Use the Push to Talk Key to communicate via Radio.
+	"]
+];					
+player createDiaryRecord ["Diary", 
+	["HOW TO PLAY",
+	"<br/>Welcome to the 7th Cavalry Gaming Regiment Tactical Realism 1 Server!	
+	<br/>
+	<br/>Your mission is to secure all of the Sectors on a given map. Securing a Sector requires completing two sets of objectives inside that Sector : Defeating the enemy Frontline Forces and fulfilling Side Objectives.
+	<br/>
+	<br/>A Sector can have one or more Side Objectives, ranging from Elimination of Supporting Assets such as a Mortar Section, Destruction of Critical Infrastructure such as Communication Towers or Neutralization of Specialized Troops such as a Sniper Team.
+	<br/>
+	<br/>IMPORTANT NOTE : For a Side Objective to be considered completed, any buildings, vehicles or static weapons associated with the Objective must be destroyed COMPLETELY. Use of demolitions is HIGHLY recommended.
+	"]
+];
+
+createDialog "Intro_Dialog";

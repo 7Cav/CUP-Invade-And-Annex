@@ -47,6 +47,11 @@ while {true} do
 				[_veh] execVM "MissionScripts\bluforCrewRestrictions.sqf";
 				[_veh] execVM "MissionScripts\vehicleNoFire.sqf";	
 				
+				if (_className in blufor_vehicle_transportFixedWing_classes) then
+				{
+					[_veh] execVM "MissionScripts\staticLineParachute.sqf";
+				};
+				
 				if ((typeOf _veh) == "CUP_B_AAV_USMC") then
 				{
 					_veh removeWeaponTurret [(_veh weaponsTurret [0]) select 1, [0]];	
@@ -60,91 +65,6 @@ while {true} do
 						} forEach crew (_this select 0);
 					}
 				];
-				
-				_vehicleExchangeList = [
-					[blufor_vehicle_level_1_classes
-					, blufor_vehicle_variants_level_1_deploymentData
-					, "groundVehicle_exchangePad_entry"
-					, "groundVehicle_exchangePad_exit"]
-					
-					,[blufor_vehicle_level_2_classes
-					, blufor_vehicle_variants_level_2_deploymentData
-					, "groundVehicle_exchangePad_entry"
-					, "groundVehicle_exchangePad_exit"]
-					
-					,[blufor_vehicle_level_3_classes
-					, blufor_vehicle_variants_level_3_deploymentData
-					, "groundVehicle_exchangePad_entry"
-					, "groundVehicle_exchangePad_exit"]
-					
-					,[blufor_vehicle_level_4_classes
-					, blufor_vehicle_variants_level_4_deploymentData
-					, "groundVehicle_exchangePad_entry"
-					, "groundVehicle_exchangePad_exit"]
-					
-					,[blufor_vehicle_level_5_classes
-					, blufor_vehicle_variants_level_5_deploymentData
-					, "groundVehicle_exchangePad_entry"
-					, "groundVehicle_exchangePad_exit"]
-					
-					,[blufor_vehicle_attackRotaryWing_classes
-					, blufor_vehicle_variants_attackRotaryWing_deploymentData
-					, "rotaryWing_exchangePad_entry"
-					, "rotaryWing_exchangePad_exit"]
-					
-					,[blufor_vehicle_transportRotaryWing_classes
-					, blufor_vehicle_variants_transportRotaryWing_deploymentData
-					, "rotaryWing_exchangePad_entry"
-					, "rotaryWing_exchangePad_exit"]
-					
-					,[blufor_vehicle_vehicleTransportRotaryWing_classes
-					, blufor_vehicle_variants_vehicleTransportRotaryWing_deploymentData
-					, "rotaryWing_exchangePad_entry"
-					, "rotaryWing_exchangePad_exit"]
-					
-					,[blufor_vehicle_attackFixedWing_classes
-					, blufor_vehicle_variants_attackFixedWing_deploymentData
-					, "fixedWing_exchangePad_entry"
-					, "fixedWing_exchangePad_exit"]
-					
-					,[blufor_vehicle_transportFixedWing_classes
-					, blufor_vehicle_variants_transportFixedWing_deploymentData
-					, "fixedWing_exchangePad_entry"
-					, "fixedWing_exchangePad_exit"]
-					
-					,[blufor_vehicle_vehicleTransportFixedWing_classes
-					, blufor_vehicle_variants_vehicleTransportFixedWing_deploymentData
-					, "fixedWing_exchangePad_entry"
-					, "fixedWing_exchangePad_exit"]		
-				];
-				
-				{
-					scopeName "exchangeLoop";
-					_exchangeData = _x;
-					_classes = _x select 0;
-					_variants = _x select 1;
-					_exchangePadEntry = _x select 2;
-					_exchangePadExit = _x select 3;
-					if (_className in _classes) then
-					{
-						{		
-							[_veh
-								, [
-									format["<t color='#FF0000'>Exchange for %1</t>", getText(configfile >> "CfgVehicles" >> _x >> "displayName")]
-									, "MissionScripts\bluforVehicleExchangeClient.sqf"
-									, [_x, _variants, _exchangePadExit, _currentIndex]
-									, 99
-									, true
-									, true
-									, ""
-									, format["(getPos _target) inArea %1", str(_exchangePadEntry)
-									, 5]
-								]
-							] remoteExec ["addAction",0,true];
-						} forEach _classes;
-						breakOut "exchangeLoop";
-					};
-				} forEach _vehicleExchangeList;
 				
 				_currentVehData set [0,_veh];
 			}

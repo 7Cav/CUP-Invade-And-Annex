@@ -1,9 +1,9 @@
-dev                 = "2LT Moraru.R";
-author              = "2LT Moraru.R";
+dev                 = "1LT Moraru.R";
+author              = "1LT Moraru.R";
 
-onLoadName          = "7Cav RHS Invade & Annex DEVBUILD";
-onLoadMission       = "7th Cavalry RHS Invade and Annex DEVBUILD";
-onLoadIntro         = "7Cav RHS Invade and Annex DEVBUILD";
+onLoadName          = "7Cav CUP Invade & Annex DEVBUILD";
+onLoadMission       = "7th Cavalry CUP Invade and Annex DEVBUILD";
+onLoadIntro         = "7Cav CUP Invade and Annex DEVBUILD";
 
 class Header
 {
@@ -65,18 +65,37 @@ disableChannels[] = {
 	},
 };
 
+showHUD[] = {
+	1,	// Scripted HUD (same as showHUD command)
+	1,	// Vehicle and unit info
+	0,	// Vehicle radar [HIDDEN]
+	0,	// Vehicle compass [HIDDEN]
+	1,	// Tank direction indicator
+	0,	// Commanding menu
+	0,	// Group info bar
+	1,	// HUD weapon cursors
+	1,	// Vehicle display panels
+	1,	// "x killed by y" systemChat messages
+	1	// force show drawIcon3D icons
+};
+
 disabledAI = 1;
 
 #include "CHVD\dialog.hpp"
+
+#include "AFAR\ui\defines.hpp"
+#include "AFAR\ui\dialogs.hpp"
+
+#include "GUI\defines.hpp"
+#include "GUI\intro_dialog.hpp"
 
 class CfgFunctions
 {
 	#include "CHVD\CfgFunctions.hpp"	
 };
 
-// Debug Console
-enableTargetDebug = 1;
-enableDebugConsole[] = {
-	"76561198099828056",    // Whitsel
-	"76561198149329790",	// Mazinski
+class CfgSounds 
+{
+	#include "AFAR\f\SFX.hpp"
+	sounds[]={};
 };

@@ -62,7 +62,7 @@ fnc_deploy_infantry = {
 			
 			_grp setFormDir ((getMarkerPos _sector) getDir _garrisonBuildingLocation);
 			
-			if (count _garrisonBuildingPositions < count redfor_squad_deploymentData) then
+			if (count _garrisonBuildingPositions < count _squadLoadouts) then
 			{
 				garrisonPositions deleteAt _randIndex;
 				garrisonableBuildings deleteAt _randIndex;
@@ -149,7 +149,7 @@ fnc_deploy_officerAndRetinue = {
 		
 		_grp setFormDir ((getMarkerPos _sector) getDir _garrisonBuildingLocation);
 		
-		if (count _garrisonBuildingPositions < count redfor_squad_deploymentData) then
+		if (count _garrisonBuildingPositions < count _squadLoadouts) then
 		{
 			garrisonPositions deleteAt _randIndex;
 			garrisonableBuildings deleteAt _randIndex;
@@ -307,6 +307,8 @@ fnc_deploy_vehicle = {
 				
 		_grp setBehaviour "COMBAT";
 		_grp setCombatMode "RED";
+		
+		[_grp,_sector] execVM "MissionScripts\stayInSector.sqf";
 		
 		_vehicleList pushBack _veh;
 	};	
@@ -474,151 +476,137 @@ _commandosActive = false;
 _snipersActive = false;
 
 _playerCount = count allPlayers;
-_redforSquadCount = ceil(2 * _playerCount / (count redfor_squad_deploymentData));
-_redforVehicleCount = ceil(_playerCount / (count redfor_squad_deploymentData));
-_redforVehicleLevels = [redfor_vehicle_level_1_deploymentData];
+_playerSlots = playableSlotsNumber blufor;
+forceLevel = 0;
+
+if (_playerCount < _playerSlots/3) then
+{
+	forceLevel = 1;
+};
+
+if ((_playerCount >= _playerSlots/3) and (_playerCount < _playerSlots*2/3)) then
+{
+	forceLevel = 2;
+};
+
+if (_playerCount >= _playerSlots*2/3) then
+{
+	forceLevel = 3;
+};
+
+_forceSizeMultiplier = floor(random 3) + 1;
+
+_redforSquadCount = ceil(_forceSizeMultiplier * _playerCount / (count redfor_squad_level_1_deploymentData));
+
+_redforFrontlineVehicleDeployment = [];
+_redforSquadDeployment = [];
+_redforCrewmanDeployment = [];
+_redforOfficerDeployment = [];
+_redforCommandosDeployment = [];
+_redforSnipersDeployment = [];
+
+if (forceLevel == 1) then
+{
+	_redforFrontlineVehicleDeployment = [redfor_lightVehicle_level_1_deploymentData];
 	
-_priorityObjectiveList = [];
-_genericObjectiveList = ["mortars", "supply", "hq", "comms", "officer", "commandos", "snipers"];
+	if (count redfor_apc_level_1_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_apc_level_1_deploymentData;
+	};
+	
+	if (count redfor_ifv_level_1_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_ifv_level_1_deploymentData;
+	};
+	
+	if (count redfor_mbt_level_1_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_mbt_level_1_deploymentData;
+	};
+	
+	_redforSquadDeployment = redfor_squad_level_1_deploymentData;
+	_redforCrewmanDeployment = redfor_crewman_level_1_deploymentData;
+	_redforOfficerDeployment = redfor_officer_level_1_deploymentData;
+	_redforCommandosDeployment = redfor_commandos_level_1_deploymentData;
+	_redforSnipersDeployment = redfor_snipers_level_1_deploymentData;
+};
+
+if (forceLevel == 2) then
+{
+	_redforFrontlineVehicleDeployment = [redfor_lightVehicle_level_2_deploymentData];
+	
+	if (count redfor_apc_level_2_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_apc_level_2_deploymentData;
+	};
+	
+	if (count redfor_ifv_level_2_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_ifv_level_2_deploymentData;
+	};
+	
+	if (count redfor_mbt_level_2_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_mbt_level_2_deploymentData;
+	};
+	
+	_redforSquadDeployment = redfor_squad_level_2_deploymentData;
+	_redforCrewmanDeployment = redfor_crewman_level_2_deploymentData;
+	_redforOfficerDeployment = redfor_officer_level_2_deploymentData;
+	_redforCommandosDeployment = redfor_commandos_level_2_deploymentData;
+	_redforSnipersDeployment = redfor_snipers_level_2_deploymentData;
+};
+
+if (forceLevel == 3) then
+{
+	_redforFrontlineVehicleDeployment = [redfor_lightVehicle_level_3_deploymentData];
+	
+	if (count redfor_apc_level_3_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_apc_level_3_deploymentData;
+	};
+	
+	if (count redfor_ifv_level_3_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_ifv_level_3_deploymentData;
+	};
+	
+	if (count redfor_mbt_level_3_deploymentData > 0) then
+	{
+		_redforFrontlineVehicleDeployment pushBack redfor_mbt_level_3_deploymentData;
+	};
+	
+	_redforSquadDeployment = redfor_squad_level_3_deploymentData;
+	_redforCrewmanDeployment = redfor_crewman_level_3_deploymentData;
+	_redforOfficerDeployment = redfor_officer_level_3_deploymentData;
+	_redforCommandosDeployment = redfor_commandos_level_3_deploymentData;
+	_redforSnipersDeployment = redfor_snipers_level_3_deploymentData;
+};
+
+_objectiveList = ["aa","av","mortars", "supply", "hq", "comms", "officer", "commandos", "snipers"];
 _playerCountForObjective = (_playerCount) min 90;
 _activeObjectiveCount = floor(random(ceil(_playerCountForObjective / 10))) + 1;
 
-_redforDeployedVehicleLevels = [redfor_vehicle_level_1_deploymentData];
-
-if (redfor_vehicleLevelScaling) then
-{
-	_maximumPlayerCountLevel = (floor(_playerCount / 20)+1) min 5;
-	_maximumBluforVehicleLevel = 0;
-	
-	{
-		_vehicle = _x select 0;
-		_class = typeOf _vehicle;
-		
-		if ({alive _x} count (crew _vehicle) > 0) then
-		{
-			if ((_class in blufor_vehicle_level_1_classes)
-				or (_class in blufor_vehicle_level_2_classes)
-				or (_class in blufor_vehicle_level_3_classes)
-				or (_class in blufor_vehicle_level_4_classes)
-				or (_class in blufor_vehicle_level_5_classes)) then
-			{
-				_priorityObjectiveList pushBack "av";
-			}
-			else
-			{
-				_genericObjectiveList pushBack "av";
-			};
-			
-			if ((_class in blufor_vehicle_attackRotaryWing_classes)
-				or (_class in blufor_vehicle_attackFixedWing_classes)) then
-			{
-				_priorityObjectiveList pushBack "aa";
-			}
-			else
-			{
-				_genericObjectiveList pushBack "aa";
-			};
-			
-			_bluforVehicleLevels = [
-				[blufor_vehicle_level_1_classes, 1]
-				, [blufor_vehicle_level_2_classes, 2]
-				, [blufor_vehicle_level_3_classes, 3]
-				, [blufor_vehicle_level_4_classes, 4]
-				, [blufor_vehicle_level_5_classes, 5]
-			];
-			
-			{
-				_levelClasses = _x select 0;
-				_level = _x select 1;
-				
-				if (_class in _levelClasses) then
-				{
-					if (_maximumBluforVehicleLevel < _level) then
-					{
-						_maximumBluforVehicleLevel = _level;
-					};
-				};
-			} forEach _bluforVehicleLevels;
-		};
-	} forEach blufor_vehicle_deploymentData;
-	
-	_maximumRedforVehicleLevel = _maximumBluforVehicleLevel max _maximumPlayerCountLevel;
-
-	_redforVehicleLevels = [		
-		[redfor_vehicle_level_2_deploymentData, 2]
-		, [redfor_vehicle_level_3_deploymentData, 3]
-		, [redfor_vehicle_level_4_deploymentData, 4]
-		, [redfor_vehicle_level_5_deploymentData, 5]
-	];
-
-	{
-		if ((count (_x select 0) > 0) and (_maximumRedforVehicleLevel >= (_x select 1))) then
-		{
-			_redforDeployedVehicleLevels pushBack (_x select 0);
-		};
-	} forEach _redforVehicleLevels;
-}
-else
-{
-	_redforVehicleLevels = [		
-		redfor_vehicle_level_2_deploymentData
-		, redfor_vehicle_level_3_deploymentData
-		, redfor_vehicle_level_4_deploymentData
-		, redfor_vehicle_level_5_deploymentData
-	];
-
-	{
-		if (count _x > 0) then
-		{
-			_redforDeployedVehicleLevels pushBack _x;
-		};
-	} forEach _redforVehicleLevels;
-};
-
 while {_activeObjectiveCount > 0} do
-{
-	if (count _priorityObjectiveList > 0) then
+{	
+	_randomIndex = floor(random (count _objectiveList));	
+
+	switch(_objectiveList select _randomIndex) do
 	{
-		_randomIndex = floor(random (count _priorityObjectiveList));	
+		case "aa" : {_aaActive = true};
+		case "av" : {_avActive = true};
+		case "mortars" : {_mortarsActive = true};
+		case "supply" : {_supplyActive = true};
+		case "hq" : {_hqActive = true};
+		case "comms" : {_commTowersActive = true};
+		case "officer" : {_officerActive = true};
+		case "commandos" : {_commandosActive = true};
+		case "snipers" : {_snipersActive = true};
+	};
 	
-		switch(_priorityObjectiveList select _randomIndex) do
-		{
-			case "aa" : {_aaActive = true};
-			case "av" : {_avActive = true};
-			case "mortars" : {_mortarsActive = true};
-			case "supply" : {_supplyActive = true};
-			case "hq" : {_hqActive = true};
-			case "comms" : {_commTowersActive = true};
-			case "officer" : {_officerActive = true};
-			case "commandos" : {_commandosActive = true};
-			case "snipers" : {_snipersActive = true};
-		};
-		
-		_priorityObjectiveList deleteAt _randomIndex;
-		
-		_activeObjectiveCount = _activeObjectiveCount - 1;
-	}
-	else
-	{
-		_randomIndex = floor(random (count _genericObjectiveList));	
+	_objectiveList deleteAt _randomIndex;
 	
-		switch(_genericObjectiveList select _randomIndex) do
-		{
-			case "aa" : {_aaActive = true};
-			case "av" : {_avActive = true};
-			case "mortars" : {_mortarsActive = true};
-			case "supply" : {_supplyActive = true};
-			case "hq" : {_hqActive = true};
-			case "comms" : {_commTowersActive = true};
-			case "officer" : {_officerActive = true};
-			case "commandos" : {_commandosActive = true};
-			case "snipers" : {_snipersActive = true};
-		};
-		
-		_genericObjectiveList deleteAt _randomIndex;
-		
-		_activeObjectiveCount = _activeObjectiveCount - 1;
-	};	
+	_activeObjectiveCount = _activeObjectiveCount - 1;	
 };
 
 _terrainObjecTypes = ["TREE", "SMALL TREE", "BUSH", "BUILDING", "HOUSE", "FOREST BORDER", "FOREST TRIANGLE", "FOREST SQUARE", "CHURCH", "CHAPEL", "CROSS", "BUNKER", "FORTRESS", "FOUNTAIN", "VIEW-TOWER", "LIGHTHOUSE", "QUAY", "FUELSTATION", "HOSPITAL", "FENCE", "WALL", "HIDE", "BUSSTOP", "ROAD", "FOREST", "TRANSMITTER", "STACK", "RUIN", "TOURISM", "WATERTOWER", "TRACK", "MAIN ROAD", "ROCK", "ROCKS", "POWER LINES", "RAILWAY", "POWERSOLAR", "POWERWAVE", "POWERWIND", "SHIPWRECK", "TRAIL"];
@@ -663,8 +651,8 @@ if (_aaActive) then
 				
 				[[_position select 0, _position select 1]
 					, _direction
-					, redfor_crewman_deploymentData
-					, redfor_vehicle_aa_deploymentData
+					, _redforCrewmanDeployment
+					, redfor_antiAir_deploymentData
 					, _redforAA] call fnc_deploy_vehicle_fixedPosition;
 			};		
 		};
@@ -692,8 +680,8 @@ if (_aaActive) then
 				
 				[_aaPosition select 0
 					, _aaPosition select 1
-					, redfor_crewman_deploymentData
-					, redfor_vehicle_aa_deploymentData
+					, _redforCrewmanDeployment
+					, redfor_antiAir_deploymentData
 					, _redforAA] call fnc_deploy_vehicle_fixedPosition;
 			};		
 		};		
@@ -743,8 +731,8 @@ if (_avActive) then
 				
 				[[_position select 0, _position select 1]
 					, _direction
-					, redfor_crewman_deploymentData
-					, redfor_vehicle_av_deploymentData
+					, _redforCrewmanDeployment
+					, redfor_antiVehicle_deploymentData
 					, _redforAV] call fnc_deploy_vehicle_fixedPosition;
 			};
 		};
@@ -772,15 +760,15 @@ if (_avActive) then
 				
 				[_avPosition select 0
 					, _avPosition select 1
-					, redfor_crewman_deploymentData
-					, redfor_vehicle_av_deploymentData
+					, _redforCrewmanDeployment
+					, redfor_antiVehicle_deploymentData
 					, _redforAV] call fnc_deploy_vehicle_fixedPosition;
 			};
 		};
 		
 		"objectiveTracker_side_av" setMarkerAlpha 1;
 		"objectiveTracker_side_av" setMarkerColor "ColorOPFOR";
-		"objectiveTracker_side_av" setMarkerText "ELIMINATE ANTI-VEHICLE SECTION";
+		"objectiveTracker_side_av" setMarkerText "ELIMINATE ANTI-TANK SECTION";
 	}
 	else
 	{
@@ -822,7 +810,7 @@ if (_mortarsActive) then
 				
 				[[_position select 0, _position select 1]
 					, _direction
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_mortar_deploymentData
 					, _redforMortars] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -853,7 +841,7 @@ if (_mortarsActive) then
 
 				[_mortarPosition select 0
 					, _mortarPosition select 1
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_mortar_deploymentData
 					, _redforMortars] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -905,7 +893,7 @@ if (_supplyActive) then
 				
 				[[_position select 0, _position select 1]
 					, _direction
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_supplyVehicle_deploymentData
 					, _redforSupplyDepot] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -936,7 +924,7 @@ if (_supplyActive) then
 
 				[_supplyDepotPosition select 0
 					, _supplyDepotPosition select 1
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_supplyVehicle_deploymentData
 					, _redforSupplyDepot] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -987,7 +975,7 @@ if (_hqActive) then
 				
 				[[_position select 0, _position select 1]
 					, _direction
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_hqTent_deploymentData
 					, _redforHQTents] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -1018,7 +1006,7 @@ if (_hqActive) then
 
 				[_hqTentPosition select 0
 					, _hqTentPosition select 1
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_hqTent_deploymentData
 					, _redforHQTents] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -1068,7 +1056,7 @@ if (_commTowersActive) then
 				
 				[[_position select 0, _position select 1]
 					, _direction
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_commTower_deploymentData
 					, _redforCommTowers] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -1099,7 +1087,7 @@ if (_commTowersActive) then
 
 				[_commTowerPosition select 0
 					, _commTowerPosition select 1
-					, redfor_crewman_deploymentData
+					, _redforCrewmanDeployment
 					, redfor_commTower_deploymentData
 					, _redforCommTowers] call fnc_deploy_vehicle_fixedPosition;
 			};
@@ -1120,7 +1108,7 @@ garrisonPositions = [];
 allBuildings = ((getMarkerPos _sector) nearObjects ["Building", (markerSize _sector) select 0]) select {(count ([_x] call BIS_fnc_buildingPositions) >= 1)};
 
 {
-	if (count ([_x] call BIS_fnc_buildingPositions) >= count redfor_squad_deploymentData) then
+	if (count ([_x] call BIS_fnc_buildingPositions) >= count _redforSquadDeployment) then
 	{
 		garrisonableBuildings pushback _x;
 		garrisonPositions pushBack ([_x] call BIS_fnc_buildingPositions);
@@ -1129,7 +1117,7 @@ allBuildings = ((getMarkerPos _sector) nearObjects ["Building", (markerSize _sec
 
 if (_officerActive) then
 {
-	[_sector, redfor_squad_deploymentData, redfor_officer_deploymentData, _redforOfficer] call fnc_deploy_officerAndRetinue;
+	[_sector, _redforSquadDeployment, _redforOfficerDeployment, _redforOfficer] call fnc_deploy_officerAndRetinue;
 	
 	"objectiveTracker_side_officer" setMarkerAlpha 1;
 	"objectiveTracker_side_officer" setMarkerColor "ColorOPFOR";
@@ -1149,7 +1137,7 @@ if (_commandosActive) then
 			
 			_position = _specificPosition select 0;
 			
-			[[[_position select 0, _position select 1], 4], redfor_commando_deploymentData, _redforCommandos, ["open"]] call fnc_deploy_infantry;
+			[[[_position select 0, _position select 1], 4], _redforCommandosDeployment, _redforCommandos, ["open"]] call fnc_deploy_infantry;
 			{		
 				_x addEventHandler ["Killed", {
 					 removeAllWeapons (_this select 0);
@@ -1164,7 +1152,7 @@ if (_commandosActive) then
 	
 	if (_deploymentType == "generic") then
 	{
-		[_sector, redfor_commando_deploymentData, _redforCommandos, ["garrison","open"]] call fnc_deploy_infantry;	
+		[_sector, _redforCommandosDeployment, _redforCommandos, ["garrison","open"]] call fnc_deploy_infantry;	
 		{		
 			_x addEventHandler ["Killed", {
 				 removeAllWeapons (_this select 0);
@@ -1190,7 +1178,7 @@ if (_snipersActive) then
 			
 			_position = _specificPosition select 0;
 			
-			[[[_position select 0, _position select 1], 4], redfor_sniper_deploymentData, _redforSnipers, ["open"]] call fnc_deploy_infantry;
+			[[[_position select 0, _position select 1], 4], _redforSnipersDeployment, _redforSnipers, ["open"]] call fnc_deploy_infantry;
 			{		
 				_x addEventHandler ["Killed", {
 					 removeAllWeapons (_this select 0);
@@ -1205,7 +1193,7 @@ if (_snipersActive) then
 	
 	if (_deploymentType == "generic") then
 	{
-		[_sector, redfor_sniper_deploymentData, _redforSnipers, ["open"]] call fnc_deploy_infantry;	
+		[_sector, _redforSnipersDeployment, _redforSnipers, ["open"]] call fnc_deploy_infantry;	
 		{		
 			_x addEventHandler ["Killed", {
 				 removeAllWeapons (_this select 0);
@@ -1218,16 +1206,16 @@ if (_snipersActive) then
 	"objectiveTracker_side_snipers" setMarkerText "NEUTRALIZE SNIPER TEAM";
 };
 
-for "_i" from 1 to _redforVehicleCount do
+for "_i" from 1 to _redforSquadCount do
 {
-	_vehicleDeploymentData = selectRandom _redforDeployedVehicleLevels;	
-	[getMarkerPos _sector, ((markerSize _sector) select 0)/2, _sectorRoadsList, redfor_crewman_deploymentData, _vehicleDeploymentData, _redforVehicles] call fnc_deploy_vehicle;		
+	_vehicleDeploymentData = selectRandom _redforFrontlineVehicleDeployment;	
+	[getMarkerPos _sector, ((markerSize _sector) select 0)/2, _sectorRoadsList, _redforCrewmanDeployment, _vehicleDeploymentData, _redforVehicles] call fnc_deploy_vehicle;		
 };
 
 for "_i" from 1 to _redforSquadCount do
 {
 	_deploymentTypes = ["garrison","open"];
-	[_sector, redfor_squad_deploymentData, _redforInfantry, _deploymentTypes] call fnc_deploy_infantry;	
+	[_sector, _redforSquadDeployment, _redforInfantry, _deploymentTypes] call fnc_deploy_infantry;	
 };
 
 while {true} do
@@ -1346,10 +1334,10 @@ while {true} do
 	
 	if (_avDefeated and !_avDefeatedMessage) then
 	{
-		["TaskUpdated",["","ANTI-VEHICLE SECTION ELIMINATED"]] remoteExec ["BIS_fnc_showNotification",0];
+		["TaskUpdated",["","ANTI-TANK SECTION ELIMINATED"]];
 		_avDefeatedMessage = true;
 		"objectiveTracker_side_av" setMarkerColor "ColorBLUFOR";
-		"objectiveTracker_side_av" setMarkerText "ANTI-VEHICLE SECTION ELIMINATED";
+		"objectiveTracker_side_av" setMarkerText "ANTI-TANK SECTION ELIMINATED";
 		sleep 2;
 	};	
 	

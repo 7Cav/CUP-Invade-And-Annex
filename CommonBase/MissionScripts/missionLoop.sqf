@@ -56,32 +56,30 @@ find_sector = {
 _previousSector = "";
 
 _bluforVehicleHandler = [] execVM "MissionScripts\bluforVehicleLoop.sqf";
+_haloInsertHandler = [] execVM "MissionScripts\haloInsertManager.sqf";
 
+CurrentSector = "";
 _missionDone = false;
 
 sleep 20;
 
 while {!_missionDone} do
 {
-	_currentSector = [_previousSector] call find_sector;
+	CurrentSector = [_previousSector] call find_sector;
 	
-	if (_currentSector == "") then
+	if (CurrentSector == "") then
 	{
 		_missionDone = true;
 	}
 	else
 	{	
-		["TaskUpdated",["",format["%1 ACTIVE IN 20 SECONDS",markerText _currentSector]]] remoteExec ["BIS_fnc_showNotification",0];		
+		["TaskAssigned",["",format["ATTACK %1",markerText CurrentSector]]] remoteExec ["BIS_fnc_showNotification",0];			
 		
-		_currentSector setMarkerAlpha 1;
-		
-		sleep 20;
-	
-		["TaskAssigned",["",format["ATTACK %1",markerText _currentSector]]] remoteExec ["BIS_fnc_showNotification",0];		
+		[1,["IMPORTANT! - Side Objective Buildings, Static Weapons or Vehicles must be destroyed COMPLETELY. Use of demolitions is HIGHLY recommended.", "PLAIN", 1]] remoteExec ["cutText",0];
 
 		SectorComplete = false;
-		_sectorIndex = sectorList find _currentSector;
-		_sectorEngagementHandle = [_currentSector		
+		_sectorIndex = sectorList find CurrentSector;
+		_sectorEngagementHandle = [CurrentSector		
 									, sectorRoadsList select _sectorIndex
 									, sectorObjectiveGenericAreaList select _sectorIndex
 									, sectorSpecificAAPositionsList select _sectorIndex
@@ -96,11 +94,12 @@ while {!_missionDone} do
 		waitUntil {SectorComplete};		
 	};
 	
-	_previousSector = _currentSector;
+	_previousSector = CurrentSector;
 
 	sleep 5;
 };
 
 terminate _bluforVehicleHandler;
+terminate _haloInsertHandler;
 
 "EveryoneWon" call BIS_fnc_endMissionServer;

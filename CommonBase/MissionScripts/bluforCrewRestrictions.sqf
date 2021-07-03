@@ -1,46 +1,5 @@
 _unit = _this select 0;
 
-if ((typeOf _unit) in blufor_vehicle_level_5_classes) then
-{
-	_unit addEventHandler ["GetIn",
-	{			
-		_unit = _this select 2;
-		_seat = _this select 1;
-		_veh = _this select 0;
-		
-		if ((typeof _unit != "B_crew_F") and (_seat != "Cargo")) then
-		{
-			_unit action ["getout", _veh];				
-		};			
-	}];		
-};
-
-if ((typeOf _unit) in blufor_vehicle_forwardLogistics_classes) then
-{
-	_unit addEventHandler ["GetIn",
-	{					
-		if ((typeof (_this select 2) != "B_soldier_repair_F") and ((_this select 1) != "cargo")) then {
-			(_this select 2) action ["getout", _this select 0];				
-		};			
-	}];
-	_unit addEventHandler ["SeatSwitched",
-	{			
-		if (typeof (_this select 2) != "B_soldier_repair_F") then {
-			_crew = _this select 1;
-			if (assignedVehicleRole _crew select 0 != "Cargo") then {
-				_crew action ["getout", _this select 0];		
-			};
-		};
-		
-		if (typeof (_this select 2) != "B_soldier_repair_F") then {
-			_crew = _this select 2;
-			if (assignedVehicleRole _crew select 0 != "Cargo") then {
-				_crew action ["getout", _this select 0];		
-			};
-		};			
-	}];
-};
-
 if ((typeOf _unit) in blufor_vehicle_medical_classes) then
 {
 	_unit addEventHandler ["GetIn",
@@ -133,8 +92,7 @@ if ((typeOf _unit) in blufor_vehicle_attackFixedWing_classes) then
 	}];
 };
 
-if (((typeOf _unit) in blufor_vehicle_transportRotaryWing_classes)
-	or ((typeOf _unit) in blufor_vehicle_vehicleTransportRotaryWing_classes))then
+if ((typeOf _unit) in blufor_vehicle_transportRotaryWing_classes) then
 {
 	_unit addEventHandler ["GetIn",
 	{
