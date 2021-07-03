@@ -1,2 +1,0 @@
-ActivateNewTracking = true;
-publicVariableServer "ActivateNewTracking";

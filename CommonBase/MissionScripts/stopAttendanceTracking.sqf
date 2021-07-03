@@ -1,2 +1,0 @@
-DeactivateCurrentTracking = true;
-publicVariableServer "DeactivateCurrentTracking";
