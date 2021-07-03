@@ -1,0 +1,2 @@
+params["_display","_dik"];if((actionKeys"PushToTalk"+actionKeys"VoiceOverNet"+actionKeys"PushToTalkCommand"+actionKeys"PushToTalkGroup"+actionKeys"PushToTalkVehicle"+actionKeys"PushToTalkDirect"+actionKeys"PushToTalkSide")findIf{_x in[65536,65665,65537,65538,65539,65540]}==-1)exitWith{};
+titleText["<t size='1.5'>Must bind your PushToTalk key(s) to <t color='#ff0000'>keyboard</t> keybinds!</t>","PLAIN",6,TRUE,TRUE];setCurrentChannel 5

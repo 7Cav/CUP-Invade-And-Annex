@@ -1,0 +1,101 @@
+dev                 = "1LT Moraru.R";
+author              = "1LT Moraru.R";
+
+onLoadName          = "7Cav CUP Invade & Annex DEVBUILD";
+onLoadMission       = "7th Cavalry CUP Invade and Annex DEVBUILD";
+onLoadIntro         = "7Cav CUP Invade and Annex DEVBUILD";
+
+class Header
+{
+	gameType = Coop;
+	minPlayers = 1;
+	maxPlayers = 100;
+};
+
+respawn = "BASE";
+respawnDelay = 5;
+
+minPlayerDistance = 1000;
+
+corpseManagerMode = 1;
+corpseLimit = 40;
+corpseRemovalMinTime = 60;
+corpseRemovalMaxTime = 3600;
+
+wreckManagerMode = 1;
+wreckLimit = 10;
+wreckRemovalMinTime = 60;
+wreckRemovalMaxTime = 3600;
+
+disableChannels[] = {
+	{
+		0,		// channel ID
+		false,	// disable text chat
+		true	// disable voice chat
+	},
+	{
+		1,		// channel ID
+		false,	// disable text chat
+		true	// disable voice chat
+	},
+	{
+		2,		// channel ID
+		false,	// disable text chat
+		true	// disable voice chat
+	},
+	{
+		3,		// channel ID
+		false,	// disable text chat
+		true	// disable voice chat
+	},
+	{
+		4,		// channel ID
+		false,	// disable text chat
+		true	// disable voice chat
+	},
+	{
+		5,		// channel ID
+		false,	// disable text chat
+		true	// disable voice chat
+	},
+	{
+		6,		// channel ID
+		false,	// disable text chat
+		true	// disable voice chat
+	},
+};
+
+showHUD[] = {
+	1,	// Scripted HUD (same as showHUD command)
+	1,	// Vehicle and unit info
+	0,	// Vehicle radar [HIDDEN]
+	0,	// Vehicle compass [HIDDEN]
+	1,	// Tank direction indicator
+	0,	// Commanding menu
+	0,	// Group info bar
+	1,	// HUD weapon cursors
+	1,	// Vehicle display panels
+	1,	// "x killed by y" systemChat messages
+	1	// force show drawIcon3D icons
+};
+
+disabledAI = 1;
+
+#include "CHVD\dialog.hpp"
+
+#include "AFAR\ui\defines.hpp"
+#include "AFAR\ui\dialogs.hpp"
+
+#include "GUI\defines.hpp"
+#include "GUI\intro_dialog.hpp"
+
+class CfgFunctions
+{
+	#include "CHVD\CfgFunctions.hpp"	
+};
+
+class CfgSounds 
+{
+	#include "AFAR\f\SFX.hpp"
+	sounds[]={};
+};
